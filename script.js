@@ -1,4 +1,4 @@
-let todoList = JSON.parse(localStorage.getItem('score')) || [];
+let todoList = JSON.parse(localStorage.getItem('todoList')) || [];
 let todoListhtml = '';
 console.log(todoList);
 
@@ -9,7 +9,7 @@ function addTodo() {
     let date = inputDateElement.value;
 
     todoList.push({ name, date });
-    localStorage.setItem('score', JSON.stringify(todoList));
+    localStorage.setItem('todoList', JSON.stringify(todoList));
 
     inputNameElement.value = '';
     inputDateElement.value = '';
@@ -21,7 +21,7 @@ function addTodo() {
 function deleteTodo(index) {
     // Remove the specific todo from the list
     todoList.splice(index, 1);
-    localStorage.setItem('score', JSON.stringify(todoList));
+    localStorage.setItem('todoList', JSON.stringify(todoList));
     updateTodoList();
 }
 
@@ -47,8 +47,8 @@ function updateTodoList() {
 
     for (let i = 0; i < todoList.length; i++) {
         todoListhtml += `<div class="small-container">${todoList[i].name}</div><div class="small-container">${todoList[i].date}</div>
-        <button class="js-delete-button" onclick="deleteTodo(${i});"><img src="assets/delete-icon.png" alt="Add" width="16" height="16">delete</button>
-        <button class="js-edit-button" onclick="editTodo(${i});"><img src="assets/edit-icon.png" alt="Add" width="16" height="16">edit</button>`;
+        <button class="js-delete-button" onclick="deleteTodo(${i});"><img src="assets/delete-icon.png" alt="Delete" width="16" height="16">delete</button>
+        <button class="js-edit-button" onclick="editTodo(${i});"><img src="assets/edit-icon.png" alt="Edit" width="16" height="16">edit</button>`;
     }
     addElement.innerHTML = todoListhtml;
 }
@@ -62,7 +62,7 @@ function updateTodo(index) {
     todoList[index].date = inputDateElement.value;
     
     // Update local storage
-    localStorage.setItem('score', JSON.stringify(todoList));
+    localStorage.setItem('todoList', JSON.stringify(todoList));
     
     // Clear the input fields
     inputNameElement.value = '';
@@ -79,4 +79,5 @@ function updateTodo(index) {
 localStorage.removeItem('score'); // Clear existing data
 // Initialize the todo list on page load
 updateTodoList();
+
 
