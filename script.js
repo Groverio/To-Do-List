@@ -76,7 +76,6 @@ function updateTodo(index) {
     // Update the displayed list
     updateTodoList();
 }
-localStorage.removeItem('score'); // Clear existing data
 // Initialize the todo list on page load
 updateTodoList();
 
