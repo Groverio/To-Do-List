@@ -17,16 +17,23 @@ h1 {
     text-shadow: 2px 2px 4px #000;
 }
 
-.js-name-input, .js-date-input {
+.js-name-input,
+.js-date-input,
+.js-time-input {
     font-size: 15px;
     padding: 10px 15px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    background-color: #fff;
+    color: #333;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
+
 
 .js-add-grid {
     display: grid;
-    grid-template-columns:  200px 140px 100px 100px;
+    grid-template-columns: 200px 140px 140px 100px;
     column-gap: 10px;
     row-gap: 10px;
     align-content: center;
@@ -58,13 +65,15 @@ h1 {
     background-color: darkgreen;
 }
 
-.js-delete-button, .js-edit-button {
+.js-delete-button,
+.js-edit-button {
     border: none;
     font-size: 15px;
     font-weight: bold;
     cursor: pointer;
     border-radius: 5px;
-    padding: 10px 15px;
+    height: 45px;
+    padding: 0 15px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -91,14 +100,16 @@ h1 {
 
 .small-container {
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
     border: 1px solid #ccc;
-    padding: 10px 15px;
+    height: 45px;
+    padding: 0 15px;
     border-radius: 5px;
     text-align: center;
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    
 }
 
 /* Icons */
