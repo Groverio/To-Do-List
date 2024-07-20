@@ -1,3 +1,27 @@
+
+    const images = [
+        'assets/background.png',
+        'assets/background2.jpg',
+        'assets/background3.jpg',
+       
+    ];
+
+    let currentIndex = 0;
+
+    function changeBackgroundImage() {
+        document.body.style.backgroundImage = "url( '"+images[currentIndex]+"')";
+        currentIndex = (currentIndex + 1) % images.length;
+    }
+    
+
+    
+    setInterval(changeBackgroundImage, 5000);
+
+    
+    changeBackgroundImage();
+
+
+
 let todoList = JSON.parse(localStorage.getItem('todoList')) || [];
 let todoListhtml = '';
 console.log(todoList);

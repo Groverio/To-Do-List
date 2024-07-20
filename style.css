@@ -6,8 +6,10 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: url('assets/background.png') no-repeat center center fixed;
     background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    /* background-image: url('assets/background.png'); Test one image here */
 }
 
 h1 {
