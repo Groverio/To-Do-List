@@ -102,6 +102,7 @@ function updateTodo(index) {
     updateTodoList();
 }
 
-// Initialize the todo list on page load
-updateTodoList();
+
+
+
 
