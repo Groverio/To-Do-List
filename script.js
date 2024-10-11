@@ -105,3 +105,33 @@ function updateTodo(index) {
 // Initialize the todo list on page load
 updateTodoList();
 
+function updateTodoList() {
+    const addElement = document.querySelector('.js-add-html');
+    todoListhtml = '';
+
+    for (let i = 0; i < todoList.length; i++) {
+        todoListhtml += `<div class="small-container">
+                            <input type="checkbox" id="todo-${i}" ${todoList[i].completed ? 'checked' : ''} onclick="toggleTodo(${i});">
+                            <span id="todo-text-${i}">${todoList[i].name}</span>
+                         </div>
+                         <div class="small-container">${todoList[i].date} ${todoList[i].time}</div>
+                         <button class="js-delete-button" onclick="deleteTodo(${i});">
+                            <img src="assets/delete-icon.png" alt="Delete" width="16" height="16">delete
+                         </button>
+                         <button class="js-edit-button" onclick="editTodo(${i});">
+                            <img src="assets/edit-icon.png" alt="Edit" width="16" height="16">edit
+                         </button>`;
+    }
+    addElement.innerHTML = todoListhtml;
+}
+
+function toggleTodo(index) {
+    todoList[index].completed = !todoList[index].completed;
+    localStorage.setItem('todoList', JSON.stringify(todoList));
+    const todoText = document.getElementById(`todo-text-${index}`);
+    if (todoList[index].completed) {
+        todoText.style.textDecoration = 'line-through';
+    } else {
+        todoText.style.textDecoration = 'none';
+    }
+}
