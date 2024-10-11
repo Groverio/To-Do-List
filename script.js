@@ -1,6 +1,49 @@
 let todoList = JSON.parse(localStorage.getItem('todoList')) || [];
 let todoListhtml = '';
-console.log(todoList);
+
+function setDefault() {
+  let current = new Date();
+  let date = current.getDate();
+  let month = current.getMonth() + 1; // JavaScript months are zero-indexed (0 = January)
+  let year = current.getFullYear();
+
+  let hours = current.getHours();
+  let minutes = current.getMinutes();
+
+  // To maintain the expected length
+  if (date < 10) date = "0" + date;
+  if (month < 10) month = "0" + month;
+  if (hours < 10) hours = "0" + hours;
+  if (minutes < 10) minutes = "0" + minutes;
+
+  const inputDateElement = document.querySelector(".js-date-input");
+  inputDateElement.value = `${year}-${month}-${date}`;
+  const inputTimeElement = document.querySelector(".js-time-input");
+  inputTimeElement.value = `${hours}:${minutes}`;
+}
+setDefault();
+let intervalId;
+startInterval();
+
+// Function to start the interval
+function startInterval() {
+  if (!intervalId) {
+    // to update every minute
+    intervalId = setInterval(setDefault, 1000 * 60);
+  }
+}
+const inputDateElement = document.querySelector(".js-date-input");
+inputDateElement.addEventListener("change", () => {
+  stopInterval();
+});
+
+// Function to stop the interval
+function stopInterval() {
+    if (intervalId) {
+        clearInterval(intervalId); // Clear the interval
+        intervalId = null; // Reset the intervalId
+    }
+}
 
 function addTodo() {
     const inputNameElement = document.querySelector('.js-name-input');
@@ -25,6 +68,8 @@ function addTodo() {
 
     // Update the displayed list
     updateTodoList();
+    setDefault();
+    startInterval();
 }
 
 function deleteTodo(index) {
@@ -104,4 +149,3 @@ function updateTodo(index) {
 
 // Initialize the todo list on page load
 updateTodoList();
-

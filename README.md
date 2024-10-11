@@ -8,6 +8,7 @@ A simple and interactive To-Do List application built with HTML, CSS, and JavaSc
 - Edit existing tasks
 - Delete tasks
 - Set a date for each task
+- Default Date and Time Autofill
 - Responsive design
 
 ## Installation
