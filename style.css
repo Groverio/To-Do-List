@@ -1,68 +1,105 @@
-body {
-    font-family: Arial, Helvetica, sans-serif;
+/* Add a global reset and set font */
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: url('https://png.pngtree.com/thumb_back/fh260/background/20231211/pngtree-christmas-mosk-up-wish-list-on-purple-background-notebook-todo-list-image_15497116.jpg') no-repeat center center fixed; /* Replace with a high-quality image URL */
+    background-size: cover;
+    color: #fff; /* White text color */
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: url('assets/background.png') no-repeat center center fixed;
-    background-size: cover;
+}
+
+
+.container {
+    text-align: center;
+   
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.7);
 }
 
 h1 {
-    text-align: center;
-    color: #fff;
+    color: #00bfff; /* Light blue */
     margin-bottom: 20px;
-    text-shadow: 2px 2px 4px #000;
+    animation: fadeIn 1s ease; /* Fade-in animation */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.js-add-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr auto;
+    gap: 10px;
 }
 
 .js-name-input,
 .js-date-input,
 .js-time-input {
-    font-size: 15px;
-    padding: 10px 15px;
-    border: 1px solid #ccc;
+    padding: 10px;
+    border: 2px solid #00bfff; /* Light blue border */
     border-radius: 5px;
-    background-color: #fff;
-    color: #333;
-    outline: none;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    background-color: #222; /* Dark input background */
+    color: #fff; /* White text */
+    transition: border-color 0.3s ease, background-color 0.3s ease;
 }
 
-
-.js-add-grid {
-    display: grid;
-    grid-template-columns: 200px 140px 140px 100px;
-    column-gap: 10px;
-    row-gap: 10px;
-    align-content: center;
-    background-color: rgba(255, 255, 255, 0.9);
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 600px;
-    margin: 0 auto;
+.js-name-input:focus,
+.js-date-input:focus,
+.js-time-input:focus {
+    border-color: #00bfff;
+    background-color: #333; /* Slightly lighter background on focus */
 }
 
 .js-add-button {
-    background-color: green;
+    background-color: #007acc; /* Blue button */
     color: white;
     border: none;
-    font-size: 15px;
+    font-size: 16px;
     font-weight: bold;
-    cursor: pointer;
-    border-radius: 5px;
     padding: 10px 20px;
-    transition: background-color 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .js-add-button:hover {
-    background-color: darkgreen;
+    background-color: #005f99; /* Darker blue on hover */
+    transform: scale(1.05); /* Slightly scale up */
+}
+
+.small-container {
+    display: flex;
+    justify-content: space-between; /* Align items */
+    align-items: center;
+    background-color: #444; /* Darker container background */
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px; /* Space between todos */
+    opacity: 0; /* Start invisible */
+    transform: translateY(20px); /* Start below */
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Animation for appearance */
+}
+
+.show {
+    opacity: 1; /* Fully visible */
+    transform: translateY(0); /* Move to original position */
 }
 
 .js-delete-button,
@@ -72,49 +109,44 @@ h1 {
     font-weight: bold;
     cursor: pointer;
     border-radius: 5px;
-    height: 45px;
-    padding: 0 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    padding: 5px 10px;
     transition: background-color 0.3s ease;
 }
 
 .js-delete-button {
-    background-color: red;
+    background-color: #ff4d4d; /* Red for delete */
     color: white;
 }
 
 .js-delete-button:hover {
-    background-color: darkred;
+    background-color: #cc0000; /* Darker red */
 }
 
 .js-edit-button {
-    background-color: skyblue;
+    background-color: #00ccff; /* Light blue for edit */
     color: white;
 }
 
 .js-edit-button:hover {
-    background-color: deepskyblue;
+    background-color: #0099cc; /* Darker light blue */
 }
 
-.small-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    border: 1px solid #ccc;
-    height: 45px;
-    padding: 0 15px;
-    border-radius: 5px;
-    text-align: center;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+/* Media Queries for Responsiveness */
+@media (max-width: 600px) {
+    .js-add-grid {
+        grid-template-columns: 1fr; /* Stack items on small screens */
+    }
 }
 
-/* Icons */
-.js-add-button img,
-.js-delete-button img,
-.js-edit-button img {
-    margin-right: 5px;
+/* Animation for button click */
+@keyframes buttonClick {
+    0% { transform: scale(1); }
+    50% { transform: scale(0.95); }
+    100% { transform: scale(1); }
+}
+
+.js-add-button:active,
+.js-delete-button:active,
+.js-edit-button:active {
+    animation: buttonClick 0.2s; /* Click animation */
 }
