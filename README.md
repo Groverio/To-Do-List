@@ -25,7 +25,17 @@ Open `index.html` in your browser to use the application.
 - **Edit a Task:** Click the edit icon next to the task, make your changes, and save.
 - **Delete a Task:** Click the delete icon next to the task.
 
-## Contributing
+## Contributing to Hacktoberfest 2024 🎉
 
-Feel free to submit issues or pull requests if you have any improvements or new features.
+We are excited to participate in **Hacktoberfest 2024**! If you'd like to contribute to this project during Hacktoberfest, here’s how you can get involved:
+
+- **Solve Issues with Hacktoberfest Tag:** Look for issues labeled with the **Hacktoberfest** tag. You can help by resolving these issues and submitting a pull request (PR) with your changes.
+
+- **Submit New Issues:** If you find a bug or have an idea for a new feature, please create a new issue. Describe the issue or feature request clearly, and once it's documented, feel free to submit a pull request with your implementation. I will tag your PR with the **Hacktoberfest** tag once it's ready.
+
+For detailed instructions on how to contribute, please check out the [CONTRIBUTING.md](CONTRIBUTING.md) file.
+
+Let's make this project even better together! 🎉
+
+
 
