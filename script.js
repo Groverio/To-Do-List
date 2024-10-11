@@ -104,4 +104,33 @@ function updateTodo(index) {
 
 // Initialize the todo list on page load
 updateTodoList();
+// Load the theme from localStorage when the page loads
+document.addEventListener('DOMContentLoaded', () => {
+    const savedTheme = localStorage.getItem('theme');
+    const body = document.body;
+    const themeToggleButton = document.getElementById('theme-toggle');
+
+    if (savedTheme === 'dark') {
+        body.classList.add('dark-mode');
+        themeToggleButton.innerHTML = 'Switch to Light Mode';
+    }
+});
+
+// Function to toggle the dark mode and save the preference
+function toggleTheme() {
+    const body = document.body;
+    const themeToggleButton = document.getElementById('theme-toggle');
+
+    // Toggle the dark-mode class on the body
+    body.classList.toggle('dark-mode');
+
+    // Save the current theme in localStorage
+    if (body.classList.contains('dark-mode')) {
+        localStorage.setItem('theme', 'dark');
+        themeToggleButton.innerHTML = 'Switch to Light Mode';
+    } else {
+        localStorage.setItem('theme', 'light');
+        themeToggleButton.innerHTML = 'Switch to Dark Mode';
+    }
+}
 

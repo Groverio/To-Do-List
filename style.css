@@ -9,6 +9,37 @@ body {
     background: url('assets/background.png') no-repeat center center fixed;
     background-size: cover;
 }
+#theme-toggle {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    display: inline-flex;
+    align-items: center;
+}
+
+#theme-toggle:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+
+.dark-mode #theme-toggle {
+    background-color: #333;
+    color: #fff;
+}
+
+.dark-mode #theme-toggle:hover {
+    background-color: #555;
+}
+#theme-toggle img {
+    margin-right: 8px;
+}
+
 
 h1 {
     text-align: center;
@@ -117,4 +148,71 @@ h1 {
 .js-delete-button img,
 .js-edit-button img {
     margin-right: 5px;
+}
+
+
+/* Dark mode styles */
+.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+.dark-mode .js-name-input,
+.dark-mode .js-date-input,
+.dark-mode .js-time-input {
+    background-color: #444;
+    color: #fff;
+    border: 1px solid #555;
+}
+
+.dark-mode .js-add-grid {
+    background-color: rgba(50, 50, 50, 0.9);
+}
+
+.dark-mode .js-add-button {
+    background-color: #28a745;
+}
+
+.dark-mode .js-add-button:hover {
+    background-color: #218838;
+}
+
+.dark-mode .js-delete-button {
+    background-color: #dc3545;
+}
+
+.dark-mode .js-delete-button:hover {
+    background-color: #c82333;
+}
+
+.dark-mode .js-edit-button {
+    background-color: #007bff;
+}
+
+.dark-mode .js-edit-button:hover {
+    background-color: #0056b3;
+}
+
+/* Button styling for dark mode */
+.dark-mode button#theme-toggle {
+    background-color: #444;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.dark-mode .small-container {
+    background-color: #444;
+    color: #fff;           
+    padding: 10px;         
+    border: 1px solid #555; 
+    margin-bottom: 10px;   
+    border-radius: 5px;     
+}
+
+/* Dark mode button styles */
+.dark-mode .js-delete-button, 
+.dark-mode .js-edit-button {
+    color: #fff; 
 }
