@@ -26,6 +26,9 @@ Open `index.html` in your browser to use the application.
 - **Delete a Task:** Click the delete icon next to the task.
 
 ## Contributing to Hacktoberfest 2024 🎉
+![hecktoberfest](https://github.com/user-attachments/assets/9352e904-6b2d-495e-8140-1437e385ffdb)
+
+
 
 We are excited to participate in **Hacktoberfest 2024**! If you'd like to contribute to this project during Hacktoberfest, here’s how you can get involved:
 
