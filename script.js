@@ -104,4 +104,16 @@ function updateTodo(index) {
 
 // Initialize the todo list on page load
 updateTodoList();
+function resetForm() {
+    // Get the input fields
+    const nameInput = document.querySelector('.js-name-input');
+    const dateInput = document.querySelector('.js-date-input');
+    const timeInput = document.querySelector('.js-time-input');
+
+    // Clear their values
+    nameInput.value = '';
+    dateInput.value = '';
+    timeInput.value = '';
+}
+
 
