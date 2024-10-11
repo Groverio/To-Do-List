@@ -15,12 +15,13 @@ h1 {
     color: #fff;
     margin-bottom: 20px;
     text-shadow: 2px 2px 4px #000;
+    font-size: 2rem; /* Relative font size */
 }
 
 .js-name-input,
 .js-date-input,
 .js-time-input {
-    font-size: 15px;
+    font-size: 1rem; /* Responsive font size */
     padding: 10px 15px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -30,10 +31,9 @@ h1 {
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
-
 .js-add-grid {
     display: grid;
-    grid-template-columns: 200px 140px 140px 100px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     column-gap: 10px;
     row-gap: 10px;
     align-content: center;
@@ -41,16 +41,17 @@ h1 {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 100%;
+    width: 90%; /* Relative width */
     max-width: 600px;
     margin: 0 auto;
+    position: relative;
 }
 
 .js-add-button {
     background-color: green;
     color: white;
     border: none;
-    font-size: 15px;
+    font-size: 1rem;
     font-weight: bold;
     cursor: pointer;
     border-radius: 5px;
@@ -59,6 +60,8 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: center;
+    grid-column: span 4; /* Button spans all 4 columns */
+    margin-top: 10px; /* Add margin to separate it from other fields */
 }
 
 .js-add-button:hover {
@@ -68,7 +71,7 @@ h1 {
 .js-delete-button,
 .js-edit-button {
     border: none;
-    font-size: 15px;
+    font-size: 1rem;
     font-weight: bold;
     cursor: pointer;
     border-radius: 5px;
@@ -117,4 +120,50 @@ h1 {
 .js-delete-button img,
 .js-edit-button img {
     margin-right: 5px;
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 768px) {
+    .js-add-grid {
+        grid-template-columns: 1fr 1fr; /* Two-column layout */
+        width: 95%;
+        max-width: 500px;
+    }
+
+    .js-add-button {
+        grid-column: span 2; /* Button spans both columns on smaller screens */
+    }
+
+    .js-add-button,
+    .js-delete-button,
+    .js-edit-button {
+        font-size: 0.9rem; /* Adjust button font size */
+        padding: 8px 16px;
+    }
+
+    h1 {
+        font-size: 1.5rem; /* Smaller heading */
+    }
+}
+
+@media (max-width: 480px) {
+    .js-add-grid {
+        grid-template-columns: 1fr; /* Single-column layout */
+        width: 90%;
+    }
+
+    .js-add-button {
+        grid-column: span 1; /* Button spans 1 column on very small screens */
+    }
+
+    .js-add-button,
+    .js-delete-button,
+    .js-edit-button {
+        font-size: 0.8rem; /* Smaller buttons */
+        padding: 6px 12px;
+    }
+
+    h1 {
+        font-size: 1.2rem; /* Smaller heading */
+    }
 }
