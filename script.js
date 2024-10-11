@@ -1,13 +1,16 @@
 let todoList = JSON.parse(localStorage.getItem('todoList')) || [];
-let todoListhtml = '';
-console.log(todoList);
+const addElement = document.querySelector('.js-add-html');
+const inputNameElement = document.querySelector('.js-name-input');
+const inputDateElement = document.querySelector('.js-date-input');
+const inputTimeElement = document.querySelector('.js-time-input');
+const addButton = document.querySelector('.js-add-button');
+
+// Initialize the todo list on page load
+updateTodoList();
 
 function addTodo() {
-    const inputNameElement = document.querySelector('.js-name-input');
-    let name = inputNameElement.value;
-    const inputDateElement = document.querySelector('.js-date-input');
+    let name = inputNameElement.value.trim();
     let date = inputDateElement.value;
-    const inputTimeElement = document.querySelector('.js-time-input');
     let time = inputTimeElement.value;
 
     // Validation checks
@@ -16,13 +19,12 @@ function addTodo() {
         return;
     }
 
+    // Add the new todo to the list and local storage
     todoList.push({ name, date, time });
     localStorage.setItem('todoList', JSON.stringify(todoList));
 
-    inputNameElement.value = '';
-    inputDateElement.value = '';
-    inputTimeElement.value = '';
-
+    // Clear input fields
+    clearInputs();
     // Update the displayed list
     updateTodoList();
 }
@@ -35,66 +37,52 @@ function deleteTodo(index) {
 }
 
 function editTodo(index) {
-    let inputNameElement = document.querySelector('.js-name-input');
-    let inputDateElement = document.querySelector('.js-date-input');
-    let inputTimeElement = document.querySelector('.js-time-input');
-
     // Fill the input fields with the current values
     inputNameElement.value = todoList[index].name;
     inputDateElement.value = todoList[index].date;
     inputTimeElement.value = todoList[index].time;
 
     // Change the add button to an update button
-    const addButton = document.querySelector('.js-add-button');
     addButton.innerHTML = 'Update';
-
-    // Update the add button's onclick function to call updateTodo with the correct index
     addButton.onclick = function () { updateTodo(index); };
 }
 
 function updateTodoList() {
-    const addElement = document.querySelector('.js-add-html');
-    todoListhtml = '';
-
-    for (let i = 0; i < todoList.length; i++) {
-        todoListhtml += `<div class="small-container">${todoList[i].name}</div>
-                         <div class="small-container">${todoList[i].date} ${todoList[i].time}</div>
-                         <button class="js-delete-button" onclick="deleteTodo(${i});">
-                            <img src="assets/delete-icon.png" alt="Delete" width="16" height="16">delete
-                         </button>
-                         <button class="js-edit-button" onclick="editTodo(${i});">
-                            <img src="assets/edit-icon.png" alt="Edit" width="16" height="16">edit
-                         </button>`;
-    }
-    addElement.innerHTML = todoListhtml;
+    addElement.innerHTML = ''; // Clear previous todos
+    todoList.forEach((todo, index) => {
+        const todoItem = document.createElement('div');
+        todoItem.classList.add('small-container', 'fade-in'); // Add fade-in class for animation
+        todoItem.innerHTML = `
+            <span>${todo.name} - ${todo.date} ${todo.time}</span>
+            <button class="js-delete-button" onclick="deleteTodo(${index});">
+                <img src="assets/delete-icon.png" alt="Delete" width="16" height="16">Delete
+            </button>
+            <button class="js-edit-button" onclick="editTodo(${index});">
+                <img src="assets/edit-icon.png" alt="Edit" width="16" height="16">Edit
+            </button>`;
+        addElement.appendChild(todoItem);
+    });
 }
 
 function updateTodo(index) {
-    const inputNameElement = document.querySelector('.js-name-input');
-    const inputDateElement = document.querySelector('.js-date-input');
-    const inputTimeElement = document.querySelector('.js-time-input');
+    const name = inputNameElement.value.trim();
+    const date = inputDateElement.value;
+    const time = inputTimeElement.value;
 
     // Validation checks
-    if (!inputNameElement.value || !inputDateElement.value || !inputTimeElement.value) {
+    if (!name || !date || !time) {
         alert('Please fill in all fields: task, date, and time.');
         return;
     }
 
     // Update the todo in the list
-    todoList[index].name = inputNameElement.value;
-    todoList[index].date = inputDateElement.value;
-    todoList[index].time = inputTimeElement.value;
-
-    // Update local storage
+    todoList[index] = { name, date, time };
     localStorage.setItem('todoList', JSON.stringify(todoList));
 
-    // Clear the input fields
-    inputNameElement.value = '';
-    inputDateElement.value = '';
-    inputTimeElement.value = '';
-
+    // Clear input fields
+    clearInputs();
+    
     // Change the update button back to an add button
-    const addButton = document.querySelector('.js-add-button');
     addButton.innerHTML = 'Add';
     addButton.onclick = addTodo;
 
@@ -102,6 +90,26 @@ function updateTodo(index) {
     updateTodoList();
 }
 
-// Initialize the todo list on page load
-updateTodoList();
+function clearInputs() {
+    inputNameElement.value = '';
+    inputDateElement.value = '';
+    inputTimeElement.value = '';
+}
 
+// CSS for Fade-In Animation
+const style = document.createElement('style');
+style.innerHTML = `
+.fade-in {
+    animation: fadeIn 0.5s ease forwards;
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}`;
+document.head.appendChild(style);
