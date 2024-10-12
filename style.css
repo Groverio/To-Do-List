@@ -164,6 +164,7 @@ Animating title
 */
 
 .subtitle {
+  text-align: center;
   color: #f6ac62;
   font-family: 'Open sans', sans-serif;
   font-family: cursive;
