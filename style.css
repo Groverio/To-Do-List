@@ -26,6 +26,15 @@ body {
   box-sizing: border-box;
 }
 
+.subtitle {
+  text-align: center;
+  color: #f6ac62;
+  font-family: 'Londrina Outline', cursive;
+  font-size: 5rem;
+  padding: 8px 16px;
+  text-shadow: #000000 3px 4px 10px;
+}
+
 h1 {
   text-align: center;
   color: #fff;
