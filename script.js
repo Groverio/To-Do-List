@@ -77,6 +77,19 @@ function updateTodoList() {
                          </button>`;
   }
   addElement.innerHTML = todoListhtml;
+  document.querySelectorAll('.js-delete-button').forEach((button) => {
+    button.addEventListener('click', function () {
+      const index = button.getAttribute('data-index');
+      deleteTodo(index);
+    });
+  });
+
+  document.querySelectorAll('.js-edit-button').forEach((button) => {
+    button.addEventListener('click', function () {
+      const index = button.getAttribute('data-index');
+      editTodo(index);
+    });
+  });
 }
 
 function updateTodo(index) {
