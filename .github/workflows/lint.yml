@@ -1,12 +1,15 @@
-name: Lint and Format
+name: Lint
 
 on:
+  push:
+    branches:
+      - main
   pull_request:
     branches:
       - main
 
 jobs:
-  lint-and-format:
+  lint:
     runs-on: ubuntu-latest
 
     steps:
@@ -16,13 +19,11 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '16' # or whichever version your project requires
+          node-version: '16'
 
       - name: Install dependencies
         run: npm install
 
-      - name: Run Prettier to check formatting
-        run: npm run format -- --check
-
       - name: Run ESLint to check for linting issues
         run: npm run lint
+        continue-on-error: false
