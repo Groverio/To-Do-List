@@ -75,14 +75,15 @@ h1 {
 
 .small-container {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: end;
   border: 1px solid #ccc;
   padding: 10px 15px;
   border-radius: 5px;
   background-color: #fff;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   min-height: 3px;
+  text-align: left;
 }
 
 .task-info {
@@ -90,6 +91,7 @@ h1 {
   align-items: center;
   gap: 10px;
   flex-wrap: wrap;
+  justify-content: flex-start; /* Align text to the left */
 }
 
 .task-name {
@@ -182,12 +184,18 @@ footer p {
 
 .sort-buttons {
   display: flex;
-  justify-content: flex-end;
-  gap: 10px;
+  justify-content: space-between; /* Space between sort buttons and filter */
   margin-bottom: 10px;
 }
 
-.sort-button {
+.sort-filter-container {
+  display: flex;
+  gap: 10px; /* Space between buttons and dropdown */
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+.sort-button,
+.js-filter-input {
   background-color: #4caf50;
   border: none;
   color: white;
@@ -202,6 +210,19 @@ footer p {
   transition: background-color 0.3s;
 }
 
-.sort-button:hover {
+.sort-button:hover,
+.js-filter-input:hover {
   background-color: #45a049;
+}
+
+.js-filter-input {
+  font-size: 15px; /* Font size */
+  padding: 10px 15px; /* Padding */
+  background-color: #4caf50; /* Match button background */
+  color: white; /* Text color */
+}
+
+.completed {
+  background-color: #e0e0e0; /* Grey background for completed tasks */
+  text-decoration: line-through; /* Strikethrough text */
 }

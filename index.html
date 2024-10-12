@@ -38,12 +38,19 @@
 
       <!-- Add this new div for sorting buttons -->
       <div class="sort-buttons">
-        <button class="sort-button" onclick="sortTodos('category')">
-          Sort by Category
-        </button>
-        <button class="sort-button" onclick="sortTodos('priority')">
-          Sort by Priority
-        </button>
+        <div class="sort-filter-container">
+          <button class="sort-button" onclick="sortTodos('category')">
+            Sort by Category
+          </button>
+          <button class="sort-button" onclick="sortTodos('priority')">
+            Sort by Priority
+          </button>
+          <select class="js-filter-input" onchange="filterTodos()">
+            <option value="all">Filter</option>
+            <option value="pending">Pending</option>
+            <option value="completed">Completed</option>
+          </select>
+        </div>
       </div>
 
       <div class="js-add-html js-add-grid"></div>

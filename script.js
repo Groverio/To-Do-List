@@ -9,6 +9,8 @@ let currentCategorySortOrder = 'asc'; // Default sort order for category
 let isEditing = false;
 let editIndex = null;
 
+let filterMethod = 'all';
+
 function addTodo() {
   const inputNameElement = document.querySelector('.js-name-input');
   const inputDateElement = document.querySelector('.js-date-input');
@@ -32,7 +34,14 @@ function addTodo() {
 
   if (isEditing) {
     // Update the existing todo
-    todoList[editIndex] = { name, date, time, category, priority };
+    todoList[editIndex] = {
+      name,
+      date,
+      time,
+      category,
+      priority,
+      completed: false,
+    }; // Ensure completed is set
     isEditing = false; // Reset edit mode
     editIndex = null;
 
@@ -41,7 +50,7 @@ function addTodo() {
     addButton.innerHTML = 'Add';
   } else {
     // Add a new todo
-    todoList.push({ name, date, time, category, priority });
+    todoList.push({ name, date, time, category, priority, completed: false }); // Ensure completed is set
   }
 
   // Save to localStorage
@@ -91,7 +100,16 @@ function editTodo(index) {
 
 function updateTodoList() {
   // Sort todoList based on the current sort method
-  todoList.sort((a, b) => {
+  let filteredTodos = todoList;
+
+  // Apply filtering based on the selected filter method
+  if (filterMethod === 'pending') {
+    filteredTodos = todoList.filter((todo) => !todo.completed);
+  } else if (filterMethod === 'completed') {
+    filteredTodos = todoList.filter((todo) => todo.completed);
+  }
+
+  filteredTodos.sort((a, b) => {
     if (currentSortMethod === 'date') {
       const dateA = new Date(a.date + ' ' + a.time);
       const dateB = new Date(b.date + ' ' + b.time);
@@ -111,10 +129,11 @@ function updateTodoList() {
   const addElement = document.querySelector('.js-add-html');
   todoListhtml = '';
 
-  for (let i = 0; i < todoList.length; i++) {
-    const todo = todoList[i];
+  for (let i = 0; i < filteredTodos.length; i++) {
+    const todo = filteredTodos[i];
     todoListhtml += `
-      <div class="small-container">
+      <div class="small-container ${todo.completed ? 'completed' : ''}">
+        <input type="checkbox" class="js-complete-checkbox" data-index="${i}" ${todo.completed ? 'checked' : ''} onchange="toggleComplete(${todoList.indexOf(todo)})">
         <div class="task-info">
           <span class="task-name">${todo.name}</span>
           <span class="category-tag">${todo.category}</span>
@@ -162,12 +181,25 @@ function setDefaultDateTime() {
 
 function sortTodos(sortBy) {
   if (sortBy === 'priority') {
-    currentSortOrder = currentSortOrder === 'asc' ? 'desc' : 'asc'; // Toggle sort order
+    currentSortOrder = currentSortOrder === 'asc' ? 'desc' : 'asc';
   } else if (sortBy === 'category') {
     currentCategorySortOrder =
-      currentCategorySortOrder === 'asc' ? 'desc' : 'asc'; // Toggle category sort order
+      currentCategorySortOrder === 'asc' ? 'desc' : 'asc';
   }
   currentSortMethod = sortBy;
+  updateTodoList();
+}
+
+function filterTodos() {
+  const filterElement = document.querySelector('.js-filter-input');
+  filterMethod = filterElement.value;
+  updateTodoList();
+}
+
+// eslint-disable-next-line no-unused-vars
+function toggleComplete(index) {
+  todoList[index].completed = !todoList[index].completed; // Toggle completed state
+  localStorage.setItem('todoList', JSON.stringify(todoList)); // Update localStorage
   updateTodoList();
 }
 
@@ -190,4 +222,9 @@ document.addEventListener('DOMContentLoaded', () => {
   document
     .querySelector('.sort-button-priority')
     .addEventListener('click', () => sortTodos('priority'));
+
+  // Add event listener for filter button
+  document
+    .querySelector('.js-filter-input')
+    .addEventListener('change', filterTodos);
 });
