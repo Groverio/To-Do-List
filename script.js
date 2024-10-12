@@ -149,7 +149,14 @@ function updateTodoList() {
         <i class="fa-solid fa-pen"></i>
       </button>`;
   }
-  addElement.innerHTML = todoListhtml;
+
+  // Show or hide the task container based on the presence of tasks
+  if (todoList.length === 0) {
+    addElement.style.display = 'none'; // Hide if no tasks
+  } else {
+    addElement.style.display = 'grid'; // Show if tasks exist
+    addElement.innerHTML = todoListhtml;
+  }
 
   // Add event listeners for delete and edit buttons
   document.querySelectorAll('.js-delete-button').forEach((button) => {
