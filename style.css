@@ -88,6 +88,7 @@ h1 {
   display: grid;
   grid-template-columns: 3fr 1fr 1fr 1fr 1fr;
   gap: 10px;
+  height: 25px;
 }
 
 .small-container {
@@ -101,9 +102,7 @@ h1 {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   min-height: 3px;
   text-align: left;
-  box-sizing: border-box;
-  margin: auto 0;
-  overflow-wrap: anywhere;
+  height: 25px;
 }
 
 .task-info {
@@ -161,7 +160,7 @@ h1 {
   transition: background-color 0.3s ease;
   width: 100%;
   justify-content: center;
-  margin: auto 0;
+  height: 46px;
 }
 
 .js-delete-button {
@@ -285,4 +284,24 @@ Animating title
 .completed {
   background-color: #e0e0e0;
   text-decoration: line-through;
+}
+
+.js-add-html {
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  height: 30vh;
+}
+
+.js-add-html::-webkit-scrollbar {
+  width: 10px; /* Width of the scrollbar */
+}
+
+.js-add-html::-webkit-scrollbar-thumb {
+  background-color: none;
+  border-radius: 7px;
+}
+
+.js-add-html::-webkit-scrollbar-track {
+  background-color: none;
+  border-radius: 5px;
 }
