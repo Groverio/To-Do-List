@@ -78,7 +78,7 @@ function updateTodoList() {
                          </button>`;
   }
 
-                            // <img src="assets/edit-icon.png" alt="Edit" width="16" height="16">edit
+  // <img src="assets/edit-icon.png" alt="Edit" width="16" height="16">edit
   // <img src="assets/delete-icon.png" alt="Delete" width="16" height="16">delete
   addElement.innerHTML = todoListhtml;
 
