@@ -33,6 +33,16 @@ npm run lint
 
 This command will execute ESLint on your project files and report any errors or warnings.
 
+### Running the Formatter
+
+To format your code, run the following command:
+
+```bash
+npm run format
+```
+
+This command will execute Prettier on your project files and apply consistent formatting according to the rules defined in your configuration.
+
 ## Maintainers
 
 This project is actively maintained by:
