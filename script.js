@@ -99,8 +99,9 @@ function updateTodo(index) {
 
     // Clear the input fields
     inputNameElement.value = '';
-    inputDateElement.value = '';
-    inputTimeElement.value = '';
+
+    // Set default date and time
+    setDefaultDateTime();
 
     // Change the update button back to an add button
     const addButton = document.querySelector('.js-add-button');
