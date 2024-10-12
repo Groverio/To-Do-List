@@ -37,7 +37,7 @@ h1 {
   background-color: #fff;
   color: #333;
   outline: none;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
 
 .js-add-grid {
@@ -53,7 +53,7 @@ h1 {
   width: 100%;
   max-width: 600px;
   margin: 0 auto;
-  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.4);
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.5);
 }
 
 .js-add-button {
@@ -122,7 +122,7 @@ h1 {
   border-radius: 10px;
   text-align: center;
   background-color: #fff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 5px rgba(233, 42, 42, 0.7);
 }
 
 /* Icons */
