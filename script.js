@@ -112,24 +112,26 @@ function updateTodoList() {
   todoListhtml = '';
 
   for (let i = 0; i < todoList.length; i++) {
-    const todo = todoList[i];
-    todoListhtml += `
-      <div class="small-container">
-        <div class="task-info">
-          <span class="task-name">${todo.name}</span>
-          <span class="category-tag">${todo.category}</span>
-          <span class="priority-tag priority-${todo.priority}">${todo.priority}</span>
-        </div>
-      </div>
-      <div class="small-container">${todo.date}</div>
-      <div class="small-container">${todo.time}</div>
-      <button class="js-delete-button" data-index="${i}">
-        <img src="assets/delete-icon.png" alt="Delete" width="16" height="16">delete
-      </button>
-      <button class="js-edit-button" data-index="${i}">
-        <img src="assets/edit-icon.png" alt="Edit" width="16" height="16">edit
-      </button>`;
-  }
+const todo = todoList[i];
+todoListhtml += `
+  <div class="small-container">
+    <div class="task-info">
+      <span class="task-name">${todo.name}</span>
+      <span class="category-tag">${todo.category}</span>
+      <span class="priority-tag priority-${todo.priority}">${todo.priority}</span>
+    </div>
+    <div class="small-container">${todo.date}</div>
+    <div class="small-container">${todo.time}</div>
+    <button class="js-delete-button" data-index="${i}">
+      <img src="assets/delete-icon.png" alt="Delete" width="16" height="16">
+      delete
+    </button>
+    <button class="js-edit-button" data-index="${i}">
+      <img src="assets/edit-icon.png" alt="Edit" width="16" height="16">
+      edit
+    </button>
+  </div>`;
+
   addElement.innerHTML = todoListhtml;
 
   // Add event listeners for delete and edit buttons
