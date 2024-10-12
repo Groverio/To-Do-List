@@ -100,7 +100,7 @@ h1 {
     align-items: center;
     justify-content: center;
     transition: background-color 0.3s ease;
-    margin: auto o;
+    margin: auto 0;
 }
 
 .js-delete-button {

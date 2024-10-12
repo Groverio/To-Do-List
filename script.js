@@ -1,12 +1,13 @@
-const charCounter = document.querySelector(".js-char-counter");
-
 let todoList = JSON.parse(localStorage.getItem('todoList')) || [];
 let todoListhtml = '';
 console.log(todoList);
 
 // Display the remaining characters count out of 120
 document.querySelector(".js-name-input").addEventListener("input", (e)=>{
-    charCounter.textContent = 120 - e.target.value.length;
+  let input = e.target.value;
+  if (input.length === 120) {
+    alert('max character limits exceeded');
+  }
 })
 
 function addTodo() {
@@ -26,17 +27,10 @@ function addTodo() {
   todoList.push({ name, date, time });
   localStorage.setItem('todoList', JSON.stringify(todoList));
 
-<<<<<<< HEAD
-    inputNameElement.value = '';
-    inputDateElement.value = '';
-    inputTimeElement.value = '';
-    charCounter.textContent = 120;
-=======
   inputNameElement.value = '';
   inputDateElement.value = '';
   inputTimeElement.value = '';
   setDefaultDateTime();
->>>>>>> 59c2cc7cdf7d8bbfe048ac2a8890ebe6680c5ec3
 
   // Update the displayed list
   updateTodoList();
@@ -55,28 +49,17 @@ function editTodo(index) {
   let inputDateElement = document.querySelector('.js-date-input');
   let inputTimeElement = document.querySelector('.js-time-input');
 
-<<<<<<< HEAD
-    // Fill the input fields with the current values
-    inputNameElement.value = todoList[index].name;
-    inputDateElement.value = todoList[index].date;
-    inputTimeElement.value = todoList[index].time;
-    charCounter.textContent = 120-todoList[index].name.length;
-
-=======
   // Fill the input fields with the current values
   inputNameElement.value = todoList[index].name;
   inputDateElement.value = todoList[index].date;
   inputTimeElement.value = todoList[index].time;
->>>>>>> 59c2cc7cdf7d8bbfe048ac2a8890ebe6680c5ec3
 
   // Change the add button to an update button
   const addButton = document.querySelector('.js-add-button');
   addButton.innerHTML = 'Update';
 
   // Update the add button's onclick function to call updateTodo with the correct index
-  addButton.onclick = function () {
-    updateTodo(index);
-  };
+  addButton.onclick = function () { updateTodo(index); };
 }
 
 function updateTodoList() {
@@ -143,16 +126,8 @@ function updateTodo(index) {
   // Update local storage
   localStorage.setItem('todoList', JSON.stringify(todoList));
 
-<<<<<<< HEAD
-    // Clear the input fields
-    inputNameElement.value = '';
-    inputDateElement.value = '';
-    inputTimeElement.value = '';
-    charCounter.textContent = 120;
-=======
   // Clear the input fields
   inputNameElement.value = '';
->>>>>>> 59c2cc7cdf7d8bbfe048ac2a8890ebe6680c5ec3
 
   // Set default date and time
   setDefaultDateTime();
