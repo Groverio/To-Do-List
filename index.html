@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -19,8 +19,25 @@
         </div>
         <div class="js-add-html js-add-grid"></div>
 
-    </div>
-    <script src="script.js"></script>
-</body>
-</html>
 
+      <div class="js-add-grid">
+        <input
+          type="text"
+          placeholder="Share Your Thoughts"
+          class="js-name-input"
+        />
+        <input type="date" class="js-date-input" />
+        <input type="time" class="js-time-input" />
+        <button class="js-add-button" onclick="addTodo();">
+          <img src="assets/add-icon.png" alt="Add" width="16" height="16" /> Add
+        </button>
+      </div>
+      <div class="js-add-html js-add-grid"></div>
+    </div>
+    <footer>
+      <p>&copy; 2024 Made with &#10084; by Ansh Grover. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
