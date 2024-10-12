@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Londrina+Outline&display=swap');
 body {
   font-family: Arial, Helvetica, sans-serif;
   margin: 0;
@@ -52,6 +53,7 @@ h1 {
   width: 100%;
   max-width: 600px;
   margin: 0 auto;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.4);
 }
 
 .js-add-button {
@@ -139,8 +141,46 @@ footer {
   width: 100%;
   bottom: 0;
   font-size: 1rem;
+  display: flex;
+  justify-content: space-around;
 }
 
 footer p {
-  margin: 0;
+  margin-top: 10px;
+  font-size: 12px;
+}
+
+.social-media {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.social-media a {
+  margin: 1px 11px;
+  color: black;
+  font-size: 15px;
+  padding: 8px;
+  border: 2px solid black;
+  border-radius: 8px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+.social-media a:hover {
+  transform: scale(1.05);
+  transition: all 0.25s ease-out;
+}
+
+/*
+Animating title
+*/
+
+.subtitle {
+  text-align: center;
+  color: #f6ac62;
+  font-family: 'Open sans', sans-serif;
+  font-family: cursive;
+  font-size: 5rem;
+  padding: 8px 16px;
+  text-shadow: #000000 3px 4px 10px;
 }
