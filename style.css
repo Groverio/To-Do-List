@@ -6,7 +6,7 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: url("assets/background.png") no-repeat center center fixed;
+  background: url('assets/background.png') no-repeat center center fixed;
   background-size: cover;
 }
 
@@ -107,7 +107,6 @@ h1 {
   flex-direction: column;
   border: 1px solid #ccc;
   height: 45px;
-
   padding: 0 15px;
   border-radius: 5px;
   text-align: center;

@@ -3,28 +3,25 @@ let todoListhtml = "";
 console.log(todoList);
 
 function addTodo() {
-  const inputNameElement = document.querySelector(".js-name-input");
+  const inputNameElement = document.querySelector('.js-name-input');
   let name = inputNameElement.value;
-  const inputDateElement = document.querySelector(".js-date-input");
+  const inputDateElement = document.querySelector('.js-date-input');
   let date = inputDateElement.value;
-  const inputTimeElement = document.querySelector(".js-time-input");
+  const inputTimeElement = document.querySelector('.js-time-input');
   let time = inputTimeElement.value;
 
   // Validation checks
   if (!name || !date || !time) {
-    alert("Please fill in all fields: task, date, and time.");
+    alert('Please fill in all fields: task, date, and time.');
     return;
   }
 
   todoList.push({ name, date, time });
-  localStorage.setItem("todoList", JSON.stringify(todoList));
+  localStorage.setItem('todoList', JSON.stringify(todoList));
 
-  inputNameElement.value = "";
-  inputDateElement.value = "";
-  inputTimeElement.value = "";
-  inputNameElement.value = "";
-  inputDateElement.value = "";
-  inputTimeElement.value = "";
+  inputNameElement.value = '';
+  inputDateElement.value = '';
+  inputTimeElement.value = '';
   setDefaultDateTime();
 
   // Update the displayed list
@@ -61,8 +58,8 @@ function editTodo(index) {
   inputTimeElement.value = todoList[index].time;
 
   // Change the add button to an update button
-  const addButton = document.querySelector(".js-add-button");
-  addButton.innerHTML = "Update";
+  const addButton = document.querySelector('.js-add-button');
+  addButton.innerHTML = 'Update';
 
   // Update the add button's onclick function to call updateTodo with the correct index
   addButton.onclick = function () {
@@ -73,13 +70,13 @@ function editTodo(index) {
 function updateTodoList() {
   // Sort todoList by date and time before rendering
   todoList.sort((a, b) => {
-    const dateA = new Date(a.date + " " + a.time);
-    const dateB = new Date(b.date + " " + b.time);
+    const dateA = new Date(a.date + ' ' + a.time);
+    const dateB = new Date(b.date + ' ' + b.time);
     return dateA - dateB; // Sort by ascending date and time
   });
 
-  const addElement = document.querySelector(".js-add-html");
-  todoListhtml = "";
+  const addElement = document.querySelector('.js-add-html');
+  todoListhtml = '';
 
   for (let i = 0; i < todoList.length; i++) {
     todoListhtml += `<div class="small-container">${todoList[i].name}</div>
@@ -97,9 +94,9 @@ function updateTodoList() {
 }
 
 function updateTodo(index) {
-  const inputNameElement = document.querySelector(".js-name-input");
-  const inputDateElement = document.querySelector(".js-date-input");
-  const inputTimeElement = document.querySelector(".js-time-input");
+  const inputNameElement = document.querySelector('.js-name-input');
+  const inputDateElement = document.querySelector('.js-date-input');
+  const inputTimeElement = document.querySelector('.js-time-input');
 
   // Validation checks
   if (
@@ -107,7 +104,7 @@ function updateTodo(index) {
     !inputDateElement.value ||
     !inputTimeElement.value
   ) {
-    alert("Please fill in all fields: task, date, and time.");
+    alert('Please fill in all fields: task, date, and time.');
     return;
   }
 
@@ -117,16 +114,16 @@ function updateTodo(index) {
   todoList[index].time = inputTimeElement.value;
 
   // Update local storage
-  localStorage.setItem("todoList", JSON.stringify(todoList));
+  localStorage.setItem('todoList', JSON.stringify(todoList));
 
   // Clear the input fields
-  inputNameElement.value = "";
-  inputDateElement.value = "";
-  inputTimeElement.value = "";
+  inputNameElement.value = '';
+  inputDateElement.value = '';
+  inputTimeElement.value = '';
 
   // Change the update button back to an add button
-  const addButton = document.querySelector(".js-add-button");
-  addButton.innerHTML = "Add";
+  const addButton = document.querySelector('.js-add-button');
+  addButton.innerHTML = 'Add';
   addButton.onclick = addTodo;
 
   // Update the displayed list
@@ -137,23 +134,23 @@ function updateTodo(index) {
 updateTodoList();
 
 function setDefaultDateTime() {
-  const inputDateElement = document.querySelector(".js-date-input");
-  const inputTimeElement = document.querySelector(".js-time-input");
+  const inputDateElement = document.querySelector('.js-date-input');
+  const inputTimeElement = document.querySelector('.js-time-input');
 
   const now = new Date();
-  const date = now.toISOString().split("T")[0]; // YYYY-MM-DD format
-  const time = now.toTimeString().split(" ")[0].slice(0, 5); // HH:MM format
+  const date = now.toISOString().split('T')[0]; // YYYY-MM-DD format
+  const time = now.toTimeString().split(' ')[0].slice(0, 5); // HH:MM format
 
   inputDateElement.value = date;
   inputTimeElement.value = time;
 }
 
 // Initialize the todo list and set default date and time on page load
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener('DOMContentLoaded', () => {
   updateTodoList();
   setDefaultDateTime();
 
   // Set focus on the name input field
-  const inputNameElement = document.querySelector(".js-name-input");
+  const inputNameElement = document.querySelector('.js-name-input');
   inputNameElement.focus();
 });
