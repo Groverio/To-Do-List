@@ -16,7 +16,6 @@ Once you've forked the repository, clone it to your local machine.
 git clone https://github.com/YOUR-USERNAME/To-Do-List.git
 ```
 
-
 ## Linting and Formatting
 
 This project uses **ESLint** and **Prettier** to ensure code quality and consistency.
@@ -33,6 +32,16 @@ npm run lint
 ```
 
 This command will execute ESLint on your project files and report any errors or warnings.
+
+
+### Running the Formatter
+
+To format your code, run the following command:
+
+```bash
+npm run format
+```
+This command will execute Prettier on your project files and apply consistent formatting according to the rules defined in your configuration.
 
 ## Maintainers
 
