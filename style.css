@@ -54,7 +54,7 @@ h1 {
   background-color: #fff;
   color: #333;
   outline: none;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
 .js-add-grid {
@@ -64,11 +64,8 @@ h1 {
   background-color: rgba(255, 255, 255, 0.9);
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  width: 100%;
-  max-width: 600px;
-  margin: 0 auto;
-  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
 }
 
 .js-add-button {
@@ -173,8 +170,8 @@ h1 {
 }
 
 .js-edit-button {
-  background-color: lightgreen;
-  color: black;
+  background-color: skyblue;
+  color: white;
 }
 
 .js-edit-button:hover {
@@ -190,7 +187,7 @@ h1 {
 /* Footer Styling */
 footer {
   background-color: transparent;
-  color: black;
+  color: white;
   text-align: center;
   padding: 20px 0;
   position: fixed;
@@ -199,7 +196,6 @@ footer {
   font-size: 1rem;
   display: flex;
   justify-content: space-around;
-  z-index: -1;
 }
 
 footer p {
