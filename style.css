@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Londrina+Outline&display=swap');
 body {
   font-family: Arial, Helvetica, sans-serif;
   margin: 0;
@@ -8,23 +6,15 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  /* background: url('assets/bg1.jpg') no-repeat center center fixed; */
-  /* background-size: cover; */
-  background: rgb(136, 0, 255);
-  background: linear-gradient(
-    0deg,
-    rgba(136, 0, 255, 1) 24%,
-    rgba(65, 45, 253, 1) 48%,
-    rgba(29, 29, 29, 1) 100%
-  );
+  background: url('assets/background.png') no-repeat center center fixed;
+  background-size: cover;
 }
 
 h1 {
   text-align: center;
-  font-size: 3rem;
-  font-family: Poppins;
   color: #fff;
   margin-bottom: 20px;
+  text-shadow: 2px 2px 4px #000;
 }
 
 .js-name-input,
@@ -33,7 +23,7 @@ h1 {
   font-size: 15px;
   padding: 10px 15px;
   border: 1px solid #ccc;
-  border-radius: 10px;
+  border-radius: 5px;
   background-color: #fff;
   color: #333;
   outline: none;
@@ -48,22 +38,21 @@ h1 {
   align-content: center;
   background-color: rgba(255, 255, 255, 0.9);
   padding: 20px;
-  border-radius: 15px;
+  border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   width: 100%;
   max-width: 600px;
   margin: 0 auto;
-  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.4);
 }
 
 .js-add-button {
-  background-color: orangered;
+  background-color: green;
   color: white;
   border: none;
   font-size: 15px;
   font-weight: bold;
   cursor: pointer;
-  border-radius: 30px;
+  border-radius: 5px;
   padding: 10px 20px;
   transition: background-color 0.3s ease;
   display: flex;
@@ -72,8 +61,7 @@ h1 {
 }
 
 .js-add-button:hover {
-  background-color: white;
-  color: orangered;
+  background-color: darkgreen;
 }
 
 .js-delete-button,
@@ -82,7 +70,7 @@ h1 {
   font-size: 15px;
   font-weight: bold;
   cursor: pointer;
-  border-radius: 30px;
+  border-radius: 5px;
   height: 45px;
   padding: 0 15px;
   display: flex;
@@ -97,8 +85,7 @@ h1 {
 }
 
 .js-delete-button:hover {
-  background-color: white;
-  color: red;
+  background-color: darkred;
 }
 
 .js-edit-button {
@@ -107,8 +94,7 @@ h1 {
 }
 
 .js-edit-button:hover {
-  background-color: white;
-  color: blue;
+  background-color: deepskyblue;
 }
 
 .small-container {
@@ -119,7 +105,7 @@ h1 {
   border: 1px solid #ccc;
   height: 45px;
   padding: 0 15px;
-  border-radius: 10px;
+  border-radius: 5px;
   text-align: center;
   background-color: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -133,54 +119,16 @@ h1 {
 }
 
 footer {
-  background-color: transparent;
-  color: white;
+  background-color: #fbd0a5;
+  color: #2a2929;
   text-align: center;
   padding: 20px 0;
   position: fixed;
   width: 100%;
   bottom: 0;
   font-size: 1rem;
-  display: flex;
-  justify-content: space-around;
 }
 
 footer p {
-  margin-top: 10px;
-  font-size: 12px;
-}
-
-.social-media {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.social-media a {
-  margin: 1px 11px;
-  color: black;
-  font-size: 15px;
-  padding: 8px;
-  border: 2px solid black;
-  border-radius: 8px;
-  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.4);
-}
-
-.social-media a:hover {
-  transform: scale(1.05);
-  transition: all 0.25s ease-out;
-}
-
-/*
-Animating title
-*/
-
-.subtitle {
-  text-align: center;
-  color: #f6ac62;
-  font-family: 'Open sans', sans-serif;
-  font-family: cursive;
-  font-size: 5rem;
-  padding: 8px 16px;
-  text-shadow: #000000 3px 4px 10px;
+  margin: 0;
 }

@@ -24,39 +24,29 @@ function addTodo() {
   inputTimeElement.value = '';
   setDefaultDateTime();
 
-  // Update the displayed list
-  updateTodoList();
+  // Update the displayed list with animation
+  updateTodoList(true); // Pass true to animate on addition
 }
 
-// eslint-disable-next-line no-unused-vars
 function deleteTodo(index) {
-  // Remove the specific todo from the list
-  todoList.splice(index, 1);
-  localStorage.setItem('todoList', JSON.stringify(todoList));
-  updateTodoList();
-}
-// eslint-disable-next-line no-unused-vars
-function editTodo(index) {
-  let inputNameElement = document.querySelector('.js-name-input');
-  let inputDateElement = document.querySelector('.js-date-input');
-  let inputTimeElement = document.querySelector('.js-time-input');
+  // Create a reference to the element to animate
+  const itemToDelete = document.querySelector(`.todo-item[data-index="${index}"]`);
 
-  // Fill the input fields with the current values
-  inputNameElement.value = todoList[index].name;
-  inputDateElement.value = todoList[index].date;
-  inputTimeElement.value = todoList[index].time;
-
-  // Change the add button to an update button
-  const addButton = document.querySelector('.js-add-button');
-  addButton.innerHTML = 'Update';
-
-  // Update the add button's onclick function to call updateTodo with the correct index
-  addButton.onclick = function () {
-    updateTodo(index);
-  };
+  // Animate the item before removing it
+  gsap.to(itemToDelete, {
+    opacity: 0,
+    scale: 0.5,
+    duration: 0.3,
+    onComplete: () => {
+      // Remove the specific todo from the list
+      todoList.splice(index, 1);
+      localStorage.setItem('todoList', JSON.stringify(todoList));
+      updateTodoList();
+    },
+  });
 }
 
-function updateTodoList() {
+function updateTodoList(animate = false) {
   // Sort todoList by date and time before rendering
   todoList.sort((a, b) => {
     const dateA = new Date(a.date + ' ' + a.time);
@@ -68,33 +58,31 @@ function updateTodoList() {
   todoListhtml = '';
 
   for (let i = 0; i < todoList.length; i++) {
-    todoListhtml += `<div class="small-container">${todoList[i].name}</div>
-                         <div class="small-container">${todoList[i].date} ${todoList[i].time}</div>
-                         <button class="js-delete-button" data-index="${i}">
-                            <i class="fa-solid fa-xmark"></i>
-                         </button>
-                         <button class="js-edit-button" data-index="${i}">
-                         <i class="fa-regular fa-pen-to-square"></i>
-                         </button>`;
+    todoListhtml += `
+    
+                    <div class="todo-item small-container" data-index="${i}">${todoList[i].name}</div>
+                     <div class="small-container">${todoList[i].date} ${todoList[i].time}</div>
+                     <button class="js-delete-button" onclick="deleteTodo(${i});">
+                        <img src="assets/delete-icon.png" alt="Delete" width="16" height="16">delete
+                     </button>
+                     <button class="js-edit-button" onclick="editTodo(${i});">
+                        <img src="assets/edit-icon.png" alt="Edit" width="16" height="16">edit
+                     </button>`;
   }
-
-  // <img src="assets/edit-icon.png" alt="Edit" width="16" height="16">edit
-  // <img src="assets/delete-icon.png" alt="Delete" width="16" height="16">delete
+  
   addElement.innerHTML = todoListhtml;
 
-  document.querySelectorAll('.js-delete-button').forEach((button) => {
-    button.addEventListener('click', function () {
-      const index = button.getAttribute('data-index');
-      deleteTodo(index);
+  if (animate) {
+    // Animate the newly added items
+    const newItems = document.querySelectorAll('.todo-item');
+    newItems.forEach(item => {
+      gsap.from(item, {
+        opacity: 0,
+        scale: 0.5,
+        duration: 0.3,
+      });
     });
-  });
-
-  document.querySelectorAll('.js-edit-button').forEach((button) => {
-    button.addEventListener('click', function () {
-      const index = button.getAttribute('data-index');
-      editTodo(index);
-    });
-  });
+  }
 }
 
 function updateTodo(index) {
@@ -122,9 +110,8 @@ function updateTodo(index) {
 
   // Clear the input fields
   inputNameElement.value = '';
-
-  // Set default date and time
-  setDefaultDateTime();
+  inputDateElement.value = '';
+  inputTimeElement.value = '';
 
   // Change the update button back to an add button
   const addButton = document.querySelector('.js-add-button');
