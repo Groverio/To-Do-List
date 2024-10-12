@@ -1,5 +1,5 @@
-let todoList = JSON.parse(localStorage.getItem("todoList")) || [];
-let todoListhtml = "";
+let todoList = JSON.parse(localStorage.getItem('todoList')) || [];
+let todoListhtml = '';
 console.log(todoList);
 
 function addTodo() {
@@ -31,26 +31,26 @@ function addTodo() {
 function deleteTodo(index, status) {
   // Remove the specific todo from the list
   todoList.splice(index, 1);
-  localStorage.setItem("todoList", JSON.stringify(todoList));
+  localStorage.setItem('todoList', JSON.stringify(todoList));
   updateTodoList();
-  if (status === "Task completed") {
+  if (status === 'Task completed') {
     showSuccessMessage();
   }
 }
 
 function showSuccessMessage() {
-  const successMessage = document.getElementById("successMessage");
-  successMessage.style.display = "flex";
+  const successMessage = document.getElementById('successMessage');
+  successMessage.style.display = 'flex';
 
   setTimeout(() => {
-    successMessage.style.display = "none";
+    successMessage.style.display = 'none';
   }, 3000);
 }
 
 function editTodo(index) {
-  let inputNameElement = document.querySelector(".js-name-input");
-  let inputDateElement = document.querySelector(".js-date-input");
-  let inputTimeElement = document.querySelector(".js-time-input");
+  let inputNameElement = document.querySelector('.js-name-input');
+  let inputDateElement = document.querySelector('.js-date-input');
+  let inputTimeElement = document.querySelector('.js-time-input');
 
   // Fill the input fields with the current values
   inputNameElement.value = todoList[index].name;
