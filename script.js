@@ -1,7 +1,6 @@
 let todoList = JSON.parse(localStorage.getItem('todoList')) || [];
 let todoListhtml = '';
 console.log(todoList);
-
 let currentSortMethod = 'date'; // Default sort method
 let currentSortOrder = 'asc'; // Default sort order for priority
 let currentCategorySortOrder = 'asc'; // Default sort order for category
@@ -10,6 +9,14 @@ let isEditing = false;
 let editIndex = null;
 
 let filterMethod = 'all';
+
+// Display the remaining characters count out of 120
+document.querySelector('.js-name-input').addEventListener('input', (e) => {
+  let input = e.target.value;
+  if (input.length === 120) {
+    alert('max character limits exceeded');
+  }
+});
 
 function addTodo() {
   const inputNameElement = document.querySelector('.js-name-input');
