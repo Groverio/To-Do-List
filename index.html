@@ -20,7 +20,6 @@
       referrerpolicy="no-referrer"
     />
   </head>
-
   <body>
     <div class="container">
       <h1 class="subtitle">Todo-List</h1>
@@ -33,10 +32,41 @@
         />
         <input type="date" class="js-date-input" />
         <input type="time" class="js-time-input" />
-        <button class="js-add-button" onclick="addTodo();">
-          <i class="fa-solid fa-arrow-right"></i>
+        <select class="js-category-input">
+          <option value="">Select Category</option>
+          <option value="work">Work</option>
+          <option value="personal">Personal</option>
+          <option value="shopping">Shopping</option>
+          <option value="other">Other</option>
+        </select>
+        <select class="js-priority-input">
+          <option value="">Select Priority</option>
+          <option value="high">High</option>
+          <option value="medium">Medium</option>
+          <option value="low">Low</option>
+        </select>
+        <button class="js-add-button">
+          <i class="fa-solid fa-add"></i>
         </button>
       </div>
+
+      <!-- Add this new div for sorting buttons -->
+      <div class="sort-buttons">
+        <div class="sort-filter-container">
+          <button class="sort-button" onclick="sortTodos('category')">
+            Sort by Category
+          </button>
+          <button class="sort-button" onclick="sortTodos('priority')">
+            Sort by Priority
+          </button>
+          <select class="js-filter-input" onchange="filterTodos()">
+            <option value="all">All</option>
+            <option value="pending">Pending</option>
+            <option value="completed">Completed</option>
+          </select>
+        </div>
+      </div>
+
       <div class="js-add-html js-add-grid"></div>
     </div>
 
