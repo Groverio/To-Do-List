@@ -71,13 +71,15 @@ function updateTodoList() {
     todoListhtml += `<div class="small-container">${todoList[i].name}</div>
                          <div class="small-container">${todoList[i].date} ${todoList[i].time}</div>
                          <button class="js-delete-button" data-index="${i}">
-                            <img src="assets/delete-icon.png" alt="Delete" width="16" height="16">delete
+                            <i class="fa-solid fa-xmark"></i>
                          </button>
                          <button class="js-edit-button" data-index="${i}">
-                            <img src="assets/edit-icon.png" alt="Edit" width="16" height="16">edit
+                         <i class="fa-regular fa-pen-to-square"></i>
                          </button>`;
   }
 
+  // <img src="assets/edit-icon.png" alt="Edit" width="16" height="16">edit
+  // <img src="assets/delete-icon.png" alt="Delete" width="16" height="16">delete
   addElement.innerHTML = todoListhtml;
 
   document.querySelectorAll('.js-delete-button').forEach((button) => {
