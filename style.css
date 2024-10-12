@@ -3,132 +3,147 @@ body {
   margin: 0;
   padding: 0;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+  flex-direction: column;
+  min-height: 100vh;
   background: url('assets/background.png') no-repeat center center fixed;
   background-size: cover;
 }
 
+.container {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
 h1 {
-  text-align: center;
   color: #fff;
-  margin-bottom: 20px;
   text-shadow: 2px 2px 4px #000;
+  margin-bottom: 20px;
+}
+
+.js-add-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr auto;
+  gap: 10px;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  margin-bottom: 20px;
 }
 
 .js-name-input,
 .js-date-input,
 .js-time-input {
   font-size: 15px;
-  padding: 10px 15px;
+  padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
   background-color: #fff;
   color: #333;
-  outline: none;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
-.js-add-grid {
-  display: grid;
-  grid-template-columns: 200px 140px 140px 100px;
-  column-gap: 10px;
-  row-gap: 10px;
-  align-content: center;
-  background-color: rgba(255, 255, 255, 0.9);
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  max-width: 600px;
-  margin: 0 auto;
+.js-add-button,
+.js-delete-button,
+.js-edit-button {
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
 }
 
 .js-add-button {
-  background-color: green;
+  background-color: #4caf50;
   color: white;
-  border: none;
-  font-size: 15px;
-  font-weight: bold;
-  cursor: pointer;
-  border-radius: 5px;
-  padding: 10px 20px;
-  transition: background-color 0.3s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .js-add-button:hover {
-  background-color: darkgreen;
+  background-color: #45a049;
 }
 
-.js-delete-button,
-.js-edit-button {
-  border: none;
-  font-size: 15px;
-  font-weight: bold;
-  cursor: pointer;
-  border-radius: 5px;
-  height: 45px;
-  padding: 0 15px;
+.js-todo-list {
+  width: 100%;
+}
+
+.todo-item {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  transition: background-color 0.3s ease;
+  background-color: #fff;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.js-delete-button {
-  background-color: red;
-  color: white;
+.todo-content {
+  flex-grow: 1;
 }
 
-.js-delete-button:hover {
-  background-color: darkred;
+.todo-name {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.todo-datetime {
+  font-size: 0.9em;
+  color: #666;
+}
+
+.todo-actions {
+  display: flex;
+  gap: 10px;
 }
 
 .js-edit-button {
-  background-color: skyblue;
+  background-color: #2196f3;
   color: white;
 }
 
 .js-edit-button:hover {
-  background-color: deepskyblue;
+  background-color: #0b7dda;
 }
 
-.small-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  border: 1px solid #ccc;
-  height: 45px;
-  padding: 0 15px;
-  border-radius: 5px;
-  text-align: center;
-  background-color: #fff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+.js-delete-button {
+  background-color: #f44336;
+  color: white;
 }
 
-/* Icons */
-.js-add-button img,
-.js-delete-button img,
-.js-edit-button img {
-  margin-right: 5px;
+.js-delete-button:hover {
+  background-color: #da190b;
 }
 
 footer {
   background-color: #fbd0a5;
   color: #2a2929;
   text-align: center;
-  padding: 20px 0;
-  position: fixed;
-  width: 100%;
-  bottom: 0;
-  font-size: 1rem;
+  padding: 10px 0;
+  font-size: 0.9rem;
 }
 
-footer p {
-  margin: 0;
+@media (max-width: 600px) {
+  .js-add-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .todo-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .todo-actions {
+    margin-top: 10px;
+    align-self: flex-end;
+  }
 }

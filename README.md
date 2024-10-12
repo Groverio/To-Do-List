@@ -74,8 +74,8 @@ Let's make this project even better together! 🎉
 
 <div align="center">
 
-  <a href="https://github.com/Groverio/To-Do-List">
-    <img src="https://contrib.rocks/image?repo=Groverio/To-Do-List&&max=1000" />
+  <a href="https://github.com/Anshgrover23/To-Do-List">
+    <img src="https://contrib.rocks/image?repo=Anshgrover23/To-Do-List&&max=1000" />
   </a>
 </div>
 
