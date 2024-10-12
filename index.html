@@ -5,17 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Todo-List</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <div class="container">
         <h1>Todo-List</h1>
       
         <div class="js-add-grid">
-            <input type="text" placeholder="Share Your Thoughts" class="js-name-input">
+            <input type="text" placeholder="Add Tasks" class="js-name-input">
             <input type="date" class="js-date-input">
             <input type="time" class="js-time-input">
             <button class="js-add-button" onclick="addTodo();">
-                <img src="assets/add-icon.png" alt="Add" width="16" height="16"> Add
+              <i class="fa-solid fa-arrow-right"></i>
             </button>
         </div>
         <div class="js-add-html js-add-grid"></div>
