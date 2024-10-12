@@ -1,169 +1,190 @@
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background: url('assets/background.png') no-repeat center center fixed;
-    background-size: cover;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: url('assets/background.png') no-repeat center center fixed;
+  background-size: cover;
 }
 
 h1 {
-    text-align: center;
-    color: #fff;
-    margin-bottom: 20px;
-    text-shadow: 2px 2px 4px #000;
-    font-size: 2rem; /* Relative font size */
+  text-align: center;
+  color: #fff;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px #000;
+  font-size: 2rem; /* Use the larger, more readable font size */
 }
 
+/* Input fields */
 .js-name-input,
 .js-date-input,
 .js-time-input {
-    font-size: 1rem; /* Responsive font size */
-    padding: 10px 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #fff;
-    color: #333;
-    outline: none;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  font-size: 1rem; /* Unified font size for all inputs */
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #333;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
+/* Main layout grid for input fields */
 .js-add-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    column-gap: 10px;
-    row-gap: 10px;
-    align-content: center;
-    background-color: rgba(255, 255, 255, 0.9);
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 90%; /* Relative width */
-    max-width: 600px;
-    margin: 0 auto;
-    position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr; /* Unified into a four-column layout */
+  column-gap: 10px;
+  row-gap: 10px;
+  align-content: center;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 90%; /* Responsive width */
+  max-width: 600px;
+  margin: 0 auto;
+  position: relative;
 }
 
+/* Add button */
 .js-add-button {
-    background-color: green;
-    color: white;
-    border: none;
-    font-size: 1rem;
-    font-weight: bold;
-    cursor: pointer;
-    border-radius: 5px;
-    padding: 10px 20px;
-    transition: background-color 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    grid-column: span 4; /* Button spans all 4 columns */
-    margin-top: 10px; /* Add margin to separate it from other fields */
+  background-color: green;
+  color: white;
+  border: none;
+  font-size: 1rem; /* Unified font size */
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 10px 20px;
+  transition: background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  grid-column: span 4; /* Button spans all 4 columns */
+  margin-top: 10px; /* Add margin to separate from other fields */
 }
 
 .js-add-button:hover {
-    background-color: darkgreen;
+  background-color: darkgreen;
 }
 
+/* Delete and edit buttons */
 .js-delete-button,
 .js-edit-button {
-    border: none;
-    font-size: 1rem;
-    font-weight: bold;
-    cursor: pointer;
-    border-radius: 5px;
-    height: 45px;
-    padding: 0 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background-color 0.3s ease;
+  border: none;
+  font-size: 1rem; /* Unified font size */
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+  height: 45px;
+  padding: 0 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
 }
 
 .js-delete-button {
-    background-color: red;
-    color: white;
+  background-color: red;
+  color: white;
 }
 
 .js-delete-button:hover {
-    background-color: darkred;
+  background-color: darkred;
 }
 
 .js-edit-button {
-    background-color: skyblue;
-    color: white;
+  background-color: skyblue;
+  color: white;
 }
 
 .js-edit-button:hover {
-    background-color: deepskyblue;
+  background-color: deepskyblue;
 }
 
+/* Small containers */
 .small-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    border: 1px solid #ccc;
-    height: 45px;
-    padding: 0 15px;
-    border-radius: 5px;
-    text-align: center;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: 1px solid #ccc;
+  height: 45px;
+  padding: 0 15px;
+  border-radius: 5px;
+  text-align: center;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Icons */
+/* Icons inside buttons */
 .js-add-button img,
 .js-delete-button img,
 .js-edit-button img {
-    margin-right: 5px;
+  margin-right: 5px;
 }
 
 /* Media Queries for responsiveness */
 @media (max-width: 768px) {
-    .js-add-grid {
-        grid-template-columns: 1fr 1fr; /* Two-column layout */
-        width: 95%;
-        max-width: 500px;
-    }
+  .js-add-grid {
+    grid-template-columns: 1fr 1fr; /* Switch to two-column layout */
+    width: 95%;
+    max-width: 500px;
+  }
 
-    .js-add-button {
-        grid-column: span 2; /* Button spans both columns on smaller screens */
-    }
+  .js-add-button {
+    grid-column: span 2; /* Button spans two columns on smaller screens */
+  }
 
-    .js-add-button,
-    .js-delete-button,
-    .js-edit-button {
-        font-size: 0.9rem; /* Adjust button font size */
-        padding: 8px 16px;
-    }
+  .js-add-button,
+  .js-delete-button,
+  .js-edit-button {
+    font-size: 0.9rem; /* Adjust button font size */
+    padding: 8px 16px;
+  }
 
-    h1 {
-        font-size: 1.5rem; /* Smaller heading */
-    }
+  h1 {
+    font-size: 1.5rem; /* Smaller heading for tablet-sized screens */
+  }
 }
 
 @media (max-width: 480px) {
-    .js-add-grid {
-        grid-template-columns: 1fr; /* Single-column layout */
-        width: 90%;
-    }
+  .js-add-grid {
+    grid-template-columns: 1fr; /* Single-column layout for very small screens */
+    width: 90%;
+  }
 
-    .js-add-button {
-        grid-column: span 1; /* Button spans 1 column on very small screens */
-    }
+  .js-add-button {
+    grid-column: span 1; /* Button spans one column on very small screens */
+  }
 
-    .js-add-button,
-    .js-delete-button,
-    .js-edit-button {
-        font-size: 0.8rem; /* Smaller buttons */
-        padding: 6px 12px;
-    }
+  .js-add-button,
+  .js-delete-button,
+  .js-edit-button {
+    font-size: 0.8rem; /* Smaller buttons */
+    padding: 6px 12px;
+  }
 
-    h1 {
-        font-size: 1.2rem; /* Smaller heading */
-    }
+  h1 {
+    font-size: 1.2rem; /* Even smaller heading for small screens */
+  }
+}
+
+/* Footer styles */
+footer {
+  background-color: #fbd0a5;
+  color: #2a2929;
+  text-align: center;
+  padding: 20px 0;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  font-size: 1rem;
+}
+
+footer p {
+  margin: 0;
 }
