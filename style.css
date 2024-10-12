@@ -1,34 +1,54 @@
-/* Base styles */
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f9f9f9;
-  color: #333;
-  transition: background-color 0.3s ease, color 0.3s ease;
+:root {
+  --primary-color: #4caf50;
+  --secondary-color: #45a049;
+  --background-color: #f9f9f9;
+  --text-color: #333;
+  --header-text-color: white;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --transition-speed: 0.3s;
 }
 
-/* Header */
+body {
+  font-family: 'Roboto', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+  line-height: 1.6;
+}
+
+/* Header with gradient background */
 .header {
-  background-color: #4caf50;
-  padding: 10px 20px;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  padding: 15px 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px var(--shadow-color);
 }
 
 .header h1 {
-  color: white;
-  font-size: 24px;
+  color: var(--header-text-color);
+  font-size: 28px;
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .js-theme-toggle {
   background-color: transparent;
-  color: white;
-  border: none;
+  color: var(--header-text-color);
+  border: 2px solid var(--header-text-color);
   font-size: 16px;
   cursor: pointer;
+  padding: 8px 16px;
+  border-radius: 20px;
+  transition: all var(--transition-speed) ease;
+}
+
+.js-theme-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
 }
 
 .container {
@@ -36,22 +56,42 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 20px auto;
+  margin: 40px auto;
+  max-width: 800px;
+  padding: 0 20px;
 }
 
-/* Inputs and Grid */
+/* Inputs and Grid with improved styling */
 .js-add-grid {
   display: grid;
   grid-template-columns: 1fr 140px 140px 100px;
-  column-gap: 10px;
-  row-gap: 10px;
+  gap: 15px;
   align-content: center;
-  background-color: rgba(255, 255, 255, 0.9);
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px var(--shadow-color);
   width: 100%;
-  max-width: 600px;
+  transition: all var(--transition-speed) ease;
+}
+
+.js-add-grid:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px var(--shadow-color);
+}
+
+input, select {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: all var(--transition-speed) ease;
+}
+
+input:focus, select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.3);
 }
 
 .js-add-button,
@@ -61,50 +101,147 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 10px 15px;
-  border-radius: 5px;
+  padding: 12px 20px;
+  border-radius: 6px;
   cursor: pointer;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all var(--transition-speed) ease;
+  border: none;
 }
 
 .js-add-button {
-  background-color: #4caf50;
+  background-color: var(--primary-color);
   color: white;
 }
 
 .js-add-button:hover {
-  background-color: #45a049;
+  background-color: var(--secondary-color);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Dark mode */
+/* Task list styling */
+.task-list {
+  width: 100%;
+  margin-top: 30px;
+}
+
+.task-item {
+  background-color: white;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 6px var(--shadow-color);
+  transition: all var(--transition-speed) ease;
+}
+
+.task-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px var(--shadow-color);
+}
+
+/* Dark mode enhancements */
 body.dark-mode {
-  background-color: #333;
-  color: #ddd;
+  --background-color: #222;
+  --text-color: #eee;
+  --shadow-color: rgba(0, 0, 0, 0.3);
 }
 
 body.dark-mode .header {
-  background-color: #222;
+  background: linear-gradient(135deg, #333, #222);
 }
 
 body.dark-mode .js-add-grid {
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(40, 40, 40, 0.95);
 }
 
 body.dark-mode .js-theme-toggle {
   color: #ffdd57;
+  border-color: #ffdd57;
 }
 
-/* Priority styling */
+body.dark-mode input,
+body.dark-mode select {
+  background-color: #333;
+  color: #eee;
+  border-color: #555;
+}
+
+body.dark-mode .task-item {
+  background-color: #333;
+}
+
+/* Priority styling with gradients */
 .priority-high {
-  background-color: #ff7979;
+  background: linear-gradient(135deg, #ff7979, #eb4d4b);
   color: white;
 }
 
 .priority-medium {
-  background-color: #ffbe76;
+  background: linear-gradient(135deg, #ffbe76, #f0932b);
   color: white;
 }
 
 .priority-low {
-  background-color: #badc58;
+  background: linear-gradient(135deg, #badc58, #6ab04c);
   color: white;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .js-add-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .header h1 {
+    margin-bottom: 15px;
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.task-item {
+  animation: fadeIn 0.5s ease;
+}
+
+/* Accessibility improvements */
+.js-add-button:focus,
+.js-delete-button:focus,
+.js-edit-button:focus,
+.js-complete-button:focus,
+.js-theme-toggle:focus {
+  outline: 3px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--secondary-color);
 }
