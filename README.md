@@ -26,6 +26,24 @@ Open `index.html` in your browser to use the application.
 - **Edit a Task:** Click the edit icon next to the task, make your changes, and save.
 - **Delete a Task:** Click the delete icon next to the task.
 
+
+## Linting and Formatting
+
+This project uses **ESLint** and **Prettier** to ensure code quality and consistency.
+
+- **ESLint** helps identify and fix problems in your JavaScript code.
+- **Prettier** automatically formats your code to follow consistent styling rules.
+
+### Running the Linter
+
+To check your code for issues, run the following command:
+
+```bash
+npm run lint
+```
+
+This command will execute ESLint on your project files and report any errors or warnings.
+
 ## Contributing to Hacktoberfest 2024 🎉
 
 ![hecktoberfest](https://github.com/user-attachments/assets/9352e904-6b2d-495e-8140-1437e385ffdb)
