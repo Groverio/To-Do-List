@@ -1,4 +1,3 @@
-import Darkmode from 'darkmode-js';
 let todoList = JSON.parse(localStorage.getItem('todoList')) || [];
 let todoListhtml = '';
 console.log(todoList);
@@ -71,14 +70,29 @@ function updateTodoList() {
   for (let i = 0; i < todoList.length; i++) {
     todoListhtml += `<div class="small-container">${todoList[i].name}</div>
                          <div class="small-container">${todoList[i].date} ${todoList[i].time}</div>
-                         <button class="js-delete-button" onclick="deleteTodo(${i});">
+                         <button class="js-delete-button" data-index="${i}">
                             <img src="assets/delete-icon.png" alt="Delete" width="16" height="16">delete
                          </button>
-                         <button class="js-edit-button" onclick="editTodo(${i});">
+                         <button class="js-edit-button" data-index="${i}">
                             <img src="assets/edit-icon.png" alt="Edit" width="16" height="16">edit
                          </button>`;
   }
+
   addElement.innerHTML = todoListhtml;
+
+  document.querySelectorAll('.js-delete-button').forEach((button) => {
+    button.addEventListener('click', function () {
+      const index = button.getAttribute('data-index');
+      deleteTodo(index);
+    });
+  });
+
+  document.querySelectorAll('.js-edit-button').forEach((button) => {
+    button.addEventListener('click', function () {
+      const index = button.getAttribute('data-index');
+      editTodo(index);
+    });
+  });
 }
 
 function updateTodo(index) {
@@ -106,8 +120,9 @@ function updateTodo(index) {
 
   // Clear the input fields
   inputNameElement.value = '';
-  inputDateElement.value = '';
-  inputTimeElement.value = '';
+
+  // Set default date and time
+  setDefaultDateTime();
 
   // Change the update button back to an add button
   const addButton = document.querySelector('.js-add-button');
@@ -135,26 +150,7 @@ document.addEventListener('DOMContentLoaded', () => {
   updateTodoList();
   setDefaultDateTime();
 
-  //Dark-mode options
-  const DarkModeOptions = {
-    bottom: '64px', // default: '32px'
-    right: 'unset', // default: '32px'
-    left: '32px', // default: 'unset'
-    time: '0.5s', // default: '0.3s'
-    mixColor: '#fff', // default: '#fff'
-    backgroundColor: '#fff', // default: '#fff'
-    buttonColorDark: '#100f2c', // default: '#100f2c'
-    buttonColorLight: '#fff', // default: '#fff'
-    saveInCookies: false, // default: true,
-    label: '🌓', // default: ''
-    autoMatchOsTheme: true, // default: true
-  };
-
   // Set focus on the name input field
   const inputNameElement = document.querySelector('.js-name-input');
   inputNameElement.focus();
-
-  //DarkMode function
-  const darkmode = new Darkmode(DarkModeOptions);
-  darkmode.showWidget();
 });

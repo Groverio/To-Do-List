@@ -3,17 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Todo-List</title>
+    <title>To-Do List</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div class="container">
-      <h1>Todo-List</h1>
+      <h1>To-Do List</h1>
 
       <div class="js-add-grid">
         <input
           type="text"
-          placeholder="Share Your Thoughts"
+          placeholder="Task Description"
           class="js-name-input"
         />
         <input type="date" class="js-date-input" />
@@ -24,6 +24,13 @@
       </div>
       <div class="js-add-html js-add-grid"></div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+    <script>
+      function addDarkmodeWidget() {
+        new Darkmode().showWidget();
+      }
+      window.addEventListener('load', addDarkmodeWidget);
+    </script>
     <footer>
       <p>&copy; 2024 Made with &#10084; by Ansh Grover. All rights reserved.</p>
     </footer>
