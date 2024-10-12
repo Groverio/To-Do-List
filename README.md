@@ -26,7 +26,6 @@ Open `index.html` in your browser to use the application.
 - **Edit a Task:** Click the edit icon next to the task, make your changes, and save.
 - **Delete a Task:** Click the delete icon next to the task.
 
-
 ## Linting and Formatting
 
 This project uses **ESLint** and **Prettier** to ensure code quality and consistency.

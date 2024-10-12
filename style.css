@@ -5,9 +5,16 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
   background: url('assets/background.png') no-repeat center center fixed;
   background-size: cover;
+}
+
+.container {
+  width: 100%;
+  max-width: 1000px;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 h1 {
@@ -19,7 +26,10 @@ h1 {
 
 .js-name-input,
 .js-date-input,
-.js-time-input {
+.js-time-input,
+.js-category-input,
+.js-priority-input,
+.js-add-button {
   font-size: 15px;
   padding: 10px 15px;
   border: 1px solid #ccc;
@@ -32,17 +42,13 @@ h1 {
 
 .js-add-grid {
   display: grid;
-  grid-template-columns: 200px 140px 140px 100px;
-  column-gap: 10px;
-  row-gap: 10px;
-  align-content: center;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr;
+  gap: 10px;
   background-color: rgba(255, 255, 255, 0.9);
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  max-width: 600px;
-  margin: 0 auto;
+  margin-bottom: 20px;
 }
 
 .js-add-button {
@@ -64,6 +70,64 @@ h1 {
   background-color: darkgreen;
 }
 
+.js-add-html {
+  display: grid;
+  grid-template-columns: 3fr 1fr 1fr 1fr 1fr;
+  gap: 10px;
+}
+
+.small-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #ccc;
+  padding: 10px 15px;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  min-height: 3px;
+}
+
+.task-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.task-name {
+  font-weight: bold;
+}
+
+.category-tag,
+.priority-tag {
+  display: inline-block;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.category-tag {
+  background-color: #e0e0e0;
+  color: #333;
+}
+
+.priority-high {
+  background-color: #ffcccb;
+  color: #d8000c;
+}
+
+.priority-medium {
+  background-color: #feefb3;
+  color: #9f6000;
+}
+
+.priority-low {
+  background-color: #d4edda;
+  color: #155724;
+}
+
 .js-delete-button,
 .js-edit-button {
   border: none;
@@ -71,12 +135,13 @@ h1 {
   font-weight: bold;
   cursor: pointer;
   border-radius: 5px;
-  height: 45px;
-  padding: 0 15px;
+  padding: 10px 15px;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: background-color 0.3s ease;
+  width: 100%;
+  justify-content: center;
 }
 
 .js-delete-button {
@@ -131,4 +196,30 @@ footer {
 
 footer p {
   margin: 0;
+}
+
+.sort-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.sort-button {
+  background-color: #4caf50;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.sort-button:hover {
+  background-color: #45a049;
 }

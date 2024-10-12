@@ -16,7 +16,6 @@ Once you've forked the repository, clone it to your local machine.
 git clone https://github.com/YOUR-USERNAME/To-Do-List.git
 ```
 
-
 ## Linting and Formatting
 
 This project uses **ESLint** and **Prettier** to ensure code quality and consistency.
