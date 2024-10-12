@@ -1,6 +1,13 @@
+const charCounter = document.querySelector(".js-char-counter");
+
 let todoList = JSON.parse(localStorage.getItem('todoList')) || [];
 let todoListhtml = '';
 console.log(todoList);
+
+// Display the remaining characters count out of 120
+document.querySelector(".js-name-input").addEventListener("input", (e)=>{
+    charCounter.textContent = 120 - e.target.value.length;
+})
 
 function addTodo() {
     const inputNameElement = document.querySelector('.js-name-input');
@@ -22,6 +29,7 @@ function addTodo() {
     inputNameElement.value = '';
     inputDateElement.value = '';
     inputTimeElement.value = '';
+    charCounter.textContent = 120;
 
     // Update the displayed list
     updateTodoList();
@@ -43,6 +51,8 @@ function editTodo(index) {
     inputNameElement.value = todoList[index].name;
     inputDateElement.value = todoList[index].date;
     inputTimeElement.value = todoList[index].time;
+    charCounter.textContent = 120-todoList[index].name.length;
+
 
     // Change the add button to an update button
     const addButton = document.querySelector('.js-add-button');
@@ -100,6 +110,7 @@ function updateTodo(index) {
     inputNameElement.value = '';
     inputDateElement.value = '';
     inputTimeElement.value = '';
+    charCounter.textContent = 120;
 
     // Change the update button back to an add button
     const addButton = document.querySelector('.js-add-button');

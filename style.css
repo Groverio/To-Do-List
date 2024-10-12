@@ -17,6 +17,17 @@ h1 {
     text-shadow: 2px 2px 4px #000;
 }
 
+.container > .js-add-grid{
+    position: relative;
+}
+
+.js-char-checker{
+    position: absolute;
+    font-size: 12px;
+    top: 22px;
+    left: 173px;
+}
+
 .js-name-input,
 .js-date-input,
 .js-time-input {
