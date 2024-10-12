@@ -5,9 +5,11 @@ Thank you for considering contributing to this To-Do List project! Whether it's 
 ## Getting Started
 
 ### 1. Fork the Repository
+
 To contribute, start by forking the repository to your GitHub account. Click the "Fork" button at the top right of the repository page.
 
 ### 2. Clone the Repository
+
 Once you've forked the repository, clone it to your local machine.
 
 ```bash
@@ -19,8 +21,7 @@ git clone https://github.com/YOUR-USERNAME/To-Do-List.git
 This project is actively maintained by:
 
 | ![Maintainer 1](https://github.com/bryans-go.png?size=100) | ![Maintainer 2](https://github.com/Anshgrover23.png?size=100) |
-|:----------------------------------------------------------:|:----------------------------------------------------------:|
-| **[Maintainer 1](https://github.com/bryans-go)**            | **[Maintainer 2](https://github.com/Anshgrover23)**            |
+| :--------------------------------------------------------: | :-----------------------------------------------------------: |
+|      **[Maintainer 1](https://github.com/bryans-go)**      |      **[Maintainer 2](https://github.com/Anshgrover23)**      |
 
 Feel free to reach out to either of us for any issues or contributions.
-
