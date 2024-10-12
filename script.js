@@ -70,14 +70,29 @@ function updateTodoList() {
   for (let i = 0; i < todoList.length; i++) {
     todoListhtml += `<div class="small-container">${todoList[i].name}</div>
                          <div class="small-container">${todoList[i].date} ${todoList[i].time}</div>
-                         <button class="js-delete-button" onclick="deleteTodo(${i});">
+                         <button class="js-delete-button" data-index="${i}">
                             <img src="assets/delete-icon.png" alt="Delete" width="16" height="16">delete
                          </button>
-                         <button class="js-edit-button" onclick="editTodo(${i});">
+                         <button class="js-edit-button" data-index="${i}">
                             <img src="assets/edit-icon.png" alt="Edit" width="16" height="16">edit
                          </button>`;
   }
+
   addElement.innerHTML = todoListhtml;
+
+  document.querySelectorAll('.js-delete-button').forEach((button) => {
+    button.addEventListener('click', function () {
+      const index = button.getAttribute('data-index');
+      deleteTodo(index);
+    });
+  });
+
+  document.querySelectorAll('.js-edit-button').forEach((button) => {
+    button.addEventListener('click', function () {
+      const index = button.getAttribute('data-index');
+      editTodo(index);
+    });
+  });
 }
 
 function updateTodo(index) {
