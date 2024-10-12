@@ -1,20 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Londrina+Outline&display=swap');
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background: url('assets/background.png') no-repeat center center fixed;
-    background-size: cover;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  /* background: url('assets/bg1.jpg') no-repeat center center fixed; */
+  /* background-size: cover; */
+  background: rgb(136, 0, 255);
+  background: linear-gradient(
+    0deg,
+    rgba(136, 0, 255, 1) 24%,
+    rgba(65, 45, 253, 1) 48%,
+    rgba(29, 29, 29, 1) 100%
+  );
 }
 
 h1 {
-    text-align: center;
-    color: #fff;
-    margin-bottom: 20px;
-    text-shadow: 2px 2px 4px #000;
+  text-align: center;
+  font-size: 3rem;
+  font-family: Poppins;
+  color: #fff;
+  margin-bottom: 20px;
 }
 
 .container > .js-add-grid{
@@ -31,49 +41,50 @@ h1 {
 .js-name-input,
 .js-date-input,
 .js-time-input {
-    font-size: 15px;
-    padding: 10px 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #fff;
-    color: #333;
-    outline: none;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  font-size: 15px;
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #fff;
+  color: #333;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
-
 .js-add-grid {
-    display: grid;
-    grid-template-columns: 200px 140px 140px 100px;
-    column-gap: 10px;
-    row-gap: 10px;
-    align-content: center;
-    background-color: rgba(255, 255, 255, 0.9);
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 600px;
-    margin: 0 auto;
+  display: grid;
+  grid-template-columns: 200px 140px 140px 100px;
+  column-gap: 10px;
+  row-gap: 10px;
+  align-content: center;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.4);
 }
 
 .js-add-button {
-    background-color: green;
-    color: white;
-    border: none;
-    font-size: 15px;
-    font-weight: bold;
-    cursor: pointer;
-    border-radius: 5px;
-    padding: 10px 20px;
-    transition: background-color 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  background-color: orangered;
+  color: white;
+  border: none;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 30px;
+  padding: 10px 20px;
+  transition: background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .js-add-button:hover {
-    background-color: darkgreen;
+  background-color: white;
+  color: orangered;
 }
 
 .js-delete-button,
@@ -82,32 +93,34 @@ h1 {
     font-size: 15px;
     font-weight: bold;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 30px;
     height: 50px;
     padding: 0 15px;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: background-color 0.3s ease;
-    margin: auto 0;
+    margin: auto o;
 }
 
 .js-delete-button {
-    background-color: red;
-    color: white;
+  background-color: red;
+  color: white;
 }
 
 .js-delete-button:hover {
-    background-color: darkred;
+  background-color: white;
+  color: red;
 }
 
 .js-edit-button {
-    background-color: skyblue;
-    color: white;
+  background-color: skyblue;
+  color: white;
 }
 
 .js-edit-button:hover {
-    background-color: deepskyblue;
+  background-color: white;
+  color: blue;
 }
 
 .small-container {
@@ -118,7 +131,7 @@ h1 {
     border: 1px solid #ccc;
     min-height: 50px;
     padding: 5px 15px;
-    border-radius: 5px;
+    border-radius: 10px;
     text-align: center;
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -131,23 +144,58 @@ h1 {
 .js-add-button img,
 .js-delete-button img,
 .js-edit-button img {
-    margin-right: 5px;
+  margin-right: 5px;
 }
 
 footer {
-    background-color: #fbd0a5; 
-    color: #2a2929; 
-    text-align: center; 
-    padding: 20px 0; 
-    position: fixed; 
-    width: 100%; 
-    bottom: 0;
-    font-size: 1rem; 
-  }
-  
-  footer p {
-    margin: 0; 
-  }
-  
-  
-  
+  background-color: transparent;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  font-size: 1rem;
+  display: flex;
+  justify-content: space-around;
+}
+
+footer p {
+  margin-top: 10px;
+  font-size: 12px;
+}
+
+.social-media {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.social-media a {
+  margin: 1px 11px;
+  color: black;
+  font-size: 15px;
+  padding: 8px;
+  border: 2px solid black;
+  border-radius: 8px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+.social-media a:hover {
+  transform: scale(1.05);
+  transition: all 0.25s ease-out;
+}
+
+/*
+Animating title
+*/
+
+.subtitle {
+  text-align: center;
+  color: #f6ac62;
+  font-family: 'Open sans', sans-serif;
+  font-family: cursive;
+  font-size: 5rem;
+  padding: 8px 16px;
+  text-shadow: #000000 3px 4px 10px;
+}
