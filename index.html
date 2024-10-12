@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -20,7 +21,7 @@
     <main class="container">
         <section class="add-task-section">
             <h2>Add New Task</h2>
-            <form class="js-add-grid" id="add-task-form">
+            <form id="add-task-form" class="js-add-grid">
                 <div class="form-group">
                     <label for="task-description">Task Description</label>
                     <input type="text" id="task-description" class="js-name-input" placeholder="Enter task description" required>
@@ -57,28 +58,28 @@
             </div>
             <ul class="task-list js-task-list"></ul>
         </section>
-
-        <template id="task-template">
-            <li class="task-item" data-id="">
-                <div class="task-content">
-                    <h3 class="task-title"></h3>
-                    <p class="task-due-date"></p>
-                    <span class="task-priority"></span>
-                </div>
-                <div class="task-actions">
-                    <button class="js-complete-button" aria-label="Mark as complete">
-                        <i class="fas fa-check"></i>
-                    </button>
-                    <button class="js-edit-button" aria-label="Edit task">
-                        <i class="fas fa-edit"></i>
-                    </button>
-                    <button class="js-delete-button" aria-label="Delete task">
-                        <i class="fas fa-trash-alt"></i>
-                    </button>
-                </div>
-            </li>
-        </template>
     </main>
+
+    <template id="task-template">
+        <li class="task-item" data-id="">
+            <div class="task-content">
+                <h3 class="task-title"></h3>
+                <p class="task-due-date"></p>
+                <span class="task-priority"></span>
+            </div>
+            <div class="task-actions">
+                <button class="js-complete-button" aria-label="Mark as complete">
+                    <i class="fas fa-check"></i>
+                </button>
+                <button class="js-edit-button" aria-label="Edit task">
+                    <i class="fas fa-edit"></i>
+                </button>
+                <button class="js-delete-button" aria-label="Delete task">
+                    <i class="fas fa-trash-alt"></i>
+                </button>
+            </div>
+        </li>
+    </template>
 
     <footer>
         <p>&copy; 2024 Advanced To-Do List. Made with <i class="fas fa-heart"></i> by Ansh Grover. All rights reserved.</p>

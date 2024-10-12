@@ -12,6 +12,10 @@ function initializeApp() {
     renderTasks();
     setDefaultDateTime();
     document.getElementById('task-description').focus();
+    if (localStorage.getItem('darkMode') === 'true') {
+        document.body.classList.add('dark-mode');
+        updateThemeToggleButton();
+    }
 }
 
 function handleAddTask(event) {
@@ -105,72 +109,4 @@ function editTask(index) {
     todoList.splice(index, 1);
     saveTodoList();
     renderTasks();
-    document.getElementById('task-description').focus();
-}
-
-function deleteTask(index) {
-    if (confirm('Are you sure you want to delete this task?')) {
-        todoList.splice(index, 1);
-        saveTodoList();
-        renderTasks();
-        showNotification('Task deleted successfully!', 'success');
-    }
-}
-
-function handleFilterClick(event) {
-    if (event.target.classList.contains('filter-btn')) {
-        document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-        event.target.classList.add('active');
-        renderTasks();
-    }
-}
-
-function sortTasks() {
-    todoList.sort((a, b) => {
-        const dateA = new Date(a.date + ' ' + (a.time || ''));
-        const dateB = new Date(b.date + ' ' + (b.time || ''));
-        return dateA - dateB;
-    });
-}
-
-function getPriorityClass(priority) {
-    const priorityMap = {
-        'High': 'priority-high',
-        'Medium': 'priority-medium',
-        'Low': 'priority-low'
-    };
-    return priorityMap[priority] || '';
-}
-
-function setDefaultDateTime() {
-    const now = new Date();
-    document.getElementById('task-date').valueAsDate = now;
-    document.getElementById('task-time').value = now.toTimeString().slice(0, 5);
-}
-
-function resetForm() {
-    addTaskForm.reset();
-    setDefaultDateTime();
-}
-
-function toggleTheme() {
-    document.body.classList.toggle('dark-mode');
-    const themeToggle = document.querySelector('.js-theme-toggle');
-    const isDarkMode = document.body.classList.contains('dark-mode');
-    themeToggle.innerHTML = `<i class="fas ${isDarkMode ? 'fa-sun' : 'fa-moon'}"></i> <span>Switch to ${isDarkMode ? 'Light' : 'Dark'} Mode</span>`;
-    localStorage.setItem('darkMode', isDarkMode);
-}
-
-function saveTodoList() {
-    localStorage.setItem('todoList', JSON.stringify(todoList));
-}
-
-function showNotification(message, type) {
-    // Implementation of notification system (could use a library or custom solution)
-    alert(message); // Placeholder for now
-}
-
-// Initialize theme based on user's preference
-if (localStorage.getItem('darkMode') === 'true') {
-    document.body.classList.add('dark-mode');
-}
+    document.getElementById('task-description').focus
