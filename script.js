@@ -102,11 +102,11 @@ function updateTodo(index) {
   // Update local storage
   localStorage.setItem('todoList', JSON.stringify(todoList));
 
-    // Clear the input fields
-    inputNameElement.value = '';
+  // Clear the input fields
+  inputNameElement.value = '';
 
-    // Set default date and time
-    setDefaultDateTime();
+  // Set default date and time
+  setDefaultDateTime();
 
   // Change the update button back to an add button
   const addButton = document.querySelector('.js-add-button');
