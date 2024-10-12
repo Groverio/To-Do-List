@@ -81,16 +81,37 @@ function updateTodoList() {
   for (let i = 0; i < todoList.length; i++) {
     todoListhtml += `<div class="small-container">${todoList[i].name}</div>
                          <div class="small-container">${todoList[i].date} ${todoList[i].time}</div>
-                         
-                         <button class="js-delete-button" onclick="deleteTodo(${i});">
+                         <button class="js-delete-button" data-index="${i}">
                             <img src="assets/delete-icon.png" alt="Delete" width="16" height="16">delete
                          </button>
-                         <button class="js-edit-button" onclick="editTodo(${i});">
+                         <button class="js-edit-button" data-index="${i}">
                             <img src="assets/edit-icon.png" alt="Edit" width="16" height="16">edit
                          </button>
-                         <button class="tick-icon" onclick="deleteTodo(${i},'Task completed');"></button>`;
+                         <button class="tick-icon" data-index="${i}"></button>`;
   }
+
   addElement.innerHTML = todoListhtml;
+
+  document.querySelectorAll('.tick-icon').forEach((button) => {
+    button.addEventListener('click', function () {
+      const index = button.getAttribute('data-index');
+      deleteTodo(index, 'Task completed');
+    });
+  });
+
+  document.querySelectorAll('.js-delete-button').forEach((button) => {
+    button.addEventListener('click', function () {
+      const index = button.getAttribute('data-index');
+      deleteTodo(index);
+    });
+  });
+
+  document.querySelectorAll('.js-edit-button').forEach((button) => {
+    button.addEventListener('click', function () {
+      const index = button.getAttribute('data-index');
+      editTodo(index);
+    });
+  });
 }
 
 function updateTodo(index) {
@@ -118,8 +139,9 @@ function updateTodo(index) {
 
   // Clear the input fields
   inputNameElement.value = '';
-  inputDateElement.value = '';
-  inputTimeElement.value = '';
+
+  // Set default date and time
+  setDefaultDateTime();
 
   // Change the update button back to an add button
   const addButton = document.querySelector('.js-add-button');
