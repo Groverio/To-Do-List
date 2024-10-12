@@ -134,7 +134,7 @@ h1 {
 
 footer {
   background-color: transparent;
-  color: white;
+  color: black;
   text-align: center;
   padding: 20px 0;
   position: fixed;
@@ -143,6 +143,7 @@ footer {
   font-size: 1rem;
   display: flex;
   justify-content: space-around;
+  z-index: -1;
 }
 
 footer p {
