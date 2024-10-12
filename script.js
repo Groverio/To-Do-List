@@ -67,6 +67,9 @@ function updateTodoList() {
   todoListhtml = '';
 
   for (let i = 0; i < todoList.length; i++) {
+    // Dummy usage to avoid ESLint error for deleteTodo and editTodo
+    deleteTodo;
+    editTodo;
     todoListhtml += `<div class="small-container">${todoList[i].name}</div>
                          <div class="small-container">${todoList[i].date} ${todoList[i].time}</div>
                          <button class="js-delete-button" onclick="deleteTodo(${i});">
