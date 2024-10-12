@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 body {
+
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
     padding: 0;
@@ -17,11 +18,13 @@ h1 {
     font-size:3rem;
     margin-bottom: 20px;
     font-family: Poppins;
+
 }
 
 .js-name-input,
 .js-date-input,
 .js-time-input {
+
     font-size: 15px;
     padding: 10px 15px;
     border: 1px solid #ccc;
@@ -30,10 +33,11 @@ h1 {
     color: #333;
     outline: none;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+
 }
 
-
 .js-add-grid {
+
     display: flex;
     gap: 5px;
     height: 5vh;
@@ -64,10 +68,12 @@ h1 {
 .js-add-button:hover {
     background-color: white;
     color:orangered;
+
 }
 
 .js-delete-button,
 .js-edit-button {
+
     border: none;
     font-size: 15px;
     font-weight: bold;
@@ -80,32 +86,38 @@ h1 {
     align-items: center;
     justify-content: center;
     transition: background-color 0.3s ease;
+
 }
 
 .js-delete-button {
-    background-color: red;
-    color: white;
+  background-color: red;
+  color: white;
 }
 
 .js-delete-button:hover {
+
     background-color: white;
     color:red;
+
 }
 
 .js-edit-button {
-    background-color: skyblue;
-    color: white;
+  background-color: skyblue;
+  color: white;
 }
 
 .js-edit-button:hover {
+
     background-color: white;
     color:blue;
+
 }
 
 .js-add-html{
   display: flex;
 }
 .small-container {
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -117,16 +129,18 @@ h1 {
     text-align: center;
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
 }
 
 /* Icons */
 .js-add-button img,
 .js-delete-button img,
 .js-edit-button img {
-    margin-right: 5px;
+  margin-right: 5px;
 }
 
 footer {
+
     background-color: white; 
     color: orangered; 
     text-align: center; 
@@ -143,3 +157,4 @@ footer {
   
   
   
+
