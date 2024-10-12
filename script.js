@@ -123,3 +123,7 @@ const DarkModeOptions = {
 //DarkMode function
 const darkmode = new Darkmode(DarkModeOptions);
 darkmode.showWidget();
+
+// Set focus on the name input field
+const inputNameElement = document.querySelector('.js-name-input');
+inputNameElement.focus();

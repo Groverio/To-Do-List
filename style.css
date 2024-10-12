@@ -8,17 +8,17 @@ body {
     height: 100vh;
     background: url('assets/background.png') no-repeat center center fixed;
     background-size: cover;
-}
-
-h1 {
-    text-align: center;
-    color: #000000;
-    margin-bottom: 20px;
-}
-
-.js-name-input,
-.js-date-input,
-.js-time-input {
+  }
+  
+  h1 {
+      text-align: center;
+      color: #000000;
+      margin-bottom: 20px;
+  }
+  
+  .js-name-input,
+  .js-date-input,
+  .js-time-input {
     font-size: 15px;
     padding: 10px 15px;
     border: 1px solid #ccc;
@@ -27,25 +27,24 @@ h1 {
     color: #333;
     outline: none;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-}
-
-
-.js-add-grid {
-    display: grid;
-    grid-template-columns: 200px 140px 140px 100px;
-    column-gap: 10px;
-    row-gap: 10px;
-    align-content: center;
-    background-color: rgba(255, 255, 255, 0.9);
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    width: 100%;
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.js-add-button {
+  }
+  
+  .js-add-grid {
+      display: grid;
+      grid-template-columns: 200px 140px 140px 100px;
+      column-gap: 10px;
+      row-gap: 10px;
+      align-content: center;
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto;
+  }
+  
+  .js-add-button {
     background-color: green;
     color: white;
     border: none;
@@ -58,14 +57,14 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.js-add-button:hover {
+  }
+  
+  .js-add-button:hover {
     background-color: darkgreen;
-}
-
-.js-delete-button,
-.js-edit-button {
+  }
+  
+  .js-delete-button,
+  .js-edit-button {
     border: none;
     font-size: 15px;
     font-weight: bold;
@@ -77,27 +76,27 @@ h1 {
     align-items: center;
     justify-content: center;
     transition: background-color 0.3s ease;
-}
-
-.js-delete-button {
+  }
+  
+  .js-delete-button {
     background-color: red;
     color: white;
-}
-
-.js-delete-button:hover {
+  }
+  
+  .js-delete-button:hover {
     background-color: darkred;
-}
-
-.js-edit-button {
-    background-color: lightgreen;
-    color: black;
-}
-
-.js-edit-button:hover {
+  }
+  
+  .js-edit-button {
+      background-color: lightgreen;
+      color: black;
+  }
+  
+  .js-edit-button:hover {
     background-color: deepskyblue;
-}
-
-.small-container {
+  }
+  
+  .small-container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -109,11 +108,27 @@ h1 {
     text-align: center;
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-/* Icons */
-.js-add-button img,
-.js-delete-button img,
-.js-edit-button img {
+  }
+  
+  /* Icons */
+  .js-add-button img,
+  .js-delete-button img,
+  .js-edit-button img {
     margin-right: 5px;
-}
+  }
+  
+  footer {
+    background-color: #fbd0a5;
+    color: #2a2929;
+    text-align: center;
+    padding: 20px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    font-size: 1rem;
+  }
+  
+  footer p {
+    margin: 0;
+  }
+  

@@ -1,27 +1,33 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Todo-List</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <div class="container">
-        <h1>Todo-List</h1>
-        <div class="js-add-grid">
-            <input type="text" placeholder="Share Your Thoughts" class="js-name-input">
-            <input type="date" class="js-date-input">
-            <input type="time" class="js-time-input">
-            <button class="js-add-button" onclick="addTodo();">
-                <img src="assets/add-icon.png" alt="Add" width="16" height="16"> Add
-            </button>
-        </div>
-        <div class="js-add-html js-add-grid"></div>
+      <h1>Todo-List</h1>
 
+      <div class="js-add-grid">
+        <input
+          type="text"
+          placeholder="Share Your Thoughts"
+          class="js-name-input"
+        />
+        <input type="date" class="js-date-input" />
+        <input type="time" class="js-time-input" />
+        <button class="js-add-button" onclick="addTodo();">
+          <img src="assets/add-icon.png" alt="Add" width="16" height="16" /> Add
+        </button>
+      </div>
+      <div class="js-add-html js-add-grid"></div>
     </div>
+    <footer>
+      <p>&copy; 2024 Made with &#10084; by Ansh Grover. All rights reserved.</p>
+    </footer>
     <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
-
