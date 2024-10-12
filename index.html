@@ -20,20 +20,9 @@
       referrerpolicy="no-referrer"
     />
   </head>
-
   <body>
     <div class="container">
-      <section class="subtitle">
-        <span class="letter-1-0">T</span>
-        <span class="letter-1-1">o</span>
-        <span class="letter-1-2">d</span>
-        <span class="letter-1-3">o</span>
-        <span class="letter-1-4">-</span>
-        <span class="letter-1-5">L</span>
-        <span class="letter-1-6">i</span>
-        <span class="letter-1-7">s</span>
-        <span class="letter-1-8">t</span>
-      </section>
+      <h1 class="subtitle">Todo-List</h1>
 
       <div class="js-add-grid">
         <input
@@ -43,13 +32,44 @@
         />
         <input type="date" class="js-date-input" />
         <input type="time" class="js-time-input" />
-        <button class="js-add-button" onclick="addTodo();">
-          <!-- <img src="assets/add-icon.png" alt="Add" width="16" height="16" /> Add -->
-          <i class="fa-solid fa-arrow-right"></i>
+        <select class="js-category-input">
+          <option value="">Select Category</option>
+          <option value="work">Work</option>
+          <option value="personal">Personal</option>
+          <option value="shopping">Shopping</option>
+          <option value="other">Other</option>
+        </select>
+        <select class="js-priority-input">
+          <option value="">Select Priority</option>
+          <option value="high">High</option>
+          <option value="medium">Medium</option>
+          <option value="low">Low</option>
+        </select>
+        <button class="js-add-button">
+          <i class="fa-solid fa-add"></i>
         </button>
       </div>
+
+      <!-- Add this new div for sorting buttons -->
+      <div class="sort-buttons">
+        <div class="sort-filter-container">
+          <button class="sort-button" onclick="sortTodos('category')">
+            Sort by Category
+          </button>
+          <button class="sort-button" onclick="sortTodos('priority')">
+            Sort by Priority
+          </button>
+          <select class="js-filter-input" onchange="filterTodos()">
+            <option value="all">All</option>
+            <option value="pending">Pending</option>
+            <option value="completed">Completed</option>
+          </select>
+        </div>
+      </div>
+
       <div class="js-add-html js-add-grid"></div>
     </div>
+
     <footer class="footer">
       <p class="ft-note">
         &copy; 2024 Made with &#10084; by Ansh Grover. All rights reserved.
@@ -64,9 +84,7 @@
         <a class="insta" href="https://x.com/i/flow/login"
           ><i class="fa-brands fa-x-twitter"></i
         ></a>
-        <a
-          class="insta"
-          href="https://www.google.com/search?gs_ssp=eJzj4tLP1TcoNzC2MDBVYDRgdGDw4sjJzMtOTcnMAwBRaga5&q=linkedin&oq=link&gs_lcrp=EgZjaHJvbWUqEggCEC4YJxjHARjRAxiABBiKBTIOCAAQRRgnGDsYgAQYigUyEQgBEEUYORhDGLEDGIAEGIoFMhIIAhAuGCcYxwEY0QMYgAQYigUyBggDEEUYQDIPCAQQABgUGIcCGLEDGIAEMgoIBRAAGLEDGIAEMgoIBhAAGLEDGIAEMgwIBxAAGEMYgAQYigXSAQkzNDk1ajBqMTWoAgiwAgE&sourceid=chrome&ie=UTF-8"
+        <a class="insta" href="https://www.linkedin.com/"
           ><i class="fa-brands fa-linkedin-in"></i
         ></a>
         <a class="insta" href="https://github.com/Groverio"
