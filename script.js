@@ -190,6 +190,7 @@ function setDefaultDateTime() {
   const time = now.toTimeString().split(' ')[0].slice(0, 5);
 
   inputDateElement.value = date;
+  inputDateElement.min = date; // Set the min attribute to today's date
   inputTimeElement.value = time;
 }
 
