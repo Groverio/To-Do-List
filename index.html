@@ -7,15 +7,21 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="container">
-      <h1>To-Do List</h1>
+    <header class="header">
+      <nav>
+        <h1>To-Do List</h1>
+        <button class="js-theme-toggle">🌙 Switch to Dark Mode</button>
+      </nav>
+    </header>
 
+    <div class="container">
       <div class="js-add-grid">
-        <input
-          type="text"
-          placeholder="Task Description"
-          class="js-name-input"
-        />
+        <input type="text" placeholder="Task Description" class="js-name-input" />
+        <select class="js-priority-input">
+          <option value="High">High Priority</option>
+          <option value="Medium">Medium Priority</option>
+          <option value="Low">Low Priority</option>
+        </select>
         <input type="date" class="js-date-input" />
         <input type="time" class="js-time-input" />
         <button class="js-add-button" onclick="addTodo();">
@@ -24,6 +30,7 @@
       </div>
       <div class="js-add-html js-add-grid"></div>
     </div>
+
     <footer>
       <p>&copy; 2024 Made with &#10084; by Ansh Grover. All rights reserved.</p>
     </footer>
