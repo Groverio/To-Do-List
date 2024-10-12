@@ -130,27 +130,25 @@ function updateTodoList() {
   todoListhtml = '';
 
   for (let i = 0; i < filteredTodos.length; i++) {
-const todo = filteredTodos[i];
-todoListhtml += `
-  <div class="small-container ${todo.completed ? 'completed' : ''}">
+    const todo = filteredTodos[i];
+    todoListhtml += `
+      <div class="small-container ${todo.completed ? 'completed' : ''}">
         <input type="checkbox" class="js-complete-checkbox" data-index="${i}" ${todo.completed ? 'checked' : ''} onchange="toggleComplete(${todoList.indexOf(todo)})">
-    <div class="task-info">
-      <span class="task-name">${todo.name}</span>
-      <span class="category-tag">${todo.category}</span>
-      <span class="priority-tag priority-${todo.priority}">${todo.priority}</span>
-    </div>
-    <div class="small-container">${todo.date}</div>
-    <div class="small-container">${todo.time}</div>
-    <button class="js-delete-button" data-index="${i}">
-      <img src="assets/delete-icon.png" alt="Delete" width="16" height="16">
-      delete
-    </button>
-    <button class="js-edit-button" data-index="${i}">
-      <img src="assets/edit-icon.png" alt="Edit" width="16" height="16">
-      edit
-    </button>
-  </div>`;
-
+        <div class="task-info">
+          <span class="task-name">${todo.name}</span>
+          <span class="category-tag">${todo.category}</span>
+          <span class="priority-tag priority-${todo.priority}">${todo.priority}</span>
+        </div>
+      </div>
+      <div class="small-container">${todo.date}</div>
+      <div class="small-container">${todo.time}</div>
+      <button class="js-delete-button" data-index="${i}">
+        <i class="fa-solid fa-trash"></i>
+      </button>
+      <button class="js-edit-button" data-index="${i}">
+        <i class="fa-solid fa-pen"></i>
+      </button>`;
+  }
   addElement.innerHTML = todoListhtml;
 
   // Add event listeners for delete and edit buttons
@@ -174,8 +172,8 @@ function setDefaultDateTime() {
   const inputTimeElement = document.querySelector('.js-time-input');
 
   const now = new Date();
-  const date = now.toISOString().split('T')[0]; // YYYY-MM-DD format
-  const time = now.toTimeString().split(' ')[0].slice(0, 5); // HH:MM format
+  const date = now.toISOString().split('T')[0];
+  const time = now.toTimeString().split(' ')[0].slice(0, 5);
 
   inputDateElement.value = date;
   inputTimeElement.value = time;
@@ -200,8 +198,8 @@ function filterTodos() {
 
 // eslint-disable-next-line no-unused-vars
 function toggleComplete(index) {
-  todoList[index].completed = !todoList[index].completed; // Toggle completed state
-  localStorage.setItem('todoList', JSON.stringify(todoList)); // Update localStorage
+  todoList[index].completed = !todoList[index].completed;
+  localStorage.setItem('todoList', JSON.stringify(todoList));
   updateTodoList();
 }
 
