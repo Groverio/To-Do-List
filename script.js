@@ -53,11 +53,18 @@ function editTodo(index) {
 }
 
 function updateTodoList() {
-    const addElement = document.querySelector('.js-add-html');
-    todoListhtml = '';
+    // Sort todoList by date and time before rendering
+    todoList.sort((a, b) => {
+    const dateA = new Date(a.date + " " + a.time);
+    const dateB = new Date(b.date + " " + b.time);
+    return dateA - dateB; // Sort by ascending date and time
+    });
+
+    const addElement = document.querySelector(".js-add-html");
+    todoListhtml = "";
 
     for (let i = 0; i < todoList.length; i++) {
-        todoListhtml += `<div class="small-container">${todoList[i].name}</div>
+    todoListhtml += `<div class="small-container">${todoList[i].name}</div>
                          <div class="small-container">${todoList[i].date} ${todoList[i].time}</div>
                          <button class="js-delete-button" onclick="deleteTodo(${i});">
                             <img src="assets/delete-icon.png" alt="Delete" width="16" height="16">delete
@@ -68,6 +75,7 @@ function updateTodoList() {
     }
     addElement.innerHTML = todoListhtml;
 }
+
 
 function updateTodo(index) {
     const inputNameElement = document.querySelector('.js-name-input');
