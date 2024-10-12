@@ -28,13 +28,14 @@ function addTodo() {
   updateTodoList();
 }
 
+// eslint-disable-next-line no-unused-vars
 function deleteTodo(index) {
   // Remove the specific todo from the list
   todoList.splice(index, 1);
   localStorage.setItem('todoList', JSON.stringify(todoList));
   updateTodoList();
 }
-
+// eslint-disable-next-line no-unused-vars
 function editTodo(index) {
   let inputNameElement = document.querySelector('.js-name-input');
   let inputDateElement = document.querySelector('.js-date-input');
