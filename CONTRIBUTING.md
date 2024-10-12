@@ -14,4 +14,3 @@ Once you've forked the repository, clone it to your local machine.
 
 ```bash
 git clone https://github.com/YOUR-USERNAME/To-Do-List.git
-```
