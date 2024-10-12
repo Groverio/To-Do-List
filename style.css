@@ -297,11 +297,11 @@ Animating title
 }
 
 .js-add-html::-webkit-scrollbar-thumb {
-  background-color: none;
+  background-color: rgb(136, 132, 132);
   border-radius: 7px;
 }
 
 .js-add-html::-webkit-scrollbar-track {
-  background-color: none;
+  background-color: black;
   border-radius: 5px;
 }
