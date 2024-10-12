@@ -1,5 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Londrina+Outline&display=swap');
+
 body {
   font-family: Arial, Helvetica, sans-serif;
   margin: 0;
@@ -8,8 +9,6 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  /* background: url('assets/bg1.jpg') no-repeat center center fixed; */
-  /* background-size: cover; */
   background: rgb(136, 0, 255);
   background: linear-gradient(
     0deg,
@@ -19,12 +18,14 @@ body {
   );
 }
 
-h1 {
+/* Subtitle (Title) Styling */
+.subtitle {
   text-align: center;
-  font-size: 3rem;
-  font-family: Poppins;
-  color: #fff;
-  margin-bottom: 20px;
+  color: #f6ac62;
+  font-family: 'Londrina Outline', cursive;
+  font-size: 5rem;
+  padding: 8px 16px;
+  text-shadow: #000000 3px 4px 10px;
 }
 
 .js-name-input,
@@ -132,6 +133,7 @@ h1 {
   margin-right: 5px;
 }
 
+/* Footer Styling */
 footer {
   background-color: transparent;
   color: white;
@@ -169,18 +171,4 @@ footer p {
 .social-media a:hover {
   transform: scale(1.05);
   transition: all 0.25s ease-out;
-}
-
-/*
-Animating title
-*/
-
-.subtitle {
-  text-align: center;
-  color: #f6ac62;
-  font-family: 'Open sans', sans-serif;
-  font-family: cursive;
-  font-size: 5rem;
-  padding: 8px 16px;
-  text-shadow: #000000 3px 4px 10px;
 }
