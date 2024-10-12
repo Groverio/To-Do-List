@@ -3,30 +3,51 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>To-Do List</title>
+    <title>Todo-List</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div class="container">
-      <h1>To-Do List</h1>
+      <h1>Todo-List</h1>
 
       <div class="js-add-grid">
         <input
           type="text"
-          placeholder="Task Description"
+          placeholder="Share Your Thoughts"
           class="js-name-input"
         />
         <input type="date" class="js-date-input" />
         <input type="time" class="js-time-input" />
-        <button class="js-add-button" onclick="addTodo();">
+        <select class="js-category-input">
+          <option value="">Select Category</option>
+          <option value="work">Work</option>
+          <option value="personal">Personal</option>
+          <option value="shopping">Shopping</option>
+          <option value="other">Other</option>
+        </select>
+        <select class="js-priority-input">
+          <option value="">Select Priority</option>
+          <option value="high">High</option>
+          <option value="medium">Medium</option>
+          <option value="low">Low</option>
+        </select>
+        <button class="js-add-button">
           <img src="assets/add-icon.png" alt="Add" width="16" height="16" /> Add
         </button>
       </div>
-      <div class="js-add-html js-add-grid"></div>
+
+      <!-- Add this new div for sorting buttons -->
+      <div class="sort-buttons">
+        <button class="sort-button" onclick="sortTodos('category')">
+          Sort by Category
+        </button>
+        <button class="sort-button" onclick="sortTodos('priority')">
+          Sort by Priority
+        </button>
+      </div>
+
+      <div class="js-add-html"></div>
     </div>
-    <footer>
-      <p>&copy; 2024 Made with &#10084; by Ansh Grover. All rights reserved.</p>
-    </footer>
 
     <script src="script.js"></script>
   </body>
