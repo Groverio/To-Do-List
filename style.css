@@ -118,3 +118,21 @@ h1 {
 .js-edit-button img {
     margin-right: 5px;
 }
+
+footer {
+    background-color: #fbd0a5; 
+    color: #2a2929; 
+    text-align: center; 
+    padding: 20px 0; 
+    position: fixed; 
+    width: 100%; 
+    bottom: 0;
+    font-size: 1rem; 
+  }
+  
+  footer p {
+    margin: 0; 
+  }
+  
+  
+  
