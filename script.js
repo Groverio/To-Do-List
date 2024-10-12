@@ -22,6 +22,10 @@ function addTodo() {
   inputNameElement.value = "";
   inputDateElement.value = "";
   inputTimeElement.value = "";
+  inputNameElement.value = "";
+  inputDateElement.value = "";
+  inputTimeElement.value = "";
+  setDefaultDateTime();
 
   // Update the displayed list
   updateTodoList();
@@ -131,3 +135,25 @@ function updateTodo(index) {
 
 // Initialize the todo list on page load
 updateTodoList();
+
+function setDefaultDateTime() {
+  const inputDateElement = document.querySelector(".js-date-input");
+  const inputTimeElement = document.querySelector(".js-time-input");
+
+  const now = new Date();
+  const date = now.toISOString().split("T")[0]; // YYYY-MM-DD format
+  const time = now.toTimeString().split(" ")[0].slice(0, 5); // HH:MM format
+
+  inputDateElement.value = date;
+  inputTimeElement.value = time;
+}
+
+// Initialize the todo list and set default date and time on page load
+document.addEventListener("DOMContentLoaded", () => {
+  updateTodoList();
+  setDefaultDateTime();
+
+  // Set focus on the name input field
+  const inputNameElement = document.querySelector(".js-name-input");
+  inputNameElement.focus();
+});
