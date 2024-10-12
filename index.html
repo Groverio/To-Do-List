@@ -1,90 +1,128 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Advanced To-Do List</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-</head>
-<body>
+  <head>
+    <!-- Meta tags and title -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-Do List</title>
+    <!-- CSS and fonts -->
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome for icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      integrity="sha384-..."
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <!-- Header -->
     <header class="header">
-        <div class="header-content">
-            <h1><i class="fas fa-tasks"></i> Advanced To-Do List</h1>
-            <button class="js-theme-toggle" aria-label="Toggle dark mode">
-                <i class="fas fa-moon"></i> <span>Switch to Dark Mode</span>
-            </button>
-        </div>
+      <div class="header-content">
+        <h1><i class="fas fa-tasks"></i> To-Do List</h1>
+        <button class="js-theme-toggle" aria-label="Toggle dark mode">
+          <i class="fas fa-moon"></i> <span>Switch to Dark Mode</span>
+        </button>
+      </div>
     </header>
 
+    <!-- Main content -->
     <main class="container">
+      <div class="content-wrapper">
+        <!-- Add Task Section -->
         <section class="add-task-section">
-            <h2>Add New Task</h2>
-            <form id="add-task-form" class="js-add-grid">
-                <div class="form-group">
-                    <label for="task-description">Task Description</label>
-                    <input type="text" id="task-description" class="js-name-input" placeholder="Enter task description" required>
-                </div>
-                <div class="form-group">
-                    <label for="task-priority">Priority</label>
-                    <select id="task-priority" class="js-priority-input" required>
-                        <option value="">Select Priority</option>
-                        <option value="High">High Priority</option>
-                        <option value="Medium">Medium Priority</option>
-                        <option value="Low">Low Priority</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="task-date">Due Date</label>
-                    <input type="date" id="task-date" class="js-date-input" required>
-                </div>
-                <div class="form-group">
-                    <label for="task-time">Due Time</label>
-                    <input type="time" id="task-time" class="js-time-input">
-                </div>
-                <button type="submit" class="js-add-button" aria-label="Add task">
-                    <i class="fas fa-plus"></i> Add Task
-                </button>
-            </form>
+          <form id="add-task-form" class="js-add-grid">
+            <!-- Form groups -->
+            <div class="form-group">
+              <label for="task-description">Task Description</label>
+              <input
+                type="text"
+                id="task-description"
+                class="js-name-input"
+                placeholder="Enter task description"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="task-priority">Priority</label>
+              <select id="task-priority" class="js-priority-input" required>
+                <option value="">Select Priority</option>
+                <option value="High">High Priority</option>
+                <option value="Medium">Medium Priority</option>
+                <option value="Low">Low Priority</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="task-date">Due Date</label>
+              <input
+                type="date"
+                id="task-date"
+                class="js-date-input"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="task-time">Due Time</label>
+              <input type="time" id="task-time" class="js-time-input" />
+            </div>
+            <button type="submit" class="js-add-button" aria-label="Add task">
+              <i class="fas fa-plus"></i> Add Task
+            </button>
+          </form>
         </section>
 
+        <!-- Task List Section -->
         <section class="task-list-section">
-            <h2>Your Tasks</h2>
-            <div class="task-filters">
-                <button class="filter-btn active" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="active">Active</button>
-                <button class="filter-btn" data-filter="completed">Completed</button>
-            </div>
-            <ul class="task-list js-task-list"></ul>
+          <div class="task-filters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="active">Active</button>
+            <button class="filter-btn" data-filter="completed">
+              Completed
+            </button>
+          </div>
+          <ul class="task-list js-task-list"></ul>
         </section>
+      </div>
     </main>
 
+    <!-- Task Template -->
     <template id="task-template">
-        <li class="task-item" data-id="">
-            <div class="task-content">
-                <h3 class="task-title"></h3>
-                <p class="task-due-date"></p>
-                <span class="task-priority"></span>
-            </div>
-            <div class="task-actions">
-                <button class="js-complete-button" aria-label="Mark as complete">
-                    <i class="fas fa-check"></i>
-                </button>
-                <button class="js-edit-button" aria-label="Edit task">
-                    <i class="fas fa-edit"></i>
-                </button>
-                <button class="js-delete-button" aria-label="Delete task">
-                    <i class="fas fa-trash-alt"></i>
-                </button>
-            </div>
-        </li>
+      <li class="task-item" data-id="">
+        <div class="task-content">
+          <h3 class="task-title"></h3>
+          <p class="task-due-date"></p>
+          <span class="task-priority"></span>
+        </div>
+        <div class="task-actions">
+          <!-- Checkbox for completion -->
+          <input
+            type="checkbox"
+            class="js-complete-checkbox"
+            aria-label="Mark as complete"
+          />
+          <button class="js-edit-button" aria-label="Edit task">
+            <i class="fas fa-edit"></i>
+          </button>
+          <button class="js-delete-button" aria-label="Delete task">
+            <i class="fas fa-trash-alt"></i>
+          </button>
+        </div>
+      </li>
     </template>
 
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2024 Advanced To-Do List. Made with <i class="fas fa-heart"></i> by Ansh Grover. All rights reserved.</p>
+      <p>
+        &copy; 2024 To-Do List. Made with <i class="fas fa-heart"></i> by Ansh
+        Grover. All rights reserved.
+      </p>
     </footer>
 
+    <!-- JavaScript -->
     <script src="script.js"></script>
-</body>
+  </body>
 </html>

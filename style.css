@@ -8,28 +8,38 @@
   --transition-speed: 0.3s;
 }
 
+/* Base styles */
 body {
   font-family: 'Roboto', Arial, sans-serif;
   margin: 0;
   padding: 0;
   background-color: var(--background-color);
   color: var(--text-color);
-  transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+  transition:
+    background-color var(--transition-speed) ease,
+    color var(--transition-speed) ease;
   line-height: 1.6;
 }
 
+/* Header */
 .header {
-  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  background: linear-gradient(
+    135deg,
+    var(--primary-color),
+    var(--secondary-color)
+  );
   padding: 15px 30px;
   box-shadow: 0 4px 6px var(--shadow-color);
+  text-align: center;
 }
 
 .header-content {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   max-width: 1200px;
   margin: 0 auto;
+  position: relative;
 }
 
 .header h1 {
@@ -39,6 +49,7 @@ body {
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
+/* Theme toggle button */
 .js-theme-toggle {
   background-color: transparent;
   color: var(--header-text-color);
@@ -48,6 +59,8 @@ body {
   padding: 8px 16px;
   border-radius: 20px;
   transition: all var(--transition-speed) ease;
+  position: absolute;
+  right: 0;
 }
 
 .js-theme-toggle:hover {
@@ -55,20 +68,30 @@ body {
   transform: scale(1.05);
 }
 
+/* Container */
 .container {
-  max-width: 800px;
+  max-width: 1200px;
   margin: 40px auto;
   padding: 0 20px;
 }
 
-.add-task-section, .task-list-section {
+/* Content wrapper */
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Sections */
+.add-task-section,
+.task-list-section {
   background-color: white;
   border-radius: 8px;
   padding: 20px;
-  margin-bottom: 20px;
   box-shadow: 0 2px 10px var(--shadow-color);
 }
 
+/* Form styles */
 .form-group {
   margin-bottom: 15px;
 }
@@ -79,7 +102,8 @@ label {
   font-weight: bold;
 }
 
-input, select {
+input,
+select {
   width: 100%;
   padding: 10px;
   border: 1px solid #ddd;
@@ -102,6 +126,7 @@ input, select {
   background-color: var(--secondary-color);
 }
 
+/* Task filters */
 .task-filters {
   margin-bottom: 20px;
 }
@@ -121,6 +146,14 @@ input, select {
   color: white;
 }
 
+/* Task list */
+.task-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Task item */
 .task-item {
   display: flex;
   justify-content: space-between;
@@ -143,9 +176,22 @@ input, select {
   margin: 0 0 5px 0;
 }
 
-.task-due-date, .task-priority {
+.task-due-date,
+.task-priority {
   font-size: 14px;
   color: #666;
+}
+
+/* Task actions */
+.task-actions {
+  display: flex;
+  align-items: center;
+}
+
+.js-complete-checkbox {
+  margin-right: 10px;
+  transform: scale(1.2);
+  cursor: pointer;
 }
 
 .task-actions button {
@@ -157,19 +203,42 @@ input, select {
   transition: color var(--transition-speed) ease;
 }
 
-.js-complete-button:hover { color: var(--primary-color); }
-.js-edit-button:hover { color: #ffa500; }
-.js-delete-button:hover { color: #ff4136; }
+.js-edit-button:hover {
+  color: #ffa500;
+}
 
-.priority-high { border-left: 4px solid #ff4136; }
-.priority-medium { border-left: 4px solid #ffa500; }
-.priority-low { border-left: 4px solid #2ecc40; }
+.js-delete-button:hover {
+  color: #ff4136;
+}
 
+/* Priority indicators */
+.priority-high {
+  border-left: 4px solid #ff4136;
+}
+
+.priority-medium {
+  border-left: 4px solid #ffa500;
+}
+
+.priority-low {
+  border-left: 4px solid #2ecc40;
+}
+
+/* Completed task */
 .task-item.completed {
   opacity: 0.6;
   text-decoration: line-through;
 }
 
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #f0f0f0;
+  margin-top: 40px;
+}
+
+/* Dark mode */
 body.dark-mode {
   --background-color: #333;
   --text-color: #f0f0f0;
@@ -193,22 +262,31 @@ body.dark-mode .task-item {
   border-bottom-color: #555;
 }
 
-@media (max-width: 600px) {
-  .header-content {
-      flex-direction: column;
-      align-items: flex-start;
+body.dark-mode footer {
+  background-color: #222;
+  color: #f0f0f0;
+}
+
+/* Media queries */
+@media (min-width: 769px) {
+  .content-wrapper {
+    flex-direction: row;
+  }
+
+  .add-task-section,
+  .task-list-section {
+    flex: 1;
   }
 
   .js-theme-toggle {
-      margin-top: 10px;
+    position: absolute;
+    top: 15px;
+    right: 30px;
   }
+}
 
-  .task-item {
-      flex-direction: column;
-      align-items: flex-start;
-  }
-
-  .task-actions {
-      margin-top: 10px;
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1000px;
   }
 }
