@@ -28,7 +28,6 @@ function addTodo() {
     // Update the displayed list
     updateTodoList();
 }
-
 function deleteTodo(index) {
     // Remove the specific todo from the list
     todoList.splice(index, 1);
@@ -63,7 +62,6 @@ function updateTodoList() {
         addElement.appendChild(todoItem);
     });
 }
-
 function updateTodo(index) {
     const name = inputNameElement.value.trim();
     const date = inputDateElement.value;
@@ -95,7 +93,6 @@ function clearInputs() {
     inputDateElement.value = '';
     inputTimeElement.value = '';
 }
-
 // CSS for Fade-In Animation
 const style = document.createElement('style');
 style.innerHTML = `

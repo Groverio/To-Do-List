@@ -83,6 +83,9 @@ h1 {
     background-color: #005f99; /* Darker blue on hover */
     transform: scale(1.05); /* Slightly scale up */
 }
+.js-add-html {
+    width: 100%; /* Ensure the parent container takes full width */
+}
 
 .small-container {
     display: flex;
@@ -95,7 +98,12 @@ h1 {
     opacity: 0; /* Start invisible */
     transform: translateY(20px); /* Start below */
     transition: opacity 0.5s ease, transform 0.5s ease; /* Animation for appearance */
+    width: 100%; /* Make the width of the todo item 100% */
+    box-sizing: border-box; /* Include padding in width calculation */
 }
+
+
+
 
 .show {
     opacity: 1; /* Fully visible */
