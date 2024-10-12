@@ -1,5 +1,7 @@
 # To-Do-List
 
+<img width="950" alt="{C4591A30-5564-48AD-9ACC-1DAA32FA68B4}" src="https://github.com/user-attachments/assets/927a61f2-0908-4b76-98fd-7a77191b0177">
+
 A simple and interactive To-Do List application built with HTML, CSS, and JavaScript.
 
 ## Features
@@ -74,8 +76,8 @@ Let's make this project even better together! 🎉
 
 <div align="center">
 
-  <a href="https://github.com/Anshgrover23/To-Do-List">
-    <img src="https://contrib.rocks/image?repo=Anshgrover23/To-Do-List&&max=1000" />
+  <a href="https://github.com/Groverio/To-Do-List">
+    <img src="https://contrib.rocks/image?repo=Groverio/To-Do-List&&max=1000" />
   </a>
 </div>
 
