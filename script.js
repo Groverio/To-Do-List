@@ -1,189 +1,104 @@
-let todoList = JSON.parse(localStorage.getItem('todoList')) || [];
-const taskListElement = document.querySelector('.js-task-list');
-const addTaskForm = document.getElementById('add-task-form');
-const taskTemplate = document.getElementById('task-template');
+document.addEventListener('DOMContentLoaded', () => {
+    const taskList = document.querySelector('.js-task-list');
+    const taskTemplate = document.getElementById('task-template').content;
+    const addTaskForm = document.getElementById('add-task-form');
+    const themeToggleButton = document.querySelector('.js-theme-toggle');
+    const filters = document.querySelectorAll('.filter-btn');
+    
+    let tasks = [];
+    let filter = 'all';
 
-document.addEventListener('DOMContentLoaded', initializeApp);
-addTaskForm.addEventListener('submit', handleAddTask);
-document
-  .querySelector('.js-theme-toggle')
-  .addEventListener('click', toggleTheme);
-document
-  .querySelector('.task-filters')
-  .addEventListener('click', handleFilterClick);
+    function renderTasks() {
+        taskList.innerHTML = '';
+        const filteredTasks = tasks.filter(task => {
+            if (filter === 'all') return true;
+            if (filter === 'active') return !task.completed;
+            if (filter === 'completed') return task.completed;
+        });
 
-function initializeApp() {
-  renderTasks();
-  setDefaultDateTime();
-  document.getElementById('task-description').focus();
-  if (localStorage.getItem('darkMode') === 'true') {
-    document.body.classList.add('dark-mode');
-    updateThemeToggleButton();
-  }
-}
+        filteredTasks.forEach(task => {
+            const clone = taskTemplate.cloneNode(true);
+            const taskItem = clone.querySelector('.task-item');
+            const taskTitle = clone.querySelector('.task-title');
+            const taskDueDate = clone.querySelector('.task-due-date');
+            const taskPriority = clone.querySelector('.task-priority');
+            const taskCheckbox = clone.querySelector('.js-complete-checkbox');
+            const editButton = clone.querySelector('.js-edit-button');
+            const deleteButton = clone.querySelector('.js-delete-button');
 
-function handleAddTask(event) {
-  event.preventDefault();
-  const taskData = getTaskDataFromForm();
-  if (validateTaskData(taskData)) {
-    addTask(taskData);
-    resetForm();
-    renderTasks();
-  }
-}
+            taskItem.dataset.id = task.id;
+            taskTitle.textContent = task.description;
+            taskDueDate.textContent = `Due: ${task.dueDate} ${task.dueTime || ''}`;
+            taskPriority.textContent = task.priority;
+            taskItem.classList.add(`priority-${task.priority.toLowerCase()}`);
 
-function getTaskDataFromForm() {
-  return {
-    name: document.getElementById('task-description').value,
-    priority: document.getElementById('task-priority').value,
-    date: document.getElementById('task-date').value,
-    time: document.getElementById('task-time').value,
-    completed: false,
-  };
-}
+            taskCheckbox.checked = task.completed;
+            if (task.completed) {
+                taskItem.classList.add('completed');
+            }
 
-function validateTaskData(taskData) {
-  if (!taskData.name || !taskData.priority || !taskData.date) {
-    alert('Please fill in all required fields.');
-    return false;
-  }
-  return true;
-}
+            taskCheckbox.addEventListener('click', () => toggleTaskCompletion(task.id));
+            editButton.addEventListener('click', () => editTask(task.id));
+            deleteButton.addEventListener('click', () => deleteTask(task.id));
 
-function addTask(taskData) {
-  todoList.push(taskData);
-  saveTodoList();
-  alert('Task added successfully!');
-}
-
-function renderTasks() {
-  sortTasks();
-  taskListElement.innerHTML = '';
-  const currentFilter =
-    document.querySelector('.filter-btn.active').dataset.filter;
-
-  todoList.forEach((task, index) => {
-    if (shouldRenderTask(task, currentFilter)) {
-      const taskElement = createTaskElement(task, index);
-      taskListElement.appendChild(taskElement);
+            taskList.appendChild(clone);
+        });
     }
-  });
-}
 
-function shouldRenderTask(task, filter) {
-  if (filter === 'all') return true;
-  if (filter === 'active') return !task.completed;
-  if (filter === 'completed') return task.completed;
-  return true;
-}
+    function toggleTaskCompletion(id) {
+        const task = tasks.find(task => task.id === id);
+        task.completed = !task.completed;
+        renderTasks();
+    }
 
-function createTaskElement(task, index) {
-  const taskElement = document
-    .importNode(taskTemplate.content, true)
-    .querySelector('.task-item');
-  taskElement.dataset.id = index;
-  taskElement.classList.toggle('completed', task.completed);
-  taskElement.classList.add(getPriorityClass(task.priority));
+    function deleteTask(id) {
+        tasks = tasks.filter(task => task.id !== id);
+        renderTasks();
+    }
 
-  taskElement.querySelector('.task-title').textContent = task.name;
-  taskElement.querySelector('.task-due-date').textContent =
-    `Due: ${task.date} ${task.time || ''}`;
-  taskElement.querySelector('.task-priority').textContent = task.priority;
+    function editTask(id) {
+        const task = tasks.find(task => task.id === id);
+        document.querySelector('.js-name-input').value = task.description;
+        document.querySelector('.js-priority-input').value = task.priority;
+        document.querySelector('.js-date-input').value = task.dueDate;
+        document.querySelector('.js-time-input').value = task.dueTime;
+        deleteTask(id);
+    }
 
-  addTaskEventListeners(taskElement, index);
-  return taskElement;
-}
+    function handleAddTask(e) {
+        e.preventDefault();
+        const description = document.querySelector('.js-name-input').value;
+        const priority = document.querySelector('.js-priority-input').value;
+        const dueDate = document.querySelector('.js-date-input').value;
+        const dueTime = document.querySelector('.js-time-input').value;
 
-function addTaskEventListeners(taskElement, index) {
-  const checkbox = taskElement.querySelector('.js-complete-checkbox');
-  checkbox.checked = todoList[index].completed;
-  checkbox.addEventListener('change', () => toggleTaskComplete(index));
+        const newTask = {
+            id: Date.now(),
+            description,
+            priority,
+            dueDate,
+            dueTime,
+            completed: false
+        };
 
-  taskElement
-    .querySelector('.js-edit-button')
-    .addEventListener('click', () => editTask(index));
-  taskElement
-    .querySelector('.js-delete-button')
-    .addEventListener('click', () => deleteTask(index));
-}
+        tasks.push(newTask);
+        renderTasks();
+        addTaskForm.reset();
+    }
 
-function toggleTaskComplete(index) {
-  todoList[index].completed = !todoList[index].completed;
-  saveTodoList();
-  renderTasks();
-}
+    filters.forEach(btn => {
+        btn.addEventListener('click', () => {
+            filters.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            filter = btn.dataset.filter;
+            renderTasks();
+        });
+    });
 
-function editTask(index) {
-  const task = todoList[index];
-  document.getElementById('task-description').value = task.name;
-  document.getElementById('task-priority').value = task.priority;
-  document.getElementById('task-date').value = task.date;
-  document.getElementById('task-time').value = task.time || '';
+    themeToggleButton.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+    });
 
-  // Remove the old task
-  todoList.splice(index, 1);
-  saveTodoList();
-  renderTasks();
-}
-
-function deleteTask(index) {
-  if (confirm('Are you sure you want to delete this task?')) {
-    todoList.splice(index, 1);
-    saveTodoList();
+    addTaskForm.addEventListener('submit', handleAddTask);
     renderTasks();
-  }
-}
-
-function saveTodoList() {
-  localStorage.setItem('todoList', JSON.stringify(todoList));
-}
-
-function setDefaultDateTime() {
-  const today = new Date().toISOString().split('T')[0];
-  document.getElementById('task-date').value = today;
-}
-
-function sortTasks() {
-  todoList.sort((a, b) => new Date(a.date) - new Date(b.date));
-}
-
-function getPriorityClass(priority) {
-  if (priority === 'High') return 'priority-high';
-  if (priority === 'Medium') return 'priority-medium';
-  if (priority === 'Low') return 'priority-low';
-  return '';
-}
-
-function handleFilterClick(event) {
-  if (event.target.classList.contains('filter-btn')) {
-    document
-      .querySelectorAll('.filter-btn')
-      .forEach((btn) => btn.classList.remove('active'));
-    event.target.classList.add('active');
-    renderTasks();
-  }
-}
-
-function toggleTheme() {
-  document.body.classList.toggle('dark-mode');
-  const darkMode = document.body.classList.contains('dark-mode');
-  localStorage.setItem('darkMode', darkMode);
-  updateThemeToggleButton();
-}
-
-function updateThemeToggleButton() {
-  const themeToggleButton = document.querySelector('.js-theme-toggle');
-  if (document.body.classList.contains('dark-mode')) {
-    themeToggleButton.innerHTML =
-      '<i class="fas fa-sun"></i> <span>Switch to Light Mode</span>';
-  } else {
-    themeToggleButton.innerHTML =
-      '<i class="fas fa-moon"></i> <span>Switch to Dark Mode</span>';
-  }
-}
-
-function resetForm() {
-  addTaskForm.reset();
-  setDefaultDateTime();
-  document.getElementById('task-description').focus();
-}
+});
