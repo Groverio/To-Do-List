@@ -211,9 +211,20 @@ function filterTodos() {
   updateTodoList();
 }
 
+function successNotification() {
+  const success = document.getElementById('js-success-notification');
+  success.style.display = 'flex';
+  setTimeout(() => {
+    success.style.display = 'none';
+  }, 4000);
+}
+
 // eslint-disable-next-line no-unused-vars
 function toggleComplete(index) {
   todoList[index].completed = !todoList[index].completed;
+  if (todoList[index].completed) {
+    successNotification();
+  }
   localStorage.setItem('todoList', JSON.stringify(todoList));
   updateTodoList();
 }
