@@ -10,14 +10,6 @@ let editIndex = null;
 
 let filterMethod = 'all';
 
-// Add icon - for add action
-const addIcon = document.createElement('i');
-addIcon.classList.add('fa-solid', 'fa-add');
-
-// Check icon - for update action
-const checkIcon = document.createElement('i');
-checkIcon.classList.add('fa-solid', 'fa-check');
-
 // Display the remaining characters count out of 120
 document.querySelector('.js-name-input').addEventListener('input', (e) => {
   let input = e.target.value;
@@ -25,22 +17,6 @@ document.querySelector('.js-name-input').addEventListener('input', (e) => {
     alert('max character limits exceeded');
   }
 });
-
-function clearInputs() {
-  const inputNameElement = document.querySelector('.js-name-input');
-  const inputDateElement = document.querySelector('.js-date-input');
-  const inputTimeElement = document.querySelector('.js-time-input');
-  const inputCategoryElement = document.querySelector('.js-category-input');
-  const inputPriorityElement = document.querySelector('.js-priority-input');
-
-  // Clear the inputs
-  inputNameElement.value = '';
-  inputDateElement.value = '';
-  inputTimeElement.value = '';
-  inputCategoryElement.value = '';
-  inputPriorityElement.value = '';
-  setDefaultDateTime();
-}
 
 function addTodo() {
   const inputNameElement = document.querySelector('.js-name-input');
@@ -78,13 +54,7 @@ function addTodo() {
 
     // Change the button back to 'Add'
     const addButton = document.querySelector('.js-add-button');
-    addButton.innerHTML = '';
-    addButton.title = 'Add';
-    addButton.appendChild(addIcon);
-
-    // Hide cancel button
-    const cancelEditBtn = document.querySelector('.js-cancel-button');
-    cancelEditBtn.style.display = 'none';
+    addButton.innerHTML = 'Add';
   } else {
     // Add a new todo
     todoList.push({ name, date, time, category, priority, completed: false }); // Ensure completed is set
@@ -93,8 +63,13 @@ function addTodo() {
   // Save to localStorage
   localStorage.setItem('todoList', JSON.stringify(todoList));
 
-  // Reset the inputs
-  clearInputs();
+  // Clear the inputs
+  inputNameElement.value = '';
+  inputDateElement.value = '';
+  inputTimeElement.value = '';
+  inputCategoryElement.value = '';
+  inputPriorityElement.value = '';
+  setDefaultDateTime();
 
   // Update the displayed list
   updateTodoList();
@@ -125,33 +100,9 @@ function editTodo(index) {
   isEditing = true;
   editIndex = index;
 
-  // Enable cancel option
-  const cancelEditBtn = document.querySelector('.js-cancel-button');
-  cancelEditBtn.style.display = 'block';
-
   // Change the add button to 'Update'
   const addButton = document.querySelector('.js-add-button');
-  addButton.innerHTML = '';
-  addButton.title = 'Update';
-  addButton.appendChild(checkIcon);
-}
-
-function cancelEditTodo() {
-  isEditing = false; // Reset edit mode
-  editIndex = null;
-
-  // Reset the inputs
-  clearInputs();
-
-  // Hide edit cancel action button on page load
-  const cancelEditBtn = document.querySelector('.js-cancel-button');
-  cancelEditBtn.style.display = 'none';
-
-  // Change the button back to 'Add'
-  const addButton = document.querySelector('.js-add-button');
-  addButton.innerHTML = '';
-  addButton.title = 'Add';
-  addButton.appendChild(addIcon);
+  addButton.innerHTML = 'Update';
 }
 
 function updateTodoList() {
@@ -169,7 +120,7 @@ function updateTodoList() {
     if (currentSortMethod === 'date') {
       const dateA = new Date(a.date + ' ' + a.time);
       const dateB = new Date(b.date + ' ' + b.time);
-      return dateA - dateB;
+      return currentSortOrder === 'asc'? dateA - dateB : dateB - dateA;
     } else if (currentSortMethod === 'category') {
       return currentCategorySortOrder === 'asc'
         ? a.category.localeCompare(b.category)
@@ -199,10 +150,10 @@ function updateTodoList() {
       <div class="small-container">${todo.date}</div>
       <div class="small-container">${todo.time}</div>
       <button class="js-delete-button" data-index="${i}">
-      <i class="fa-solid fa-trash"></i>
+        <i class="fa-solid fa-trash"></i>
       </button>
       <button class="js-edit-button" data-index="${i}">
-      <i class="fa-solid fa-pen"></i>
+        <i class="fa-solid fa-pen"></i>
       </button>`;
   }
 
@@ -238,7 +189,7 @@ function setDefaultDateTime() {
   const date = now.toISOString().split('T')[0];
   const time = now.toTimeString().split(' ')[0].slice(0, 5);
 
-  inputDateElement.value = date;
+  inputDateElement.value =   date;
   inputDateElement.min = date; // Set the min attribute to today's date
   inputTimeElement.value = time;
 }
@@ -249,6 +200,8 @@ function sortTodos(sortBy) {
   } else if (sortBy === 'category') {
     currentCategorySortOrder =
       currentCategorySortOrder === 'asc' ? 'desc' : 'asc';
+  }else if (sortBy === 'date') {
+    currentSortOrder = currentSortOrder === 'asc' ? 'desc' : 'asc';
   }
   currentSortMethod = sortBy;
   updateTodoList();
@@ -288,15 +241,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const inputNameElement = document.querySelector('.js-name-input');
   inputNameElement.focus();
 
-  // Hide edit cancel action button on page load
-  const cancelEditBtn = document.querySelector('.js-cancel-button');
-  cancelEditBtn.style.display = 'none';
-
   // Add event listeners to buttons
   document.querySelector('.js-add-button').addEventListener('click', addTodo);
-  document
-    .querySelector('.js-cancel-button')
-    .addEventListener('click', cancelEditTodo);
 
   // Add event listeners for sorting buttons
   document
@@ -305,9 +251,16 @@ document.addEventListener('DOMContentLoaded', () => {
   document
     .querySelector('.sort-button-priority')
     .addEventListener('click', () => sortTodos('priority'));
+  document
+    .querySelector('.sort-button-date')
+    .addEventListener('click', () => sortTodos('date'));
 
   // Add event listener for filter button
   document
     .querySelector('.js-filter-input')
     .addEventListener('change', filterTodos);
+
+  document
+    .querySelector('.sort-button-date')
+    .addEventListener('click', () => sortTodos('date'));
 });
