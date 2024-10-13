@@ -255,3 +255,27 @@ document.addEventListener('DOMContentLoaded', () => {
     .querySelector('.js-filter-input')
     .addEventListener('change', filterTodos);
 });
+
+
+function updateTime() {
+  const clock = document.getElementById('time');
+  const now = new Date();
+  let hours = now.getHours();
+  let minutes = now.getMinutes();
+  let seconds = now.getSeconds();
+
+  // Add leading zeros to minutes and seconds
+  hours = hours < 10 ? '0' + hours : hours;
+  minutes = minutes < 10 ? '0' + minutes : minutes;
+  seconds = seconds < 10 ? '0' + seconds : seconds;
+
+  // Format time in HH:MM:SS format
+  const currentTime = `${hours}:${minutes}:${seconds}`;
+
+  // Update the time display
+  clock.textContent = currentTime;
+}
+
+// Call updateTime every second
+setInterval(updateTime, 1000);
+updateTime();  // Call immediately to avoid delay

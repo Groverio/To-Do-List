@@ -331,3 +331,20 @@ Animating title
   height: fit-content;
   max-height: 35vh;
 }
+
+
+.clock{
+ text-align: center;
+}
+#time {
+  font-size: 30px;
+  color: #26ec26;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.number {
+  font-size: 40px;
+  font-weight: bold;
+  transform: translate(-50%, -50%);
+  color: yellow;
+} 
