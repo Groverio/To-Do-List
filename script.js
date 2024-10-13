@@ -1,6 +1,5 @@
 let todoList = JSON.parse(localStorage.getItem('todoList')) || [];
 let todoListhtml = '';
-console.log(todoList);
 let currentSortMethod = 'date'; // Default sort method
 let currentSortOrder = 'asc'; // Default sort order for priority
 let currentCategorySortOrder = 'asc'; // Default sort order for category
@@ -26,16 +25,14 @@ function addTodo() {
   const inputPriorityElement = document.querySelector('.js-priority-input');
 
   let name = inputNameElement.value;
-  let date = inputDateElement.value;
-  let time = inputTimeElement.value;
+  let date = inputDateElement.value || getCurrentDate(); // Use the default date if not provided
+  let time = inputTimeElement.value || getCurrentTime(); // Use the default time if not provided
   let category = inputCategoryElement.value;
   let priority = inputPriorityElement.value;
 
   // Validation checks
   if (!name || !date || !time || !category || !priority) {
-    alert(
-      'Please fill in all fields: task, date, time, category, and priority.'
-    );
+    alert('Please fill in all fields: task, date, time, category, and priority.');
     return;
   }
 
@@ -48,16 +45,16 @@ function addTodo() {
       category,
       priority,
       completed: false,
-    }; // Ensure completed is set
+    };
     isEditing = false; // Reset edit mode
     editIndex = null;
 
     // Change the button back to 'Add'
     const addButton = document.querySelector('.js-add-button');
-    addButton.innerHTML = 'Add';
+    addButton.innerHTML = '<i class="fa-solid fa-add"></i>';
   } else {
     // Add a new todo
-    todoList.push({ name, date, time, category, priority, completed: false }); // Ensure completed is set
+    todoList.push({ name, date, time, category, priority, completed: false });
   }
 
   // Save to localStorage
@@ -65,21 +62,25 @@ function addTodo() {
 
   // Clear the inputs
   inputNameElement.value = '';
-  inputDateElement.value = '';
-  inputTimeElement.value = '';
+  inputDateElement.value = getCurrentDate();
+  inputTimeElement.value = getCurrentTime();
   inputCategoryElement.value = '';
   inputPriorityElement.value = '';
-  setDefaultDateTime();
-
-  // Update the displayed list
+  
+  // Update the displayed list and task count
   updateTodoList();
+  updateTaskCount();
+  showSuccessNotification();
 }
 
 function deleteTodo(index) {
   // Remove the specific todo from the list
   todoList.splice(index, 1);
   localStorage.setItem('todoList', JSON.stringify(todoList));
+
+  // Update the displayed list and task count
   updateTodoList();
+  updateTaskCount();
 }
 
 function editTodo(index) {
@@ -105,8 +106,16 @@ function editTodo(index) {
   addButton.innerHTML = 'Update';
 }
 
+function updateTaskCount() {
+  // Get the total and completed task count
+  const totalTasks = todoList.length;
+  const completedTasks = todoList.filter(todo => todo.completed).length;
+  document.getElementById('totalTasks').textContent = totalTasks;
+  document.getElementById('completedTasks').textContent = completedTasks;
+}
+
 function updateTodoList() {
-  // Sort todoList based on the current sort method
+  // Sort and filter todo list based on selected options
   let filteredTodos = todoList;
 
   // Apply filtering based on the selected filter method
@@ -150,18 +159,17 @@ function updateTodoList() {
       <div class="small-container">${todo.date}</div>
       <div class="small-container">${todo.time}</div>
       <button class="js-delete-button" data-index="${i}">
-      <i class="fa-solid fa-trash"></i>
+        <i class="fa-solid fa-trash"></i>
       </button>
       <button class="js-edit-button" data-index="${i}">
-      <i class="fa-solid fa-pen"></i>
+        <i class="fa-solid fa-pen"></i>
       </button>`;
   }
 
-  // Show or hide the task container based on the presence of tasks
   if (todoList.length === 0) {
-    addElement.style.display = 'none'; // Hide if no tasks
+    addElement.style.display = 'none';
   } else {
-    addElement.style.display = 'grid'; // Show if tasks exist
+    addElement.style.display = 'grid';
     addElement.innerHTML = todoListhtml;
   }
 
@@ -181,6 +189,13 @@ function updateTodoList() {
   });
 }
 
+function toggleComplete(index) {
+  todoList[index].completed = !todoList[index].completed;
+  localStorage.setItem('todoList', JSON.stringify(todoList));
+  updateTodoList();
+  updateTaskCount();
+}
+
 function setDefaultDateTime() {
   const inputDateElement = document.querySelector('.js-date-input');
   const inputTimeElement = document.querySelector('.js-time-input');
@@ -194,64 +209,44 @@ function setDefaultDateTime() {
   inputTimeElement.value = time;
 }
 
+function getCurrentDate() {
+  const now = new Date();
+  return now.toISOString().split('T')[0]; // Returns the date in yyyy-mm-dd format
+}
+
+function getCurrentTime() {
+  const now = new Date();
+  return now.toTimeString().split(' ')[0].slice(0, 5); // Returns the time in hh:mm format
+}
+
 function sortTodos(sortBy) {
   if (sortBy === 'priority') {
     currentSortOrder = currentSortOrder === 'asc' ? 'desc' : 'asc';
   } else if (sortBy === 'category') {
-    currentCategorySortOrder =
-      currentCategorySortOrder === 'asc' ? 'desc' : 'asc';
+    currentCategorySortOrder = currentCategorySortOrder === 'asc' ? 'desc' : 'asc';
   }
   currentSortMethod = sortBy;
   updateTodoList();
 }
 
 function filterTodos() {
-  const filterElement = document.querySelector('.js-filter-input');
-  filterMethod = filterElement.value;
+  filterMethod = document.querySelector('.js-filter-input').value;
   updateTodoList();
 }
 
-// this shows the sucessNotification for 4000ms
-function successNotification() {
-  const success = document.getElementById('js-success-notification');
-  success.style.display = 'flex';
-  setTimeout(() => {
-    success.style.display = 'none';
-  }, 4000);
+function showSuccessNotification() {
+  const notificationElement = document.getElementById('js-success-notification');
+  notificationElement.style.display = 'block';
+
+  setTimeout(function () {
+    notificationElement.style.display = 'none';
+  }, 2000);
 }
 
-// eslint-disable-next-line no-unused-vars
-function toggleComplete(index) {
-  todoList[index].completed = !todoList[index].completed;
-  if (todoList[index].completed) {
-    successNotification();
-  }
-  localStorage.setItem('todoList', JSON.stringify(todoList));
-  updateTodoList();
-}
+// Initial call to display the saved todos on page load
+updateTodoList();
+updateTaskCount();
+setDefaultDateTime();
 
-// Initialize the todo list and set default date and time on page load
-document.addEventListener('DOMContentLoaded', () => {
-  updateTodoList();
-  setDefaultDateTime();
-
-  // Set focus on the name input field
-  const inputNameElement = document.querySelector('.js-name-input');
-  inputNameElement.focus();
-
-  // Add event listeners to buttons
-  document.querySelector('.js-add-button').addEventListener('click', addTodo);
-
-  // Add event listeners for sorting buttons
-  document
-    .querySelector('.sort-button-category')
-    .addEventListener('click', () => sortTodos('category'));
-  document
-    .querySelector('.sort-button-priority')
-    .addEventListener('click', () => sortTodos('priority'));
-
-  // Add event listener for filter button
-  document
-    .querySelector('.js-filter-input')
-    .addEventListener('change', filterTodos);
-});
+// Add event listener for the add button
+document.querySelector('.js-add-button').addEventListener('click', addTodo);
