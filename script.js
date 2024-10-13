@@ -120,7 +120,7 @@ function updateTodoList() {
     if (currentSortMethod === 'date') {
       const dateA = new Date(a.date + ' ' + a.time);
       const dateB = new Date(b.date + ' ' + b.time);
-      return currentSortOrder === 'asc'? dateA - dateB : dateB - dateA;
+      return currentSortOrder === 'asc' ? dateA - dateB : dateB - dateA;
     } else if (currentSortMethod === 'category') {
       return currentCategorySortOrder === 'asc'
         ? a.category.localeCompare(b.category)
@@ -189,7 +189,7 @@ function setDefaultDateTime() {
   const date = now.toISOString().split('T')[0];
   const time = now.toTimeString().split(' ')[0].slice(0, 5);
 
-  inputDateElement.value =   date;
+  inputDateElement.value = date;
   inputDateElement.min = date; // Set the min attribute to today's date
   inputTimeElement.value = time;
 }
@@ -200,7 +200,7 @@ function sortTodos(sortBy) {
   } else if (sortBy === 'category') {
     currentCategorySortOrder =
       currentCategorySortOrder === 'asc' ? 'desc' : 'asc';
-  }else if (sortBy === 'date') {
+  } else if (sortBy === 'date') {
     currentSortOrder = currentSortOrder === 'asc' ? 'desc' : 'asc';
   }
   currentSortMethod = sortBy;
