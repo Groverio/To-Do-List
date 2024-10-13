@@ -150,10 +150,10 @@ function updateTodoList() {
       <div class="small-container">${todo.date}</div>
       <div class="small-container">${todo.time}</div>
       <button class="js-delete-button" data-index="${i}">
-        <i class="fa-solid fa-trash"></i>
+      <i class="fa-solid fa-trash"></i>
       </button>
       <button class="js-edit-button" data-index="${i}">
-        <i class="fa-solid fa-pen"></i>
+      <i class="fa-solid fa-pen"></i>
       </button>`;
   }
 

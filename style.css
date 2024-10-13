@@ -326,3 +326,8 @@ Animating title
   bottom: 10%;
   color: #d4edda;
 }
+.js-add-html-tasks {
+  border: 1px black solid;
+  height: fit-content;
+  max-height: 35vh;
+}
