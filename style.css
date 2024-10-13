@@ -71,21 +71,12 @@ h1 {
   margin-bottom: 20px;
 }
 
-.js-add-grid.edit {
-  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
-}
-
 .js-actions-wrapper {
   display: flex;
   justify-content: center;
   gap: 1rem;
   grid-row: auto;
   grid-column: auto;
-}
-
-.js-actions-wrapper.edit {
-  grid-row: 2;
-  grid-column: 1 / span 5;
 }
 
 .js-add-button,

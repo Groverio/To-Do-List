@@ -10,6 +10,14 @@ let editIndex = null;
 
 let filterMethod = 'all';
 
+// Add icon - for add action
+const addIcon = document.createElement('i');
+addIcon.classList.add('fa-solid', 'fa-add');
+
+// Check icon - for update action
+const checkIcon = document.createElement('i');
+checkIcon.classList.add('fa-solid', 'fa-check');
+
 // Display the remaining characters count out of 120
 document.querySelector('.js-name-input').addEventListener('input', (e) => {
   let input = e.target.value;
@@ -70,18 +78,13 @@ function addTodo() {
 
     // Change the button back to 'Add'
     const addButton = document.querySelector('.js-add-button');
-    addButton.innerHTML = 'Add';
+    addButton.innerHTML = '';
+    addButton.title = 'Add';
+    addButton.appendChild(addIcon);
 
     // Hide cancel button
     const cancelEditBtn = document.querySelector('.js-cancel-button');
     cancelEditBtn.style.display = 'none';
-
-    // Changes to button alignment & container
-    const addTodoSection = document.getElementById('add-todo');
-    const btnWrapper = document.querySelector('.js-actions-wrapper');
-
-    addTodoSection.classList.remove('edit');
-    btnWrapper.classList.remove('edit');
   } else {
     // Add a new todo
     todoList.push({ name, date, time, category, priority, completed: false }); // Ensure completed is set
@@ -128,14 +131,9 @@ function editTodo(index) {
 
   // Change the add button to 'Update'
   const addButton = document.querySelector('.js-add-button');
-  addButton.innerHTML = 'Update';
-
-  // Changes to button alignment & container
-  const addTodoSection = document.getElementById('add-todo');
-  const btnWrapper = document.querySelector('.js-actions-wrapper');
-
-  addTodoSection.classList.add('edit');
-  btnWrapper.classList.add('edit');
+  addButton.innerHTML = '';
+  addButton.title = 'Update';
+  addButton.appendChild(checkIcon);
 }
 
 function cancelEditTodo() {
@@ -145,19 +143,15 @@ function cancelEditTodo() {
   // Reset the inputs
   clearInputs();
 
-  // Reset button & container alignment
-  const addTodoSection = document.getElementById('add-todo');
-  const btnWrapper = document.querySelector('.js-actions-wrapper');
-  addTodoSection.classList.remove('edit');
-  btnWrapper.classList.remove('edit');
-
   // Hide edit cancel action button on page load
   const cancelEditBtn = document.querySelector('.js-cancel-button');
   cancelEditBtn.style.display = 'none';
 
   // Change the button back to 'Add'
   const addButton = document.querySelector('.js-add-button');
-  addButton.innerHTML = 'Add';
+  addButton.innerHTML = '';
+  addButton.title = 'Add';
+  addButton.appendChild(addIcon);
 }
 
 function updateTodoList() {
