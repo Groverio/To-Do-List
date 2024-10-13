@@ -61,6 +61,7 @@ h1 {
 .js-date-input:hover,
 .js-time-input:hover {
   cursor: pointer;
+  font-weight: bold;
 }
 
 .js-add-grid {
