@@ -70,7 +70,7 @@ function addTodo() {
   }
 
   // Check that time is not in past
-  if (time < inputTimeElement.min) {
+  if (time < inputTimeElement.min && date === inputDateElement.min) {
     alert('Please select a future time.');
     return;
   }
