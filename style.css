@@ -57,6 +57,13 @@ h1 {
   color: #333;
   outline: none;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.js-date-input:hover,
+.js-time-input:hover {
+  cursor: pointer;
+  font-weight: bold;
 }
 
 .js-add-grid {
@@ -337,4 +344,9 @@ Animating title
   left: 2%;
   bottom: 10%;
   color: #d4edda;
+}
+.js-add-html-tasks {
+  border: 1px black solid;
+  height: fit-content;
+  max-height: 35vh;
 }
