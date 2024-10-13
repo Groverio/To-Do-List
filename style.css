@@ -212,8 +212,50 @@ h1 {
 .js-delete-button img,
 .js-edit-button img {
   margin-right: 5px;
+}.navbar {
+  background-color: rgba(30, 30, 30, 0.8);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
 }
 
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.navbar-title {
+  color: #f6ac62;
+  font-family: 'Londrina Outline', cursive;
+  font-size: 2rem;
+}
+
+.navbar-links {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+}
+
+.navbar-links li {
+  display: inline;
+}
+
+.navbar-links a {
+  color: #f6ac62;
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.navbar-links a:hover {
+  background-color: 255, 215, 0, 0.8;
+  color: white;
+}
 /* Footer Styling */
 footer {
   background-color: transparent;
