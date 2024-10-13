@@ -211,6 +211,7 @@ function filterTodos() {
   updateTodoList();
 }
 
+// this shows the sucessNotification for 4000ms
 function successNotification() {
   const success = document.getElementById('js-success-notification');
   success.style.display = 'flex';
