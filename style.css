@@ -6,7 +6,7 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: url('assets/background.png') no-repeat center center fixed;
+  background: url('https://png.pngtree.com/thumb_back/fh260/background/20231211/pngtree-christmas-mosk-up-wish-list-on-purple-background-notebook-todo-list-image_15497116.jpg') no-repeat center center fixed;
   background-size: cover;
 }
 
@@ -22,105 +22,124 @@ h1 {
 .js-time-input {
   font-size: 15px;
   padding: 10px 15px;
-  border: 1px solid #ccc;
+  border: none;
   border-radius: 5px;
-  background-color: #fff;
-  color: #333;
+  background-color: #4a2c6c; /* Darker purple */
+  color: #fff;
   outline: none;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+}
+
+.js-name-input:focus,
+.js-date-input:focus,
+.js-time-input:focus {
+  background-color: #6a3f8f; /* Lighter purple on focus */
+  border: 2px solid #9b59b6; /* Border color change */
 }
 
 .js-add-grid {
   display: grid;
-  grid-template-columns: 200px 140px 140px 100px;
+  grid-template-columns: 1fr 1fr 1fr auto;
   column-gap: 10px;
   row-gap: 10px;
   align-content: center;
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: #222; /* Dark gray background */
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
   width: 100%;
-  max-width: 600px;
+  max-width: 700px;
   margin: 0 auto;
 }
 
 .js-add-button {
-  background-color: green;
+  background-color: #7a2c99; /* Rich purple */
   color: white;
   border: none;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: bold;
   cursor: pointer;
   border-radius: 5px;
   padding: 10px 20px;
-  transition: background-color 0.3s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .js-add-button:hover {
-  background-color: darkgreen;
-}
-
-.js-delete-button,
-.js-edit-button {
-  border: none;
-  font-size: 15px;
-  font-weight: bold;
-  cursor: pointer;
-  border-radius: 5px;
-  height: 45px;
-  padding: 0 15px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background-color 0.3s ease;
+  background-color: #9b59b6; /* Lighter purple */
+  transform: scale(1.05); /* Scale on hover */
 }
 
 .js-delete-button {
-  background-color: red;
+  background-color: #4b0082; /* Dark shade of purple */
   color: white;
+  font-family: 'Roboto', sans-serif; /* Use a fancy font for delete button */
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  text-transform: uppercase; /* Make text capital letters */
+  font-weight: bold; /* Bold text */
 }
 
 .js-delete-button:hover {
-  background-color: darkred;
+  background-color: #3e1f5d; /* Even darker purple on hover */
+  transform: scale(1.05);
 }
 
 .js-edit-button {
-  background-color: skyblue;
+  background-color: #6a0dad; /* Dark purple */
   color: white;
+  font-family: 'Roboto', sans-serif; /* Use a fancy font for edit button */
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  text-transform: uppercase; /* Make text capital letters */
+  font-weight: bold; /* Bold text */
 }
 
 .js-edit-button:hover {
-  background-color: deepskyblue;
+  background-color: #5c3f8f; /* Lighter dark purple on hover */
+  transform: scale(1.05);
 }
 
 .small-container {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  flex-direction: column;
-  border: 1px solid #ccc;
-  height: 45px;
-  padding: 0 15px;
+  padding: 15px; /* Increased padding for better spacing */
   border-radius: 5px;
-  text-align: center;
-  background-color: #fff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #fff; /* White background for task items */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  margin: 10px 0; /* Increased margin for space between tasks */
+  animation: fadeIn 0.5s; /* Animation for tasks */
+  width: 100%; /* Make it full width */
 }
 
-/* Icons */
-.js-add-button img,
+/* Animation for fade-in effect */
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
+
+/* Styles for icons */
 .js-delete-button img,
 .js-edit-button img {
-  margin-right: 5px;
+  margin-right: 5px; /* Space between icon and text */
+  font-weight: bold; /* Make icon bold */
+  transform: scale(1.2); /* Optionally increase size for emphasis */
 }
 
 footer {
-  background-color: #fbd0a5;
-  color: #2a2929;
+  background-color: #5c3f8f; /* Purple */
+  color: #fff;
   text-align: center;
   padding: 20px 0;
   position: fixed;
@@ -131,4 +150,33 @@ footer {
 
 footer p {
   margin: 0;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+  .js-add-grid {
+      grid-template-columns: 1fr; /* Stack elements in a single column */
+      padding: 15px; /* Reduce padding for smaller screens */
+  }
+
+  h1 {
+      font-size: 1.5rem; /* Smaller title size */
+  }
+
+  .small-container {
+      flex-direction: column; /* Stack items vertically */
+      align-items: flex-start; /* Align items to the start */
+  }
+
+  .js-delete-button,
+  .js-edit-button {
+      width: 100%; /* Make buttons full width */
+      margin-top: 5px; /* Add some space between buttons */
+  }
+
+  .js-name-input,
+  .js-date-input,
+  .js-time-input {
+      font-size: 14px; /* Slightly smaller input fields */
+  }
 }
