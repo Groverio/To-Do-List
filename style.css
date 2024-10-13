@@ -584,3 +584,16 @@ footer p {
     margin-bottom: 0;
   }
 }
+#js-success-notification {
+  position: absolute;
+  border-radius: 5px;
+  align-items: center;
+  justify-content: center;
+  background-color: #46a34a;
+  width: 15%;
+  min-width: 200px;
+  height: 7%;
+  left: 2%;
+  bottom: 10%;
+  color: #d4edda;
+}
