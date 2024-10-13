@@ -1,333 +1,106 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Londrina+Outline&display=swap');
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo-List</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="subtitle">Todo-List</h1>
 
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background: rgb(136, 0, 255);
-  background: linear-gradient(
-    0deg,
-    rgba(136, 0, 255, 1) 24%,
-    rgba(65, 45, 253, 1) 48%,
-    rgba(29, 29, 29, 1) 100%
-  );
-}
+      <div class="js-add-grid">
+        <input
+          type="text"
+          placeholder="Share Your Thoughts"
+          class="js-name-input"
+        />
 
-.container {
-  width: 100%;
-  max-width: 1000px;
-  padding: 20px;
-  box-sizing: border-box;
-  margin-bottom: 170px;
-}
+        <input type="date" class="js-date-input" min="" />
+        <input type="time" class="js-time-input" />
+        <select class="js-category-input">
+          <option value="">Select Category</option>
+          <option value="work">Work</option>
+          <option value="personal">Personal</option>
+          <option value="shopping">Shopping</option>
+          <option value="other">Other</option>
+        </select>
+        <select class="js-priority-input">
+          <option value="">Select Priority</option>
+          <option value="high">High</option>
+          <option value="medium">Medium</option>
+          <option value="low">Low</option>
+        </select>
+        <button class="js-add-button">
+          <i class="fa-solid fa-add"></i>
+        </button>
+        <div id="js-success-notification" style="display: none">
+          <p>Task completed 🎉</p>
+        </div>
+      </div>
 
-.subtitle {
-  text-align: center;
-  color: #f6ac62;
-  font-family: 'Londrina Outline', cursive;
-  font-size: 5rem;
-  padding: 8px 16px;
-  text-shadow: #000000 3px 4px 10px;
-}
+      <!-- Sorting and task counter section -->
+      <div class="sort-buttons">
+        <div class="sort-filter-container">
+          <button class="sort-button" onclick="sortTodos('category')">
+            Sort by Category
+          </button>
+          <button class="sort-button" onclick="sortTodos('priority')">
+            Sort by Priority
+          </button>
+          <select class="js-filter-input" onchange="filterTodos()">
+            <option value="all">All</option>
+            <option value="pending">Pending</option>
+            <option value="completed">Completed</option>
+          </select>
+          <button class="task-counter-button">Tasks: 0</button> <!-- Aligned button -->
+        </div>
+      </div>
 
-h1 {
-  text-align: center;
-  color: #fff;
-  margin-bottom: 20px;
-  text-shadow: 2px 2px 4px #000;
-}
+      <div class="test">
+        <div class="js-add-html js-add-grid js-add-html-tasks"></div>
+      </div>
+    </div>
 
-.js-name-input,
-.js-date-input,
-.js-time-input,
-.js-category-input,
-.js-priority-input,
-.js-add-button {
-  font-size: 15px;
-  padding: 10px 15px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background-color: #fff;
-  color: #333;
-  outline: none;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-  cursor: pointer;
-}
+    <footer class="footer">
+      <p>&copy; 2024 Made with &#10084; by Ansh Grover. All rights reserved.</p>
+      <div class="social-media">
+        <a class="insta" href="https://www.instagram.com/" target="_blank"
+          ><i class="fa-brands fa-instagram"></i
+        ></a>
+        <a class="insta" href="https://www.facebook.com/" target="_blank"
+          ><i class="fa-brands fa-facebook"></i
+        ></a>
+        <a class="insta" href="https://x.com/i/flow/login" target="_blank"
+          ><i class="fa-brands fa-x-twitter"></i
+        ></a>
+        <a class="insta" href="https://www.linkedin.com/" target="_blank"
+          ><i class="fa-brands fa-linkedin-in"></i
+        ></a>
+        <a class="insta" href="https://github.com/Groverio" target="_blank"
+          ><i class="fa-brands fa-github"></i
+        ></a>
+        <a class="insta" href="https://www.youtube.com/" target="_blank"
+          ><i class="fa-brands fa-youtube"></i
+        ></a>
+      </div>
+    </footer>
 
-.js-date-input:hover,
-.js-time-input:hover {
-  cursor: pointer;
-  font-weight: bold;
-}
-
-.js-add-grid {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr;
-  gap: 10px;
-  background-color: rgba(255, 255, 255, 0.9);
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px;
-}
-
-.js-add-button {
-  background-color: green;
-  color: white;
-  border: none;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.js-add-button:hover {
-  background-color: darkgreen;
-}
-
-.js-add-html {
-  display: grid;
-  grid-template-columns: 3fr 1fr 1fr 1fr 1fr;
-  gap: 10px;
-  height: 25px;
-}
-
-.small-container {
-  display: flex;
-  justify-content: flex-start;
-  align-items: end;
-  border: 1px solid #ccc;
-  padding: 10px 15px;
-  border-radius: 5px;
-  background-color: #fff;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-  min-height: 3px;
-  text-align: left;
-  height: 25px;
-}
-
-.task-info {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-}
-
-.task-name {
-  font-weight: bold;
-}
-
-.category-tag,
-.priority-tag {
-  display: inline-block;
-  padding: 2px 6px;
-  border-radius: 3px;
-  font-size: 12px;
-  font-weight: bold;
-}
-
-.category-tag {
-  background-color: #e0e0e0;
-  color: #333;
-}
-
-.priority-high {
-  background-color: #ffcccb;
-  color: #d8000c;
-}
-
-.priority-medium {
-  background-color: #feefb3;
-  color: #9f6000;
-}
-
-.priority-low {
-  background-color: #d4edda;
-  color: #155724;
-}
-
-.js-delete-button,
-.js-edit-button {
-  border: none;
-  font-size: 15px;
-  font-weight: bold;
-  cursor: pointer;
-  border-radius: 5px;
-  padding: 10px 15px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background-color 0.3s ease;
-  width: 100%;
-  justify-content: center;
-  height: 46px;
-}
-
-.js-delete-button {
-  background-color: red;
-  color: white;
-}
-
-.js-delete-button:hover {
-  background-color: darkred;
-}
-
-.js-edit-button {
-  background-color: skyblue;
-  color: white;
-}
-
-.js-edit-button:hover {
-  background-color: deepskyblue;
-}
-
-.js-add-button img,
-.js-delete-button img,
-.js-edit-button img {
-  margin-right: 5px;
-}
-
-/* Footer Styling */
-footer {
-  background-color: transparent;
-  color: white;
-  text-align: center;
-  padding: 20px 0;
-  position: fixed;
-  width: 100%;
-  bottom: 0;
-  font-size: 1rem;
-  display: flex;
-  justify-content: space-around;
-}
-
-footer p {
-  margin-top: 10px;
-  font-size: 12px;
-}
-
-.social-media {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.social-media a {
-  margin: 1px 11px;
-  color: black;
-  font-size: 15px;
-  padding: 8px;
-  border: 2px solid black;
-  border-radius: 8px;
-  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.4);
-}
-
-.social-media a:hover {
-  transform: scale(1.05);
-  transition: all 0.25s ease-out;
-}
-
-/*
-Animating title
-*/
-
-.subtitle {
-  text-align: center;
-  color: #f6ac62;
-  font-family: 'Open sans', sans-serif;
-  font-family: cursive;
-  font-size: 5rem;
-  padding: 8px 16px;
-  text-shadow: #000000 3px 4px 10px;
-}
-
-.sort-buttons {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 10px;
-}
-
-.sort-filter-container {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
-.sort-button,
-.js-filter-input {
-  background-color: #4caf50;
-  border: none;
-  color: white;
-  padding: 10px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
-  border-radius: 5px;
-  transition: background-color 0.3s;
-}
-
-.sort-button:hover,
-.js-filter-input:hover {
-  background-color: #45a049;
-}
-
-.js-filter-input {
-  font-size: 15px;
-  padding: 10px 15px;
-  background-color: #4caf50;
-  color: white;
-}
-
-.completed {
-  background-color: #e0e0e0;
-  text-decoration: line-through;
-}
-
-.js-add-html {
-  overflow-y: scroll;
-  scroll-behavior: smooth;
-  height: 30vh;
-}
-
-.js-add-html::-webkit-scrollbar {
-  width: 10px; /* Width of the scrollbar */
-}
-
-.js-add-html::-webkit-scrollbar-thumb {
-  background-color: rgb(136, 132, 132);
-  border-radius: 7px;
-}
-
-.js-add-html::-webkit-scrollbar-track {
-  background-color: black;
-  border-radius: 5px;
-}
-#js-success-notification {
-  position: absolute;
-  border-radius: 5px;
-  align-items: center;
-  justify-content: center;
-  background-color: #46a34a;
-  width: 15%;
-  min-width: 200px;
-  height: 7%;
-  left: 2%;
-  bottom: 10%;
-  color: #d4edda;
-}
-.js-add-html-tasks {
-  border: 1px black solid;
-  height: fit-content;
-  max-height: 35vh;
-}
+    <script src="script.js"></script>
+  </body>
+</html>
