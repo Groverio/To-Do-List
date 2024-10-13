@@ -228,6 +228,37 @@ footer p {
   transition: all 0.25s ease-out;
 }
 
+.social-media .insta:hover {
+  background: linear-gradient(45deg, #feda75, #fa7e1e, #d62976, #962fbf, #4f5bd5);
+  color:white;
+}
+
+.social-media .facebook:hover {
+  background-color: #1877F2;
+  color:white;
+}
+
+.social-media .x:hover {
+  background-color: #000000;
+  color:white;
+}
+
+
+.social-media .linkedin:hover {
+  background-color: #0A66C2;
+  color:white;
+}
+
+.social-media .github:hover{
+  background-color: white;
+}
+
+.social-media .youtube:hover {
+  background-color:white;
+  color:  #FF0000;
+}
+
+
 /*
 Animating title
 */
