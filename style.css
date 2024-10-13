@@ -58,6 +58,12 @@ h1 {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
+.js-date-input:hover,
+.js-time-input:hover {
+  cursor: pointer;
+  font-weight: bold;
+}
+
 .js-add-grid {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr;
