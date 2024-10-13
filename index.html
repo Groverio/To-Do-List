@@ -24,7 +24,7 @@
     <div class="container">
       <h1 class="subtitle">Todo-List</h1>
 
-      <div class="js-add-grid">
+      <div class="js-add-grid" id="add-todo">
         <input
           type="text"
           placeholder="Share Your Thoughts"
@@ -46,9 +46,14 @@
           <option value="medium">Medium</option>
           <option value="low">Low</option>
         </select>
-        <button class="js-add-button">
-          <i class="fa-solid fa-add"></i>
-        </button>
+        <div class="js-actions-wrapper">
+          <button class="js-add-button">
+            <i class="fa-solid fa-add"></i>
+          </button>
+          <button class="js-cancel-button" title="Cancel">
+            <i class="fa-solid fa-times"></i>
+          </button>
+        </div>
         <div id="js-success-notification" style="display: none">
           <p>Task completed 🎉</p>
         </div>
@@ -81,19 +86,19 @@
         <a class="insta" href="https://www.instagram.com/" target="_blank"
           ><i class="fa-brands fa-instagram"></i
         ></a>
-        <a class="insta" href="https://www.facebook.com/" target="_blank"
+        <a class="facebook" href="https://www.facebook.com/" target="_blank"
           ><i class="fa-brands fa-facebook"></i
         ></a>
-        <a class="insta" href="https://x.com/i/flow/login" target="_blank"
+        <a class="x" href="https://x.com/i/flow/login" target="_blank"
           ><i class="fa-brands fa-x-twitter"></i
         ></a>
-        <a class="insta" href="https://www.linkedin.com/" target="_blank"
+        <a class="linkedin" href="https://www.linkedin.com/" target="_blank"
           ><i class="fa-brands fa-linkedin-in"></i
         ></a>
-        <a class="insta" href="https://github.com/Groverio" target="_blank"
+        <a class="github" href="https://github.com/Groverio" target="_blank"
           ><i class="fa-brands fa-github"></i
         ></a>
-        <a class="insta" href="https://www.youtube.com/" target="_blank"
+        <a class="youtube" href="https://www.youtube.com/" target="_blank"
           ><i class="fa-brands fa-youtube"></i
         ></a>
       </div>
