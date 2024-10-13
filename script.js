@@ -71,6 +71,18 @@ function addTodo() {
     // Change the button back to 'Add'
     const addButton = document.querySelector('.js-add-button');
     addButton.innerHTML = 'Add';
+
+    // Hide cancel button
+    const cancelEditBtn = document.querySelector('.js-cancel-button');
+    cancelEditBtn.style.display = 'none';
+
+    // Changes to button alignment & container
+    const addTodoSection = document.getElementById("add-todo");
+    const btnWrapper = document.querySelector('.js-actions-wrapper');
+
+    addTodoSection.classList.remove("edit");
+    btnWrapper.classList.remove("edit");
+
   } else {
     // Add a new todo
     todoList.push({ name, date, time, category, priority, completed: false }); // Ensure completed is set
@@ -119,8 +131,11 @@ function editTodo(index) {
   const addButton = document.querySelector('.js-add-button');
   addButton.innerHTML = 'Update';
 
-  // Add classname to change button alignment
+  // Changes to button alignment & container
+  const addTodoSection = document.getElementById("add-todo");
   const btnWrapper = document.querySelector('.js-actions-wrapper');
+
+  addTodoSection.classList.add("edit");
   btnWrapper.classList.add("edit");
 }
 
@@ -131,8 +146,10 @@ function cancelEditTodo() {
   // Reset the inputs
   clearInputs();
 
-  // Reset button alignment
+  // Reset button & container alignment
+  const addTodoSection = document.getElementById("add-todo");
   const btnWrapper = document.querySelector('.js-actions-wrapper');
+  addTodoSection.classList.remove("edit");
   btnWrapper.classList.remove("edit");
 
   // Hide edit cancel action button on page load
