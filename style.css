@@ -63,6 +63,7 @@ h1 {
 .js-time-input:hover {
   cursor: pointer;
   font-weight: bold;
+ }
 }
 
 .js-add-grid {
@@ -326,8 +327,31 @@ Animating title
   bottom: 10%;
   color: #d4edda;
 }
-.js-add-html-tasks {
-  border: 1px black solid;
-  height: fit-content;
-  max-height: 35vh;
+
+.js-task-count-button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  font-size: 16px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.js-task-count-button:hover {
+  background-color: #45a049;
+}
+
+
+.sort-filter-container {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  width: 100%; /* Ensure the container takes full width */
+}
+
+/* Push the task counter button to the right */
+#taskCountButton {
+  margin-left: auto; /* This will push the button to the far right */
 }
