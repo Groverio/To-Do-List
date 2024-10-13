@@ -30,7 +30,6 @@
           placeholder="Share Your Thoughts"
           class="js-name-input"
         />
-
         <input type="date" class="js-date-input" min="" />
         <input type="time" class="js-time-input" />
         <select class="js-category-input">
@@ -47,14 +46,10 @@
           <option value="low">Low</option>
         </select>
         <button class="js-add-button">
-          <i class="fa-solid fa-add"></i>
+          <i class="fa-solid fa-add"></i> Add
         </button>
-        <div id="js-success-notification" style="display: none">
-          <p>Task completed 🎉</p>
-        </div>
       </div>
 
-      <!-- Add this new div for sorting buttons -->
       <div class="sort-buttons">
         <div class="sort-filter-container">
           <button class="sort-button" onclick="sortTodos('category')">
@@ -70,32 +65,38 @@
           </select>
         </div>
       </div>
-      <div class="test">
-        <div class="js-add-html js-add-grid js-add-html-tasks"></div>
+
+      <!-- Task Statistics -->
+      <div>
+        <p>Total Tasks: <span id="totalTasks">0</span> | Completed: <span id="completedTasks">0</span></p>
       </div>
+
+      <!-- Todo List -->
+      <div class="js-add-html js-add-grid"></div>
     </div>
 
+    <!-- Footer -->
     <footer class="footer">
       <p>&copy; 2024 Made with &#10084; by Ansh Grover. All rights reserved.</p>
       <div class="social-media">
-        <a class="insta" href="https://www.instagram.com/" target="_blank"
-          ><i class="fa-brands fa-instagram"></i
-        ></a>
-        <a class="insta" href="https://www.facebook.com/" target="_blank"
-          ><i class="fa-brands fa-facebook"></i
-        ></a>
-        <a class="insta" href="https://x.com/i/flow/login" target="_blank"
-          ><i class="fa-brands fa-x-twitter"></i
-        ></a>
-        <a class="insta" href="https://www.linkedin.com/" target="_blank"
-          ><i class="fa-brands fa-linkedin-in"></i
-        ></a>
-        <a class="insta" href="https://github.com/Groverio" target="_blank"
-          ><i class="fa-brands fa-github"></i
-        ></a>
-        <a class="insta" href="https://www.youtube.com/" target="_blank"
-          ><i class="fa-brands fa-youtube"></i
-        ></a>
+        <a class="insta" href="https://www.instagram.com/" target="_blank">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a class="insta" href="https://www.facebook.com/" target="_blank">
+          <i class="fa-brands fa-facebook"></i>
+        </a>
+        <a class="insta" href="https://x.com/i/flow/login" target="_blank">
+          <i class="fa-brands fa-x-twitter"></i>
+        </a>
+        <a class="insta" href="https://www.linkedin.com/" target="_blank">
+          <i class="fa-brands fa-linkedin-in"></i>
+        </a>
+        <a class="insta" href="https://github.com/Groverio" target="_blank">
+          <i class="fa-brands fa-github"></i>
+        </a>
+        <a class="insta" href="https://www.youtube.com/" target="_blank">
+          <i class="fa-brands fa-youtube"></i>
+        </a>
       </div>
     </footer>
 
