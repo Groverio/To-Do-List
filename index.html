@@ -1,97 +1,13 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To-Do List</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-</head>
-<body>
-    <header class="header">
-        <div class="header-content">
-            <h1><i class="fas fa-tasks"></i> To-Do List</h1>
-            <button class="js-theme-toggle" aria-label="Toggle dark mode">
-                <i class="fas fa-moon"></i> <span>Switch to Dark Mode</span>
-            </button>
-        </div>
-    </header>
-
-    <main class="container">
-        <div class="content-wrapper">
-            <section class="add-task-section">
-                <form id="add-task-form" class="js-add-grid">
-                    <div class="form-group">
-                        <label for="task-description">Task Description</label>
-                        <input type="text" id="task-description" class="js-name-input" placeholder="Enter task description" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="task-priority">Priority</label>
-                        <select id="task-priority" class="js-priority-input" required>
-                            <option value="">Select Priority</option>
-                            <option value="High">High Priority</option>
-                            <option value="Medium">Medium Priority</option>
-                            <option value="Low">Low Priority</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="task-date">Due Date</label>
-                        <input type="date" id="task-date" class="js-date-input" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="task-time">Due Time</label>
-                        <input type="time" id="task-time" class="js-time-input">
-                    </div>
-                    <button type="submit" class="js-add-button" aria-label="Add task">
-                        <i class="fas fa-plus"></i> Add Task
-                    </button>
-                </form>
-            </section>
-
-            <section class="task-list-section">
-                <div class="task-filters">
-                    <button class="filter-btn active" data-filter="all">All</button>
-                    <button class="filter-btn" data-filter="active">Active</button>
-                    <button class="filter-btn" data-filter="completed">Completed</button>
-                </div>
-                <ul class="task-list js-task-list"></ul>
-            </section>
-        </div>
-    </main>
-
-    <template id="task-template">
-        <li class="task-item" data-id="">
-            <div class="task-content">
-                <h3 class="task-title"></h3>
-                <p class="task-due-date"></p>
-                <span class="task-priority"></span>
-            </div>
-            <div class="task-actions">
-                <input type="checkbox" class="js-complete-checkbox" aria-label="Mark as complete">
-                <button class="js-edit-button" aria-label="Edit task">
-                    <i class="fas fa-edit"></i>
-                </button>
-                <button class="js-delete-button" aria-label="Delete task">
-                    <i class="fas fa-trash-alt"></i>
-                </button>
-            </div>
-        </li>
-    </template>
-
-    <footer>
-        <p>&copy; 2024 To-Do List. Made with <i class="fas fa-heart"></i> by Ansh Grover. All rights reserved.</p>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Todo-List</title>
     <link rel="stylesheet" href="style.css" />
     <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap"
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
     />
     <link
       rel="stylesheet"
@@ -102,82 +18,134 @@
     />
   </head>
   <body>
-    <div class="container">
-      <h1 class="subtitle">Todo-List</h1>
-
-      <div class="js-add-grid">
-        <input
-          type="text"
-          placeholder="Share Your Thoughts"
-          class="js-name-input"
-        />
-        <input type="date" class="js-date-input" min="" />
-        <input type="time" class="js-time-input" />
-        <select class="js-category-input">
-          <option value="">Select Category</option>
-          <option value="work">Work</option>
-          <option value="personal">Personal</option>
-          <option value="shopping">Shopping</option>
-          <option value="other">Other</option>
-        </select>
-        <select class="js-priority-input">
-          <option value="">Select Priority</option>
-          <option value="high">High</option>
-          <option value="medium">Medium</option>
-          <option value="low">Low</option>
-        </select>
-        <button class="js-add-button">
-          <i class="fa-solid fa-add"></i>
+    <header class="header">
+      <div class="header-content">
+        <h1><i class="fas fa-tasks"></i> Todo-List</h1>
+        <button class="js-theme-toggle" aria-label="Toggle dark mode">
+          <i class="fas fa-moon"></i> <span>Switch to Dark Mode</span>
         </button>
-        <div id="js-success-notification" style="display: none">
-          <p>Task completed 🎉</p>
-        </div>
       </div>
+    </header>
 
-      <!-- Add this new div for sorting buttons -->
-      <div class="sort-buttons">
-        <div class="sort-filter-container">
-          <button class="sort-button" onclick="sortTodos('category')">
-            Sort by Category
-          </button>
-          <button class="sort-button" onclick="sortTodos('priority')">
-            Sort by Priority
-          </button>
-          <select class="js-filter-input" onchange="filterTodos()">
-            <option value="all">All</option>
-            <option value="pending">Pending</option>
-            <option value="completed">Completed</option>
-          </select>
-        </div>
+    <main class="container">
+      <div class="content-wrapper">
+        <section class="add-task-section">
+          <form id="add-task-form" class="js-add-grid">
+            <input
+              type="text"
+              placeholder="Share Your Thoughts"
+              class="js-name-input"
+              required
+            />
+            <input type="date" class="js-date-input" required />
+            <input type="time" class="js-time-input" />
+            <select class="js-category-input" required>
+              <option value="">Select Category</option>
+              <option value="work">Work</option>
+              <option value="personal">Personal</option>
+              <option value="shopping">Shopping</option>
+              <option value="other">Other</option>
+            </select>
+            <select class="js-priority-input" required>
+              <option value="">Select Priority</option>
+              <option value="high">High Priority</option>
+              <option value="medium">Medium Priority</option>
+              <option value="low">Low Priority</option>
+            </select>
+            <button type="submit" class="js-add-button" aria-label="Add task">
+              <i class="fas fa-plus"></i>
+            </button>
+          </form>
+          <div
+            id="js-success-notification"
+            class="success-notification"
+            style="display: none"
+          >
+            <p>Task completed 🎉</p>
+          </div>
+        </section>
+
+        <section class="task-list-section">
+          <div class="sort-filter-container">
+            <button class="sort-button" onclick="sortTodos('category')">
+              Sort by Category
+            </button>
+            <button class="sort-button" onclick="sortTodos('priority')">
+              Sort by Priority
+            </button>
+            <select class="js-filter-input" onchange="filterTodos()">
+              <option value="all">All</option>
+              <option value="pending">Pending</option>
+              <option value="completed">Completed</option>
+            </select>
+          </div>
+          <ul class="task-list js-task-list js-add-html"></ul>
+        </section>
       </div>
+    </main>
 
-      <div class="js-add-html js-add-grid"></div>
-    </div>
+    <template id="task-template">
+      <li class="task-item" data-id="">
+        <div class="task-content">
+          <h3 class="task-title"></h3>
+          <p class="task-due-date"></p>
+          <span class="task-priority"></span>
+        </div>
+        <div class="task-actions">
+          <input
+            type="checkbox"
+            class="js-complete-checkbox"
+            aria-label="Mark as complete"
+          />
+          <button class="js-edit-button" aria-label="Edit task">
+            <i class="fas fa-edit"></i>
+          </button>
+          <button class="js-delete-button" aria-label="Delete task">
+            <i class="fas fa-trash-alt"></i>
+          </button>
+        </div>
+      </li>
+    </template>
 
     <footer class="footer">
-      <p>&copy; 2024 Made with &#10084; by Ansh Grover. All rights reserved.</p>
+      <p>
+        &copy; 2024 Made with <i class="fas fa-heart"></i> by Ansh Grover. All
+        rights reserved.
+      </p>
       <div class="social-media">
-        <a class="insta" href="https://www.instagram.com/" target="_blank"
-          ><i class="fa-brands fa-instagram"></i
+        <a
+          href="https://www.instagram.com/"
+          target="_blank"
+          aria-label="Instagram"
+          ><i class="fab fa-instagram"></i
         ></a>
-        <a class="insta" href="https://www.facebook.com/" target="_blank"
-          ><i class="fa-brands fa-facebook"></i
+        <a
+          href="https://www.facebook.com/"
+          target="_blank"
+          aria-label="Facebook"
+          ><i class="fab fa-facebook"></i
         ></a>
-        <a class="insta" href="https://x.com/i/flow/login" target="_blank"
-          ><i class="fa-brands fa-x-twitter"></i
+        <a href="https://twitter.com/" target="_blank" aria-label="Twitter"
+          ><i class="fab fa-twitter"></i
         ></a>
-        <a class="insta" href="https://www.linkedin.com/" target="_blank"
-          ><i class="fa-brands fa-linkedin-in"></i
+        <a
+          href="https://www.linkedin.com/"
+          target="_blank"
+          aria-label="LinkedIn"
+          ><i class="fab fa-linkedin-in"></i
         ></a>
-        <a class="insta" href="https://github.com/Groverio" target="_blank"
-          ><i class="fa-brands fa-github"></i
+        <a
+          href="https://github.com/Groverio"
+          target="_blank"
+          aria-label="GitHub"
+          ><i class="fab fa-github"></i
         ></a>
-        <a class="insta" href="https://www.youtube.com/" target="_blank"
-          ><i class="fa-brands fa-youtube"></i
+        <a href="https://www.youtube.com/" target="_blank" aria-label="YouTube"
+          ><i class="fab fa-youtube"></i
         ></a>
       </div>
     </footer>
 
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
