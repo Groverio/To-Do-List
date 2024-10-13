@@ -138,7 +138,7 @@ function updateTodoList() {
 
   for (let i = 0; i < filteredTodos.length; i++) {
     const todo = filteredTodos[i];
-    todoListhtml += `
+      todoListhtml += `
       <div class="small-container ${todo.completed ? 'completed' : ''}">
         <input type="checkbox" class="js-complete-checkbox" data-index="${i}" ${todo.completed ? 'checked' : ''} onchange="toggleComplete(${todoList.indexOf(todo)})">
         <div class="task-info">
@@ -150,11 +150,12 @@ function updateTodoList() {
       <div class="small-container">${todo.date}</div>
       <div class="small-container">${todo.time}</div>
       <button class="js-delete-button" data-index="${i}">
-        <i class="fa-solid fa-trash"></i>
+      <i class="fa-solid fa-trash"></i>
       </button>
       <button class="js-edit-button" data-index="${i}">
-        <i class="fa-solid fa-pen"></i>
+      <i class="fa-solid fa-pen"></i>
       </button>`;
+      
   }
 
   // Show or hide the task container based on the presence of tasks

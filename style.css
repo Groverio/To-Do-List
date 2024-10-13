@@ -61,12 +61,13 @@ h1 {
 .js-add-grid {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr;
-  gap: 10px;
+  gap: 10px;  
   background-color: rgba(255, 255, 255, 0.9);
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
+
 }
 
 .js-add-button {
@@ -318,4 +319,9 @@ Animating title
   left: 2%;
   bottom: 10%;
   color: #d4edda;
+}
+.js-add-html-tasks{
+  border: 1px black solid;
+height: fit-content;
+max-height: 35vh;
 }
