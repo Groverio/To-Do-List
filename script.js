@@ -110,9 +110,12 @@ function updateTaskCount() {
   // Get the total and completed task count
   const totalTasks = todoList.length;
   const completedTasks = todoList.filter(todo => todo.completed).length;
-  document.getElementById('totalTasks').textContent = totalTasks;
-  document.getElementById('completedTasks').textContent = completedTasks;
+
+  // Update the button text
+  const taskCountButton = document.getElementById('taskCountButton');
+  taskCountButton.textContent = `Total Tasks: ${totalTasks} | Completed: ${completedTasks}`;
 }
+
 
 function updateTodoList() {
   // Sort and filter todo list based on selected options
