@@ -39,6 +39,18 @@ function addTodo() {
     return;
   }
 
+  // Check that date is not in past
+  if (date < inputDateElement.min) {
+    alert('Please select the current date or a future date.');
+    return;
+  }
+
+  // Check that time is not in past
+  if (time < inputTimeElement.min) {
+    alert('Please select a future time.');
+    return;
+  }
+
   if (isEditing) {
     // Update the existing todo
     todoList[editIndex] = {
@@ -192,6 +204,7 @@ function setDefaultDateTime() {
   inputDateElement.value = date;
   inputDateElement.min = date; // Set the min attribute to today's date
   inputTimeElement.value = time;
+  inputTimeElement.min = time; // Set the min attribute to current time
 }
 
 function sortTodos(sortBy) {
