@@ -47,7 +47,8 @@ h1 {
 .js-time-input,
 .js-category-input,
 .js-priority-input,
-.js-add-button {
+.js-add-button,
+.js-cancel-button {
   font-size: 15px;
   padding: 10px 15px;
   border: 1px solid #ccc;
@@ -69,6 +70,7 @@ h1 {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr;
   gap: 10px;
+  row-gap: 1rem;
   background-color: rgba(255, 255, 255, 0.9);
   padding: 20px;
   border-radius: 8px;
@@ -76,7 +78,16 @@ h1 {
   margin-bottom: 20px;
 }
 
-.js-add-button {
+.js-actions-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  grid-row: auto;
+  grid-column: auto;
+}
+
+.js-add-button,
+.js-cancel-button {
   background-color: green;
   color: white;
   border: none;
@@ -90,6 +101,14 @@ h1 {
 
 .js-add-button:hover {
   background-color: darkgreen;
+}
+
+.js-cancel-button {
+  background-color: #ff0000;
+}
+
+.js-cancel-button:hover {
+  background-color: #8b0000;
 }
 
 .js-add-html {
