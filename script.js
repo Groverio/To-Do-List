@@ -24,7 +24,7 @@ function clearInputs() {
   const inputTimeElement = document.querySelector('.js-time-input');
   const inputCategoryElement = document.querySelector('.js-category-input');
   const inputPriorityElement = document.querySelector('.js-priority-input');
-  
+
   // Clear the inputs
   inputNameElement.value = '';
   inputDateElement.value = '';
@@ -77,12 +77,11 @@ function addTodo() {
     cancelEditBtn.style.display = 'none';
 
     // Changes to button alignment & container
-    const addTodoSection = document.getElementById("add-todo");
+    const addTodoSection = document.getElementById('add-todo');
     const btnWrapper = document.querySelector('.js-actions-wrapper');
 
-    addTodoSection.classList.remove("edit");
-    btnWrapper.classList.remove("edit");
-
+    addTodoSection.classList.remove('edit');
+    btnWrapper.classList.remove('edit');
   } else {
     // Add a new todo
     todoList.push({ name, date, time, category, priority, completed: false }); // Ensure completed is set
@@ -132,11 +131,11 @@ function editTodo(index) {
   addButton.innerHTML = 'Update';
 
   // Changes to button alignment & container
-  const addTodoSection = document.getElementById("add-todo");
+  const addTodoSection = document.getElementById('add-todo');
   const btnWrapper = document.querySelector('.js-actions-wrapper');
 
-  addTodoSection.classList.add("edit");
-  btnWrapper.classList.add("edit");
+  addTodoSection.classList.add('edit');
+  btnWrapper.classList.add('edit');
 }
 
 function cancelEditTodo() {
@@ -147,10 +146,10 @@ function cancelEditTodo() {
   clearInputs();
 
   // Reset button & container alignment
-  const addTodoSection = document.getElementById("add-todo");
+  const addTodoSection = document.getElementById('add-todo');
   const btnWrapper = document.querySelector('.js-actions-wrapper');
-  addTodoSection.classList.remove("edit");
-  btnWrapper.classList.remove("edit");
+  addTodoSection.classList.remove('edit');
+  btnWrapper.classList.remove('edit');
 
   // Hide edit cancel action button on page load
   const cancelEditBtn = document.querySelector('.js-cancel-button');
@@ -294,15 +293,16 @@ document.addEventListener('DOMContentLoaded', () => {
   // Set focus on the name input field
   const inputNameElement = document.querySelector('.js-name-input');
   inputNameElement.focus();
-  
+
   // Hide edit cancel action button on page load
   const cancelEditBtn = document.querySelector('.js-cancel-button');
   cancelEditBtn.style.display = 'none';
 
-
   // Add event listeners to buttons
   document.querySelector('.js-add-button').addEventListener('click', addTodo);
-  document.querySelector('.js-cancel-button').addEventListener('click', cancelEditTodo);
+  document
+    .querySelector('.js-cancel-button')
+    .addEventListener('click', cancelEditTodo);
 
   // Add event listeners for sorting buttons
   document

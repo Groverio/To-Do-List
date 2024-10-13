@@ -85,7 +85,7 @@ h1 {
 
 .js-actions-wrapper.edit {
   grid-row: 2;
-  grid-column: 1/span 5;
+  grid-column: 1 / span 5;
 }
 
 .js-add-button,
@@ -107,7 +107,7 @@ h1 {
 
 .js-cancel-button {
   background-color: #ff0000;
-} 
+}
 
 .js-cancel-button:hover {
   background-color: #8b0000;
