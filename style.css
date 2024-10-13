@@ -206,9 +206,10 @@ footer p {
   margin-top: 10px;
   font-size: 12px;
 }
-
+/* Social media icons  */
 .social-media {
   display: flex;
+
   justify-content: center;
   align-items: center;
 }
@@ -230,30 +231,30 @@ footer p {
 }
 
 /* Hover styles for different social media platforms */
-.social-media a[href*="instagram"]:hover {
-  background-color: #E4405F; /* Instagram pink */
-  border-color: #E4405F;
+.social-media a[href*='instagram']:hover {
+  background-color: #e4405f; /* Instagram pink */
+  border-color: #e4405f;
 }
 
-.social-media a[href*="facebook"]:hover {
-  background-color: #1877F2; /* Facebook blue */
-  border-color: #1877F2;
+.social-media a[href*='facebook']:hover {
+  background-color: #1877f2; /* Facebook blue */
+  border-color: #1877f2;
 }
 
-.social-media a[href*="x.com"]:hover,
-.social-media a[href*="github"]:hover {
+.social-media a[href*='x.com']:hover,
+.social-media a[href*='github']:hover {
   background-color: #000000; /* Black for both Twitter and GitHub */
   border-color: #000000;
 }
 
-.social-media a[href*="linkedin"]:hover {
-  background-color: #0A66C2; /* LinkedIn blue */
-  border-color: #0A66C2;
+.social-media a[href*='linkedin']:hover {
+  background-color: #0a66c2; /* LinkedIn blue */
+  border-color: #0a66c2;
 }
 
-.social-media a[href*="youtube"]:hover {
-  background-color: #FF0000; /* YouTube red */
-  border-color: #FF0000;
+.social-media a[href*='youtube']:hover {
+  background-color: #ff0000; /* YouTube red */
+  border-color: #ff0000;
 }
 
 /*
