@@ -179,6 +179,11 @@ function updateTodoList() {
       return currentSortOrder === 'asc'
         ? priorityOrder[a.priority] - priorityOrder[b.priority]
         : priorityOrder[b.priority] - priorityOrder[a.priority];
+    } else if (currentSortMethod === 'time') {
+      // Directly compare time strings
+      return currentSortOrder === 'asc'
+        ? a.time.localeCompare(b.time)
+        : b.time.localeCompare(a.time);
     }
   });
 
@@ -245,8 +250,11 @@ function setDefaultDateTime() {
 
 function sortTodos(sortBy) {
   if (sortBy === 'priority') {
-    currentSortOrder = currentSortOrder === 'asc' ? 'desc' : 'asc';
+    currentCategorySortOrder = currentSortOrder === 'asc' ? 'desc' : 'asc';
   } else if (sortBy === 'category') {
+    currentCategorySortOrder =
+      currentCategorySortOrder === 'asc' ? 'desc' : 'asc';
+  }else if (sortBy === 'time') {
     currentCategorySortOrder =
       currentCategorySortOrder === 'asc' ? 'desc' : 'asc';
   }
@@ -305,6 +313,9 @@ document.addEventListener('DOMContentLoaded', () => {
   document
     .querySelector('.sort-button-priority')
     .addEventListener('click', () => sortTodos('priority'));
+  document
+    .querySelector('.sort-button-time')
+    .addEventListener('click', () => sortTodos('time'));
 
   // Add event listener for filter button
   document
