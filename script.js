@@ -154,6 +154,18 @@ function cancelEditTodo() {
   addButton.appendChild(addIcon);
 }
 
+const resetForm = () => {
+  // Get the input fields
+  const nameInput = document.querySelector('.js-name-input');
+  const dateInput = document.querySelector('.js-date-input');
+  const timeInput = document.querySelector('.js-time-input');
+
+  // Clear their values
+  nameInput.value = '';
+  dateInput.value = '';
+  timeInput.value = '';
+};
+
 function updateTodoList() {
   // Sort todoList based on the current sort method
   let filteredTodos = todoList;
@@ -181,18 +193,6 @@ function updateTodoList() {
         : priorityOrder[b.priority] - priorityOrder[a.priority];
     }
   });
-  
-  function resetForm() {
-    // Get the input fields
-    const nameInput = document.querySelector('.js-name-input');
-    const dateInput = document.querySelector('.js-date-input');
-    const timeInput = document.querySelector('.js-time-input');
-  
-    // Clear their values
-    nameInput.value = '';
-    dateInput.value = '';
-    timeInput.value = '';
-  }
 
   const addElement = document.querySelector('.js-add-html');
   todoListhtml = '';
@@ -231,6 +231,7 @@ function updateTodoList() {
     button.addEventListener('click', (event) => {
       const index = event.currentTarget.getAttribute('data-index');
       deleteTodo(index);
+      resetForm();
     });
   });
 
