@@ -65,9 +65,10 @@
           <button class="sort-button" onclick="sortTodos('category')">
             Sort by Category
           </button>
-          <button class="sort-button" onclick="sortTodos('priority')">
-            Sort by Priority
+          <button class="sort-button" id="sort-priority-button" onclick="sortTodos('priority')">
+            Sort by Priority <i id="priority-sort-icon" class="fa-solid fa-arrow-down"></i>
           </button>
+
           <select class="js-filter-input" onchange="filterTodos()">
             <option value="all">All</option>
             <option value="pending">Pending</option>

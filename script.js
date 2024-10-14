@@ -243,16 +243,28 @@ function setDefaultDateTime() {
   inputTimeElement.value = time;
 }
 
+
 function sortTodos(sortBy) {
   if (sortBy === 'priority') {
-    currentSortOrder = currentSortOrder === 'asc' ? 'desc' : 'asc';
+    const sortIcon = document.getElementById('priority-sort-icon');
+
+    if (currentSortOrder === 'asc') {
+      currentSortOrder = 'desc'; 
+      sortIcon.classList.remove('fa-arrow-up');
+      sortIcon.classList.add('fa-arrow-down');
+    } else {
+      currentSortOrder = 'asc';
+      sortIcon.classList.remove('fa-arrow-down');
+      sortIcon.classList.add('fa-arrow-up');
+    }
   } else if (sortBy === 'category') {
-    currentCategorySortOrder =
-      currentCategorySortOrder === 'asc' ? 'desc' : 'asc';
+    currentCategorySortOrder = currentCategorySortOrder === 'asc' ? 'desc' : 'asc';
   }
+
   currentSortMethod = sortBy;
   updateTodoList();
 }
+
 
 function filterTodos() {
   const filterElement = document.querySelector('.js-filter-input');
