@@ -208,6 +208,21 @@ h1 {
   background-color: deepskyblue;
 }
 
+.small-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 1px solid #ccc;
+    height: 45px;
+    padding: 0 15px;
+    border-radius: 5px;
+    text-align: center;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Icons */
 .js-add-button img,
 .js-delete-button img,
 .js-edit-button img {
@@ -343,6 +358,21 @@ Animating title
   padding: 10px 15px;
   background-color: #4caf50;
   color: white;
+}
+
+.js-reset-button {
+  background-color: #f44336; /* Red color */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.js-reset-button:hover {
+  background-color: #d32f2f; /* Darker red */
 }
 
 .completed {

@@ -243,6 +243,18 @@ function setDefaultDateTime() {
   inputTimeElement.value = time;
 }
 
+function resetForm() {
+    // Get the input fields
+    const nameInput = document.querySelector('.js-name-input');
+    const dateInput = document.querySelector('.js-date-input');
+    const timeInput = document.querySelector('.js-time-input');
+
+    // Clear their values
+    nameInput.value = '';
+    dateInput.value = '';
+    timeInput.value = '';
+}
+
 function sortTodos(sortBy) {
   if (sortBy === 'priority') {
     currentSortOrder = currentSortOrder === 'asc' ? 'desc' : 'asc';
@@ -279,35 +291,6 @@ function toggleComplete(index) {
   updateTodoList();
 }
 
-// Initialize the todo list and set default date and time on page load
-document.addEventListener('DOMContentLoaded', () => {
-  updateTodoList();
-  setDefaultDateTime();
+// Initialize the todo list on page load
+updateTodoList();
 
-  // Set focus on the name input field
-  const inputNameElement = document.querySelector('.js-name-input');
-  inputNameElement.focus();
-
-  // Hide edit cancel action button on page load
-  const cancelEditBtn = document.querySelector('.js-cancel-button');
-  cancelEditBtn.style.display = 'none';
-
-  // Add event listeners to buttons
-  document.querySelector('.js-add-button').addEventListener('click', addTodo);
-  document
-    .querySelector('.js-cancel-button')
-    .addEventListener('click', cancelEditTodo);
-
-  // Add event listeners for sorting buttons
-  document
-    .querySelector('.sort-button-category')
-    .addEventListener('click', () => sortTodos('category'));
-  document
-    .querySelector('.sort-button-priority')
-    .addEventListener('click', () => sortTodos('priority'));
-
-  // Add event listener for filter button
-  document
-    .querySelector('.js-filter-input')
-    .addEventListener('change', filterTodos);
-});

@@ -22,37 +22,14 @@
   </head>
   <body>
     <div class="container">
-      <h1 class="subtitle">Todo-List</h1>
-
-      <div class="js-add-grid" id="add-todo">
-        <input
-          type="text"
-          placeholder="Share Your Thoughts"
-          class="js-name-input"
-        />
-
-        <input type="date" class="js-date-input" min="" />
-        <input type="time" class="js-time-input" />
-        <select class="js-category-input">
-          <option value="">Select Category</option>
-          <option value="work">Work</option>
-          <option value="personal">Personal</option>
-          <option value="shopping">Shopping</option>
-          <option value="other">Other</option>
-        </select>
-        <select class="js-priority-input">
-          <option value="">Select Priority</option>
-          <option value="high">High</option>
-          <option value="medium">Medium</option>
-          <option value="low">Low</option>
-        </select>
-        <div class="js-actions-wrapper">
-          <button class="js-add-button">
-            <i class="fa-solid fa-add"></i>
-          </button>
-          <button class="js-cancel-button" title="Cancel">
-            <i class="fa-solid fa-times"></i>
-          </button>
+        <h1>Todo-List</h1>
+        <div class="js-add-grid">
+            <input type="text" placeholder="Share Your Thoughts" class="js-name-input">
+            <input type="date" class="js-date-input">
+            <input type="time" class="js-time-input">
+            <button class="js-add-button" onclick="addTodo();">
+                <img src="assets/add-icon.png" alt="Add" width="16" height="16"> Add
+            </button>
         </div>
         <div id="js-success-notification" style="display: none">
           <p>Task completed 🎉</p>
@@ -68,6 +45,9 @@
           <button class="sort-button" onclick="sortTodos('priority')">
             Sort by Priority
           </button>
+          <button class="js-reset-button" onclick="resetForm();">
+            <img src="reset2.png" alt="Reset" width="16" height="16"> Reset
+            </button>
           <select class="js-filter-input" onchange="filterTodos()">
             <option value="all">All</option>
             <option value="pending">Pending</option>
