@@ -360,6 +360,21 @@ Animating title
   color: white;
 }
 
+.js-reset-button {
+  background-color: #f44336; /* Red color */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.js-reset-button:hover {
+  background-color: #d32f2f; /* Darker red */
+}
+
 .completed {
   background-color: #e0e0e0;
   text-decoration: line-through;

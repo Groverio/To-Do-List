@@ -243,6 +243,18 @@ function setDefaultDateTime() {
   inputTimeElement.value = time;
 }
 
+function resetForm() {
+    // Get the input fields
+    const nameInput = document.querySelector('.js-name-input');
+    const dateInput = document.querySelector('.js-date-input');
+    const timeInput = document.querySelector('.js-time-input');
+
+    // Clear their values
+    nameInput.value = '';
+    dateInput.value = '';
+    timeInput.value = '';
+}
+
 function sortTodos(sortBy) {
   if (sortBy === 'priority') {
     currentSortOrder = currentSortOrder === 'asc' ? 'desc' : 'asc';
