@@ -26,6 +26,37 @@ document.querySelector('.js-name-input').addEventListener('input', (e) => {
   }
 });
 
+let dateCheck = false;
+let timeCheck = false;
+
+document.querySelector('.js-date-input').addEventListener('click', (e) => {
+  e.preventDefault();
+  if (!dateCheck) {
+    e.target.showPicker();
+    dateCheck = true;
+  } else {
+    dateCheck = false;
+  }
+});
+
+document.querySelector('.js-date-input').addEventListener('blur', () => {
+  dateCheck = false;
+});
+
+document.querySelector('.js-time-input').addEventListener('click', (e) => {
+  e.preventDefault();
+  if (!timeCheck) {
+    e.target.showPicker();
+    timeCheck = true;
+  } else {
+    timeCheck = false;
+  }
+});
+
+document.querySelector('.js-time-input').addEventListener('blur', () => {
+  timeCheck = false;
+});
+
 function clearInputs() {
   const inputNameElement = document.querySelector('.js-name-input');
   const inputDateElement = document.querySelector('.js-date-input');
