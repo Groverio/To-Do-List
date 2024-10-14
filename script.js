@@ -322,10 +322,12 @@ document.addEventListener('DOMContentLoaded', () => {
     .addEventListener('click', cancelEditTodo);
 
   // Add event listeners for sorting buttons
-  document.querySelector('.sort-button-category');
-  // .addEventListener('click', () => sortTodos('category'));
-  document.querySelector('.sort-button-priority');
-  // .addEventListener('click', () => sortTodos('priority'));
+  document
+    .querySelector('.sort-button-category')
+    .addEventListener('click', () => sortTodos('category'));
+  document
+    .querySelector('.sort-button-priority')
+    .addEventListener('click', () => sortTodos('priority'));
 
   // Add event listener for filter button
   document
