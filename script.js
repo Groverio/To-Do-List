@@ -166,16 +166,17 @@ function updateTodoList() {
   //   filteredTodos = todoList.filter((todo) => todo.completed);
   // }
 
-  const filteredTodos = 
-    todos
+  const filteredTodos = todos
     // Apply filtering based on selected category (today/work/personal/shopping/other)
-    .filter((todo) => currentCategory === "today" ? true : currentCategory === todo.category) 
+    .filter((todo) =>
+      currentCategory === 'today' ? true : currentCategory === todo.category
+    )
     // Apply filtering based on selected status (pending/completed)
     .filter((todo) => {
-      if(filterMethod === "pending"){
+      if (filterMethod === 'pending') {
         return !todo.completed;
       }
-      if(filterMethod === "completed"){
+      if (filterMethod === 'completed') {
         return todo.completed;
       }
       return todo;
@@ -197,7 +198,6 @@ function updateTodoList() {
           : priorityOrder[b.priority] - priorityOrder[a.priority];
       }
     });
-
 
   const addElement = document.querySelector('.js-add-html');
   todoListhtml = '';
@@ -322,12 +322,10 @@ document.addEventListener('DOMContentLoaded', () => {
     .addEventListener('click', cancelEditTodo);
 
   // Add event listeners for sorting buttons
-  document
-    .querySelector('.sort-button-category')
-    // .addEventListener('click', () => sortTodos('category'));
-  document
-    .querySelector('.sort-button-priority')
-    // .addEventListener('click', () => sortTodos('priority'));
+  document.querySelector('.sort-button-category');
+  // .addEventListener('click', () => sortTodos('category'));
+  document.querySelector('.sort-button-priority');
+  // .addEventListener('click', () => sortTodos('priority'));
 
   // Add event listener for filter button
   document
