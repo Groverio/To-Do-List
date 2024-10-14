@@ -22,7 +22,7 @@ checkIcon.classList.add('fa-solid', 'fa-check');
 document.querySelector('.js-name-input').addEventListener('input', (e) => {
   let input = e.target.value;
   if (input.length === 120) {
-    alert('max character limits exceeded');
+    showToast("Max characters reached");
   }
 });
 
@@ -88,9 +88,7 @@ function addTodo() {
 
   // Validation checks
   if (!name || !date || !time || !category || !priority) {
-    alert(
-      'Please fill in all fields: task, date, time, category, and priority.'
-    );
+    showToast("Provide required fields");
     return;
   }
 
@@ -136,6 +134,8 @@ function addTodo() {
   // Save to localStorage
   localStorage.setItem('todoList', JSON.stringify(todoList));
 
+  showToast('Todo saved successfully');
+
   // Reset the inputs
   clearInputs();
 
@@ -147,6 +147,7 @@ function deleteTodo(index) {
   // Remove the specific todo from the list
   todoList.splice(index, 1);
   localStorage.setItem('todoList', JSON.stringify(todoList));
+  showToast('Todo deleted successfully');
   updateTodoList();
 }
 
@@ -355,3 +356,12 @@ document.addEventListener('DOMContentLoaded', () => {
     .querySelector('.js-filter-input')
     .addEventListener('change', filterTodos);
 });
+
+function showToast(message) {
+  var toast = document.getElementById("toast");
+  toast.className = "toast show";
+  toast.innerHTML = message;
+  setTimeout(function () {
+    toast.className = toast.className.replace("show", "hide");
+  }, 3000);
+}
