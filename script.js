@@ -254,7 +254,7 @@ function sortTodos(sortBy) {
   } else if (sortBy === 'category') {
     currentCategorySortOrder =
       currentCategorySortOrder === 'asc' ? 'desc' : 'asc';
-  }else if (sortBy === 'time') {
+  } else if (sortBy === 'time') {
     currentCategorySortOrder =
       currentCategorySortOrder === 'asc' ? 'desc' : 'asc';
   }
