@@ -6,6 +6,12 @@ console.log(todoList);
 let language = localStorage.getItem('language') || 'en';
 updateLanguageUI();
 
+
+// Default date and time format
+let dateFormat = localStorage.getItem('dateFormat') || 'mm/dd/yyyy'; // Can be 'mm/dd/yyyy' or 'dd/mm/yyyy'
+let timeFormat = localStorage.getItem('timeFormat') || '12-hour'; // Can be '12-hour' or '24-hour'
+updateFormatUI();
+
 // Translation object via dictionary since there is not much to translate
 const translations = {
     en: {
@@ -51,6 +57,20 @@ function changeLanguage() {
     updateLanguageUI();
 }
 
+// Function to change the date format
+function changeDateFormat() {
+    const dateFormatSelector = document.querySelector('.js-date-format-selector');
+    dateFormat = dateFormatSelector.value;
+    localStorage.setItem('dateFormat', dateFormat);
+}
+
+// Function to change the time format
+function changeTimeFormat() {
+    const timeFormatSelector = document.querySelector('.js-time-format-selector');
+    timeFormat = timeFormatSelector.value;
+    localStorage.setItem('timeFormat', timeFormat);
+}
+
 // Update UI with the selected language
 function updateLanguageUI() {
     document.querySelector('.js-add-button').textContent = translations[language].add;
@@ -59,6 +79,29 @@ function updateLanguageUI() {
     document.querySelector('.js-time-input-label').textContent = translations[language].time;
     updateTodoList();
 }
+
+// Format date according to the selected format
+function formatDate(date) {
+    const [year, month, day] = date.split('-'); // Assuming input date is in 'yyyy-mm-dd' format
+    if (dateFormat === 'mm/dd/yyyy') {
+        return `${month}/${day}/${year}`;
+    } else {
+        return `${day}/${month}/${year}`;
+    }
+}
+
+// Format time according to the selected format
+function formatTime(time) {
+    let [hour, minute] = time.split(':');
+    if (timeFormat === '12-hour') {
+        const suffix = hour >= 12 ? 'PM' : 'AM';
+        hour = hour % 12 || 12;
+        return `${hour}:${minute} ${suffix}`;
+    } else {
+        return `${hour}:${minute}`; // 24-hour format
+    }
+}
+
 
 // Validation with translation
 function addTodo() {
@@ -84,10 +127,17 @@ function addTodo() {
         return;
     }
 
+    // Format date and time before saving
+    const formattedDate = formatDate(date);
+    const formattedTime = formatTime(time);
+
 
 
     todoList.push({ name, date, time });
     localStorage.setItem('todoList', JSON.stringify(todoList));
+
+    // Set the reminder for the task
+    setReminder(name, date, time);
 
     inputNameElement.value = '';
     inputDateElement.value = '';
@@ -97,11 +147,51 @@ function addTodo() {
     updateTodoList();
 }
 
+// adds reminder feature
+function setReminder(task, date, time) {
+    const formattedDate = formatDate(date); // Ensure it's formatted before use
+    const formattedTime = formatTime(time); // Ensure it's formatted before use
+
+    const taskDateTime = new Date(`${date} ${time}`);
+    const now = new Date();
+
+    // Calculate the difference in milliseconds
+    const timeDifference = taskDateTime - now;
+
+    // If the task's time is in the future, set a reminder
+    if (timeDifference > 0) {
+        setTimeout(() => {
+            alert(`Reminder: ${task} is scheduled for ${date} at ${time}.`);
+        }, timeDifference);
+    }
+}
+
+// Reminder feature with formatted time
+function setReminderFormatted(task, date, time) {
+    const taskDateTime = new Date(`${date} ${time}`);
+    const now = new Date();
+
+    // Calculate the difference in milliseconds
+    const timeDifference = taskDateTime - now;
+
+    // If the task's time is in the future, set a reminder
+    if (timeDifference > 0) {
+        setTimeout(() => {
+            alert(`Reminder: ${task} is scheduled for ${date} at ${time}.`);
+        }, timeDifference);
+    }
+}
+
 function deleteTodo(index) {
     // Remove the specific todo from the list
     todoList.splice(index, 1);
     localStorage.setItem('todoList', JSON.stringify(todoList));
     updateTodoList();
+}
+
+// Format numbers based on the selected language
+function formatNumber(num) {
+    return new Intl.NumberFormat(language).format(num);
 }
 
 function editTodo(index) {
@@ -128,13 +218,14 @@ function updateTodoList() {
 
     for (let i = 0; i < todoList.length; i++) {
         todoListhtml += `<div class="small-container">${todoList[i].name}</div>
-                         <div class="small-container">${todoList[i].date} ${todoList[i].time}</div>
-                         <button class="js-delete-button" onclick="deleteTodo(${i});">
-                            <img src="assets/delete-icon.png" alt="Delete" width="16" height="16">delete
-                         </button>
-                         <button class="js-edit-button" onclick="editTodo(${i});">
-                            <img src="assets/edit-icon.png" alt="Edit" width="16" height="16">edit
-                         </button>`;
+        <div class="small-container">${formatNumber(todoList[i].date)} ${formatNumber(todoList[i].time)}</div>
+        <button class="js-delete-button" onclick="deleteTodo(${i});">
+           <img src="assets/delete-icon.png" alt="Delete" width="16" height="16">delete
+        </button>
+        <button class="js-edit-button" onclick="editTodo(${i});">
+           <img src="assets/edit-icon.png" alt="Edit" width="16" height="16">edit
+        </button>`;
+
     }
     addElement.innerHTML = todoListhtml;
 }

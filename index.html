@@ -10,6 +10,19 @@
     <div class="container">
         <h1>Todo-List</h1>
 
+        <!--Time format selector-->
+        <label for="date-format">Select Date Format:</label>
+        <select class="js-date-format-selector" onchange="changeDateFormat()">
+            <option value="mm/dd/yyyy">MM/DD/YYYY</option>
+            <option value="dd/mm/yyyy">DD/MM/YYYY</option>
+        </select>
+
+        <label for="time-format">Select Time Format:</label>
+        <select class="js-time-format-selector" onchange="changeTimeFormat()">
+            <option value="12-hour">12-Hour (AM/PM)</option>
+            <option value="24-hour">24-Hour (Military)</option>
+        </select>
+
         <!-- Language Selector -->
         <select class="js-language-selector" onchange="changeLanguage()">
             <option value="en">English</option>
