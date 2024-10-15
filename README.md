@@ -23,11 +23,9 @@ Open `index.html` in your browser to use the application.
 ## Usage
 
 - **Add a Task:** Enter a task in the input field and click the "Add" button.
-    - **Task Adding Limitation:** User can not add todo without given full details
+- **Task Adding Limitation:** User can not add todo without given full details
 - **Edit a Task:** Click the edit icon next to the task, make your changes, and save.
 - **Delete a Task:** Click the delete icon next to the task.
-
-![App Icon](assets\icon.png)
 
 ## Contributing to Hacktoberfest 2024 🎉
 ![hecktoberfest](https://github.com/user-attachments/assets/9352e904-6b2d-495e-8140-1437e385ffdb)
