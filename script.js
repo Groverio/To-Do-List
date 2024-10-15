@@ -93,7 +93,10 @@ function validInfo(name, date, time, category, priority) {
   }
 
   if (!name || !date || !time || !category || !priority) {
-    showToast(`Please fill this fields: ${specifyMessage.join(', ')}.`, 'Danger');
+    showToast(
+      `Please fill this fields: ${specifyMessage.join(', ')}.`,
+      'Danger'
+    );
     return false;
   }
   return true;
@@ -113,7 +116,7 @@ function addTodo() {
   let priority = inputPriorityElement.value;
 
   // Validation checks
-  if(!validInfo(name, date, time, category, priority)) return;
+  if (!validInfo(name, date, time, category, priority)) return;
 
   // Check that date is not in past
   if (date < inputDateElement.min) {
@@ -376,7 +379,6 @@ document.addEventListener('DOMContentLoaded', () => {
     .querySelector('.js-filter-input')
     .addEventListener('change', filterTodos);
 });
-
 
 /** New toast Info */
 class Toast {
