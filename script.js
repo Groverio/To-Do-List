@@ -1,4 +1,4 @@
-  let todoList = JSON.parse(localStorage.getItem('todoList')) || [];
+let todoList = JSON.parse(localStorage.getItem('todoList')) || [];
 let todoListhtml = '';
 console.log(todoList);
 let currentSortMethod = 'date'; // Default sort method
@@ -261,3 +261,4 @@ document.addEventListener('DOMContentLoaded', () => {
     .querySelector('.sort-button-date')
     .addEventListener('click', () => sortTodos('date'));
 });
+
