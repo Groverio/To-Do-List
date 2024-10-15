@@ -9,6 +9,14 @@
 <body>
     <div class="container">
         <h1>Todo-List</h1>
+
+        <!-- Language Selector -->
+        <select class="js-language-selector" onchange="changeLanguage()">
+            <option value="en">English</option>
+            <option value="es">Español</option>
+            <option value="fr">Français</option>
+        </select>
+
         <div class="js-add-grid">
             <input type="text" placeholder="Share Your Thoughts" class="js-name-input">
             <input type="date" class="js-date-input">

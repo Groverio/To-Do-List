@@ -2,6 +2,65 @@ let todoList = JSON.parse(localStorage.getItem('todoList')) || [];
 let todoListhtml = '';
 console.log(todoList);
 
+// Default language is set to English or the saved language in localStorage
+let language = localStorage.getItem('language') || 'en';
+updateLanguageUI();
+
+// Translation object via dictionary since there is not much to translate
+const translations = {
+    en: {
+        task: 'Task',
+        date: 'Date',
+        time: 'Time',
+        add: 'Add',
+        update: 'Update',
+        delete: 'Delete',
+        edit: 'Edit',
+        alertFill: 'Please fill in all fields: task, date, and time.',
+        alertDate: 'Please enter the date in the format mm/dd/yyyy.'
+    },
+    es: {
+        task: 'Tarea',
+        date: 'Fecha',
+        time: 'Hora',
+        add: 'Agregar',
+        update: 'Actualizar',
+        delete: 'Eliminar',
+        edit: 'Editar',
+        alertFill: 'Por favor complete todos los campos: tarea, fecha y hora.',
+        alertDate: 'Por favor ingrese la fecha en el formato mm/dd/yyyy.'
+    },
+    fr: {
+        task: 'Tâche',
+        date: 'Date',
+        time: 'Heure',
+        add: 'Ajouter',
+        update: 'Mettre à jour',
+        delete: 'Supprimer',
+        edit: 'Modifier',
+        alertFill: 'Veuillez remplir tous les champs : tâche, date et heure.',
+        alertDate: 'Veuillez entrer la date au format mm/jj/aaaa.'
+    }
+};
+
+// Function to change the language
+function changeLanguage() {
+    const languageSelector = document.querySelector('.js-language-selector');
+    language = languageSelector.value;
+    localStorage.setItem('language', language);
+    updateLanguageUI();
+}
+
+// Update UI with the selected language
+function updateLanguageUI() {
+    document.querySelector('.js-add-button').textContent = translations[language].add;
+    document.querySelector('.js-name-input-label').textContent = translations[language].task;
+    document.querySelector('.js-date-input-label').textContent = translations[language].date;
+    document.querySelector('.js-time-input-label').textContent = translations[language].time;
+    updateTodoList();
+}
+
+// Validation with translation
 function addTodo() {
     const inputNameElement = document.querySelector('.js-name-input');
     let name = inputNameElement.value;
@@ -12,9 +71,20 @@ function addTodo() {
 
     // Validation checks
     if (!name || !date || !time) {
-        alert('Please fill in all fields: task, date, and time.');
+        // alert('Please fill in all fields: task, date, and time.');
+        alert(translations[language].alertFill);
         return;
     }
+
+    //keeps the date format consistent
+    const datePattern = /^(0[1-9]|1[0-2])\/(0[1-9]|[12][0-9]|3[01])\/\d{4}$/;
+    if (!datePattern.test(date)) {
+        alert(translations[language].alertDate);
+        // alert('Please enter the date in the format mm/dd/yyyy.');
+        return;
+    }
+
+
 
     todoList.push({ name, date, time });
     localStorage.setItem('todoList', JSON.stringify(todoList));
