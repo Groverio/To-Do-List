@@ -113,9 +113,20 @@ h1 {
 
 .js-add-html {
   display: grid;
-  grid-template-columns: 3fr 1fr 1fr 1fr 1fr;
-  gap: 10px;
-  height: 25px;
+  grid-template-columns: 3fr 1fr 1fr 1fr 1fr; /* This sets the layout for the tasks */
+  gap: 10px; /* Space between items */
+  max-height: 200px; /* Adjust this value based on the height of 4 tasks */
+  overflow-y: auto; /* Enables vertical scrollbar when content exceeds max-height */
+  margin-bottom: 20px; /* Space below the task list */
+  padding: 10px; /* Inner spacing for the container */
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.8
+  ); /* Slightly transparent background */
+  border-radius: 5px; /* Rounded corners */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
 
 .small-container {
@@ -254,6 +265,28 @@ footer p {
   transition: all 0.25s ease-out;
   border: none;
 }
+.sort-buttons {
+  display: flex;
+  justify-content: start;
+  margin-bottom: 20px;
+}
+
+.sort-filter-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sort-button,
+.js-filter-input {
+  font-size: 15px;
+  padding: 10px 15px;
+  border-radius: 5px;
+  background-color: rgb(0, 128, 0);
+  color: #fff;
+  outline: none;
+  cursor: pointer;
+}
 
 .social-media .insta:hover {
   background: linear-gradient(
@@ -291,99 +324,106 @@ footer p {
   color: #ff0000;
 }
 
-/*
-Animating title
-*/
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .js-add-grid,
+  .js-add-html {
+    grid-template-columns: 9fr;
+    gap: 10px;
+    padding: 10px;
+  }
 
-.subtitle {
-  text-align: center;
-  color: #f6ac62;
-  font-family: 'Open sans', sans-serif;
-  font-family: cursive;
-  font-size: 5rem;
-  padding: 8px 16px;
-  text-shadow: #000000 3px 4px 10px;
-}
+  .subtitle {
+    font-size: 3rem;
+  }
 
-.sort-buttons {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 10px;
-}
+  h1 {
+    font-size: 1.5rem;
+  }
 
-.sort-filter-container {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-}
+  .js-name-input,
+  .js-date-input,
+  .js-time-input,
+  .js-category-input,
+  .js-priority-input,
+  .js-add-button,
+  .js-cancel-button {
+    font-size: 14px;
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #333;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+  }
 
-.sort-button,
-.js-filter-input {
-  background-color: #4caf50;
-  border: none;
-  color: white;
-  padding: 10px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
-  border-radius: 5px;
-  transition: background-color 0.3s;
-}
+  .js-delete-button,
+  .js-edit-button {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
 
-.sort-button:hover,
-.js-filter-input:hover {
-  background-color: #45a049;
-}
+  .social-media a {
+    font-size: 12px;
+    padding: 6px;
+  }
 
-.js-filter-input {
-  font-size: 15px;
-  padding: 10px 15px;
-  background-color: #4caf50;
-  color: white;
+  footer p {
+    font-size: 10px;
+  }
 }
 
-.completed {
-  background-color: #e0e0e0;
-  text-decoration: line-through;
-}
+@media (max-width: 480px) {
+  .container {
+    padding: 10px;
+  }
 
-.js-add-html {
-  overflow-y: scroll;
-  scroll-behavior: smooth;
-  height: 30vh;
-}
+  .subtitle {
+    font-size: 2.5rem;
+  }
 
-.js-add-html::-webkit-scrollbar {
-  width: 10px; /* Width of the scrollbar */
-}
+  h1 {
+    font-size: 1.25rem;
+  }
 
-.js-add-html::-webkit-scrollbar-thumb {
-  background-color: rgb(136, 132, 132);
-  border-radius: 7px;
-}
+  .js-add-grid,
+  .js-add-html {
+    grid-template-columns: 9fr;
+    gap: 8px;
+  }
 
-.js-add-html::-webkit-scrollbar-track {
-  background-color: black;
-  border-radius: 5px;
-}
-#js-success-notification {
-  position: absolute;
-  border-radius: 5px;
-  align-items: center;
-  justify-content: center;
-  background-color: #46a34a;
-  width: 15%;
-  min-width: 200px;
-  height: 7%;
-  left: 2%;
-  bottom: 10%;
-  color: #d4edda;
-}
-.js-add-html-tasks {
-  border: 1px black solid;
-  height: fit-content;
-  max-height: 35vh;
+  .js-name-input,
+  .js-date-input,
+  .js-time-input,
+  .js-category-input,
+  .js-priority-input,
+  .js-add-button,
+  .js-cancel-button {
+    font-size: 12px;
+    padding: 6px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #333;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+  }
+
+  .js-delete-button,
+  .js-edit-button {
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+
+  .social-media a {
+    font-size: 10px;
+    padding: 4px;
+  }
+
+  footer p {
+    font-size: 9px;
+  }
 }
