@@ -25,7 +25,6 @@ body {
   padding: 20px;
   box-sizing: border-box;
   margin-bottom: 170px;
-
 }
 
 .subtitle {
@@ -34,8 +33,7 @@ body {
   font-family: 'Londrina Outline', cursive;
   font-size: 5rem;
   padding: 8px 16px;
-  text-shadow: #000000 3px 4px 10px; 
-  
+  text-shadow: #000000 3px 4px 10px;
 }
 
 h1 {
@@ -228,8 +226,6 @@ footer {
   font-size: 1rem;
   display: flex;
   justify-content: space-around;
-
- 
 }
 
 footer p {
