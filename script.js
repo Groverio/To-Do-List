@@ -344,7 +344,6 @@ function updateTaskCounter() {
   }
 }
 
-
 // Initialize the todo list and set default date and time on page load
 document.addEventListener('DOMContentLoaded', () => {
   updateTodoList();
