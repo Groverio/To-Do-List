@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Todo-List</title>
     <link rel="stylesheet" href="style.css" />
+    
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
@@ -21,14 +22,16 @@
     />
   </head>
   <body>
+   
     <div class="container">
       <h1 class="subtitle">Todo-List</h1>
 
-      <div class="js-add-grid" id="add-todo">
+      <div class="js-add-grid" id="add-todo" data-tilt data-tilt-glare>
         <input
           type="text"
           placeholder="Share Your Thoughts"
           class="js-name-input"
+          style="cursor: text"
         />
 
         <input type="date" class="js-date-input" min="" />
@@ -103,7 +106,7 @@
         ></a>
       </div>
     </footer>
-
+    <script src="vanilla-tilt.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
