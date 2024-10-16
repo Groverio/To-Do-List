@@ -45,7 +45,8 @@ body {
   font-family: 'Londrina Outline', cursive;
   font-size: 5rem;
   padding: 8px 16px;
-  text-shadow: #000000 3px 4px 10px;
+  text-shadow: 0 3px 10px rgba(10, 10, 10, 40);
+  animation: bounce 1s infinite;
 }
 
 h1 {
@@ -60,7 +61,8 @@ h1 {
 .js-time-input,
 .js-category-input,
 .js-priority-input,
-.js-add-button {
+.js-add-button,
+.js-cancel-button {
   font-size: 15px;
   padding: 10px 15px;
   border: 1px solid #ccc;
@@ -69,12 +71,20 @@ h1 {
   color: #333;
   outline: none;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.js-date-input:hover,
+.js-time-input:hover {
+  cursor: pointer;
+  font-weight: bold;
 }
 
 .js-add-grid {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr;
   gap: 10px;
+  row-gap: 1rem;
   background-color: rgba(255, 255, 255, 0.9);
   padding: 20px;
   border-radius: 8px;
@@ -82,7 +92,16 @@ h1 {
   margin-bottom: 20px;
 }
 
-.js-add-button {
+.js-actions-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  grid-row: auto;
+  grid-column: auto;
+}
+
+.js-add-button,
+.js-cancel-button {
   background-color: green;
   color: white;
   border: none;
@@ -98,8 +117,17 @@ h1 {
   background-color: darkgreen;
 }
 
+.js-cancel-button {
+  background-color: #ff0000;
+}
+
+.js-cancel-button:hover {
+  background-color: #8b0000;
+}
+
 .js-add-html {
   display: grid;
+  align-items: center;
   grid-template-columns: 3fr 1fr 1fr 1fr 1fr;
   gap: 10px;
   height: 25px;
@@ -108,15 +136,17 @@ h1 {
 .small-container {
   display: flex;
   justify-content: flex-start;
-  align-items: end;
+  align-items: center;
   border: 1px solid #ccc;
   padding: 10px 15px;
   border-radius: 5px;
   background-color: #fff;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-  min-height: 3px;
   text-align: left;
-  height: 25px;
+  min-height: 45px;
+  max-height: 90px;
+  height: auto;
+  box-sizing: border-box;
 }
 
 .task-info {
@@ -129,6 +159,8 @@ h1 {
 
 .task-name {
   font-weight: bold;
+  overflow: auto;
+  max-height: 40px;
 }
 
 .category-tag,
@@ -239,6 +271,43 @@ footer p {
 .social-media a:hover {
   transform: scale(1.05);
   transition: all 0.25s ease-out;
+  border: none;
+}
+
+.social-media .insta:hover {
+  background: linear-gradient(
+    45deg,
+    #feda75,
+    #fa7e1e,
+    #d62976,
+    #962fbf,
+    #4f5bd5
+  );
+  color: white;
+}
+
+.social-media .facebook:hover {
+  background-color: #1877f2;
+  color: white;
+}
+
+.social-media .x:hover {
+  background-color: #000000;
+  color: white;
+}
+
+.social-media .linkedin:hover {
+  background-color: #0a66c2;
+  color: white;
+}
+
+.social-media .github:hover {
+  background-color: white;
+}
+
+.social-media .youtube:hover {
+  background-color: white;
+  color: #ff0000;
 }
 
 /*
@@ -331,4 +400,83 @@ Animating title
   left: 2%;
   bottom: 10%;
   color: #d4edda;
+}
+.js-add-html-tasks {
+  border: 1px black solid;
+  height: fit-content;
+  max-height: 35vh;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&family=Londrina+Outline&display=swap');
+
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+
+  40% {
+    transform: translateY(-10px);
+  }
+
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+@media (max-width: 947px) {
+  .container {
+    max-width: 100%;
+    padding: 10px;
+  }
+
+  .subtitle {
+    font-size: 3rem;
+  }
+
+  .js-add-grid,
+  .js-add-html {
+    grid-template-columns: 1fr;
+  }
+
+  .js-add-button {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .task-info {
+    flex-direction: column;
+  }
+
+  .footer {
+    font-size: 0.8rem;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .subtitle {
+    font-size: 2rem;
+  }
+
+  .js-add-grid,
+  .js-add-html {
+    grid-template-columns: 1fr;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .task-info {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .footer p {
+    font-size: 10px;
+  }
 }
