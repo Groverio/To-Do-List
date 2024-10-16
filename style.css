@@ -114,6 +114,7 @@ h1 {
 
 .js-add-html {
   display: grid;
+  align-items: center;
   grid-template-columns: 3fr 1fr 1fr 1fr 1fr;
   gap: 10px;
   height: 25px;
@@ -122,15 +123,17 @@ h1 {
 .small-container {
   display: flex;
   justify-content: flex-start;
-  align-items: end;
+  align-items: center;
   border: 1px solid #ccc;
   padding: 10px 15px;
   border-radius: 5px;
   background-color: #fff;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-  min-height: 3px;
   text-align: left;
-  height: 25px;
+  min-height: 45px;
+  max-height: 90px;
+  height: auto;
+  box-sizing: border-box;
 }
 
 .task-info {
@@ -143,6 +146,8 @@ h1 {
 
 .task-name {
   font-weight: bold;
+  overflow: auto;
+  max-height: 40px;
 }
 
 .category-tag,
