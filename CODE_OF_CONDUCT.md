@@ -64,10 +64,12 @@ Project maintainers will follow these Community Impact Guidelines in determining
 **Community Impact**: Demonstrating a pattern of violation of community standards, including sustained inappropriate behavior, harassment of an individual, or aggression toward or disparagement of classes of individuals.
 **Consequence**: A permanent ban from any sort of public interaction within the community.
 
+
 ## Attribution
 
 This Code of Conduct is adapted from the [Contributor Covenant](https://www.contributor-covenant.org), version 2.0, available at https://www.contributor-covenant.org/version/2/0/code_of_conduct.html.
 
 ---
+
 
 By following this Code of Conduct, we can ensure a welcoming and inclusive environment during Hacktoberfest and beyond, encouraging new contributors to engage with the project and the community. Thank you for helping make **To-Do-List** a positive space for all!
