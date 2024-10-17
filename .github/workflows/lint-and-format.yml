@@ -1,0 +1,28 @@
+name: Lint and Format
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  format:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'  # You can specify the version you need
+
+      - name: Install dependencies
+        run: npm install --save-dev prettier
+
+      - name: Check formatting
+        run: npx prettier --check .
+
+      - name: Format code
+        run: npx prettier --write .
