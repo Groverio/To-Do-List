@@ -1,9 +1,6 @@
-name: Format
+name: Lint and Format
 
 on:
-  push:
-    branches:
-      - main
   pull_request:
     branches:
       - main
@@ -14,16 +11,18 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v2
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
         with:
-          node-version: '20'
+          node-version: '20'  
 
       - name: Install dependencies
-        run: npm install
+        run: npm install --save-dev prettier
 
-      - name: Run Prettier to check formatting
-        run: npm run prettier -- --check
-        continue-on-error: false
+      - name: Check formatting
+        run: npx prettier --check .
+
+      - name: Format code
+        run: npx prettier --write .
