@@ -332,6 +332,20 @@ document.addEventListener('DOMContentLoaded', () => {
   const inputNameElement = document.querySelector('.js-name-input');
   inputNameElement.focus();
 
+ // Add event listener for "Enter" key to trigger add or edit
+  document.querySelector('.js-name-input').addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+      if (isEditing) {
+        // If in edit mode, call addTodo to update the task
+        addTodo();
+      } else {
+        // If not in edit mode, call addTodo to add a new task
+        addTodo();
+      }
+    }
+  });
+  
+
   // Hide edit cancel action button on page load
   const cancelEditBtn = document.querySelector('.js-cancel-button');
   cancelEditBtn.style.display = 'none';
