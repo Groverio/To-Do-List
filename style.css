@@ -43,6 +43,7 @@ h1 {
   text-shadow: 2px 2px 4px #000;
 }
 
+/* Input Styling */
 .js-name-input,
 .js-date-input,
 .js-time-input,
@@ -67,9 +68,10 @@ h1 {
   font-weight: bold;
 }
 
+/* Dynamic Grid for Adding Tasks */
 .js-add-grid {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Dynamic column layout */
   gap: 10px;
   row-gap: 1rem;
   background-color: rgba(255, 255, 255, 0.9);
@@ -79,12 +81,33 @@ h1 {
   margin-bottom: 20px;
 }
 
+/* Handle Dynamic Content */
+.js-add-html-tasks {
+  border: 1px solid black;
+  height: fit-content;
+  max-height: 35vh;
+  overflow-y: auto; /* Add scrolling if content exceeds the height */
+}
+
+.js-add-html-tasks::-webkit-scrollbar {
+  width: 10px;
+}
+
+.js-add-html-tasks::-webkit-scrollbar-thumb {
+  background-color: rgb(136, 132, 132);
+  border-radius: 7px;
+}
+
+.js-add-html-tasks::-webkit-scrollbar-track {
+  background-color: black;
+  border-radius: 5px;
+}
+
+/* Button Styling */
 .js-actions-wrapper {
   display: flex;
   justify-content: center;
   gap: 1rem;
-  grid-row: auto;
-  grid-column: auto;
 }
 
 .js-add-button,
@@ -112,14 +135,7 @@ h1 {
   background-color: #8b0000;
 }
 
-.js-add-html {
-  display: grid;
-  align-items: center;
-  grid-template-columns: 3fr 1fr 1fr 1fr 1fr;
-  gap: 10px;
-  height: 25px;
-}
-
+/* Task Container Styling */
 .small-container {
   display: flex;
   justify-content: flex-start;
@@ -150,6 +166,7 @@ h1 {
   max-height: 40px;
 }
 
+/* Category and Priority Tags */
 .category-tag,
 .priority-tag {
   display: inline-block;
@@ -179,47 +196,6 @@ h1 {
   color: #155724;
 }
 
-.js-delete-button,
-.js-edit-button {
-  border: none;
-  font-size: 15px;
-  font-weight: bold;
-  cursor: pointer;
-  border-radius: 5px;
-  padding: 10px 15px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background-color 0.3s ease;
-  width: 100%;
-  justify-content: center;
-  height: 46px;
-}
-
-.js-delete-button {
-  background-color: red;
-  color: white;
-}
-
-.js-delete-button:hover {
-  background-color: darkred;
-}
-
-.js-edit-button {
-  background-color: skyblue;
-  color: white;
-}
-
-.js-edit-button:hover {
-  background-color: deepskyblue;
-}
-
-.js-add-button img,
-.js-delete-button img,
-.js-edit-button img {
-  margin-right: 5px;
-}
-
 /* Footer Styling */
 footer {
   background-color: transparent;
@@ -239,6 +215,7 @@ footer p {
   font-size: 12px;
 }
 
+/* Social Media Styling */
 .social-media {
   display: flex;
   justify-content: center;
@@ -261,159 +238,7 @@ footer p {
   border: none;
 }
 
-.social-media .insta:hover {
-  background: linear-gradient(
-    45deg,
-    #feda75,
-    #fa7e1e,
-    #d62976,
-    #962fbf,
-    #4f5bd5
-  );
-  color: white;
-}
-
-.social-media .facebook:hover {
-  background-color: #1877f2;
-  color: white;
-}
-
-.social-media .x:hover {
-  background-color: #000000;
-  color: white;
-}
-
-.social-media .linkedin:hover {
-  background-color: #0a66c2;
-  color: white;
-}
-
-.social-media .github:hover {
-  background-color: white;
-}
-
-.social-media .youtube:hover {
-  background-color: white;
-  color: #ff0000;
-}
-
-/*
-Animating title
-*/
-
-.subtitle {
-  text-align: center;
-  color: #f6ac62;
-  font-family: 'Open sans', sans-serif;
-  font-family: cursive;
-  font-size: 5rem;
-  padding: 8px 16px;
-  text-shadow: #000000 3px 4px 10px;
-}
-
-.sort-buttons {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 10px;
-}
-
-.sort-filter-container {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
-.sort-button,
-.js-filter-input {
-  background-color: #4caf50;
-  border: none;
-  color: white;
-  padding: 10px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
-  border-radius: 5px;
-  transition: background-color 0.3s;
-}
-
-.sort-button:hover,
-.js-filter-input:hover {
-  background-color: #45a049;
-}
-
-.js-filter-input {
-  font-size: 15px;
-  padding: 10px 15px;
-  background-color: #4caf50;
-  color: white;
-}
-
-.completed {
-  background-color: #e0e0e0;
-  text-decoration: line-through;
-}
-
-.js-add-html {
-  overflow-y: scroll;
-  scroll-behavior: smooth;
-  height: 30vh;
-}
-
-.js-add-html::-webkit-scrollbar {
-  width: 10px; /* Width of the scrollbar */
-}
-
-.js-add-html::-webkit-scrollbar-thumb {
-  background-color: rgb(136, 132, 132);
-  border-radius: 7px;
-}
-
-.js-add-html::-webkit-scrollbar-track {
-  background-color: black;
-  border-radius: 5px;
-}
-#js-success-notification {
-  position: absolute;
-  border-radius: 5px;
-  align-items: center;
-  justify-content: center;
-  background-color: #46a34a;
-  width: 15%;
-  min-width: 200px;
-  height: 7%;
-  left: 2%;
-  bottom: 10%;
-  color: #d4edda;
-}
-.js-add-html-tasks {
-  border: 1px black solid;
-  height: fit-content;
-  max-height: 35vh;
-}
-
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&family=Londrina+Outline&display=swap');
-
-@keyframes bounce {
-  0%,
-  20%,
-  50%,
-  80%,
-  100% {
-    transform: translateY(0);
-  }
-
-  40% {
-    transform: translateY(-10px);
-  }
-
-  60% {
-    transform: translateY(-5px);
-  }
-}
-
+/* Additional Styles for Responsive Design */
 @media (max-width: 947px) {
   .container {
     max-width: 100%;
@@ -429,16 +254,11 @@ Animating title
     grid-template-columns: 1fr;
   }
 
-  .js-add-button {
-    width: 100%;
-    padding: 10px;
-  }
-
   .task-info {
     flex-direction: column;
   }
 
-  .footer {
+  footer {
     font-size: 0.8rem;
     flex-direction: column;
   }
@@ -463,7 +283,22 @@ Animating title
     gap: 5px;
   }
 
-  .footer p {
+  footer p {
     font-size: 10px;
+  }
+}
+
+/* Animations */
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+
+  40% {
+    transform: translateY(-10px);
+  }
+
+  60% {
+    transform: translateY(-5px);
   }
 }
