@@ -6,17 +6,28 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>To-Do List App</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* Subtle fade-in animation */
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+
+      .fade-in {
+        animation: fadeIn ease 2s;
+      }
+    </style>
   </head>
   <body class="bg-gray-50 text-gray-800">
     <!-- Navbar -->
     <nav class="bg-white shadow-lg">
-      <div
-        class="container mx-auto px-4 py-4 flex justify-between items-center"
-      >
+      <div class="container mx-auto px-4 py-4 flex justify-between items-center">
         <a href="#" class="text-2xl font-bold text-purple-600">To-Do List</a>
         <ul class="flex space-x-4">
-          <!-- All of these buttons currently lead to error pages as their functionality will be added in the future
-         after login and authentication has been implemented.-->
           <li>
             <a href="error.html" class="hover:text-blue-600">Upcoming Tasks</a>
           </li>
@@ -30,7 +41,7 @@
       class="flex justify-center items-center h-screen bg-gradient-to-b from-purple-600 via-indigo-600 to-gray-900"
     >
       <div class="container mx-auto px-4 text-center text-white">
-        <h1 class="text-4xl md:text-6xl font-bold">
+        <h1 class="text-4xl md:text-6xl font-bold fade-in">
           Organize Your Life with this easy-to-use app
         </h1>
         <p class="mt-4 text-lg md:text-2xl">
@@ -56,3 +67,4 @@
     </footer>
   </body>
 </html>
+
