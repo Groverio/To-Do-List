@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>To-Do List App</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon" /> <!-- Add your favicon here -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
 </head>
@@ -56,7 +57,7 @@
 
             let y = 20;
             tasks.forEach(task => {
-                doc.text(${task.title} - ${task.description} - Due: ${task.dueDate} - Status: ${task.status}, 10, y);
+                doc.text(`${task.title} - ${task.description} - Due: ${task.dueDate} - Status: ${task.status}`, 10, y);
                 y += 10;
             });
             doc.save('todo-tasks.pdf');
@@ -70,7 +71,7 @@
 
             const csvContent = "data:text/csv;charset=utf-8," 
                 + "Title,Description,Due Date,Status\n"
-                + tasks.map(e => ${e.title},${e.description},${e.dueDate},${e.status}).join("\n");
+                + tasks.map(e => `${e.title},${e.description},${e.dueDate},${e.status}`).join("\n");
 
             const encodedUri = encodeURI(csvContent);
             const link = document.createElement("a");
@@ -78,7 +79,9 @@
             link.setAttribute("download", "todo-tasks.csv");
             document.body.appendChild(link);
             link.click();
+            document.body.removeChild(link); // Clean up by removing the link after use
         });
     </script>
 </body>
 </html>
+
