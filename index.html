@@ -6,17 +6,23 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>To-Do List App</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      // Function to update the year in the footer
+      function updateYear() {
+        const yearElement = document.getElementById('currentYear');
+        yearElement.textContent = new Date().getFullYear(); // Get the current year
+      }
+
+      // Call the function when the DOM is fully loaded
+      document.addEventListener('DOMContentLoaded', updateYear);
+    </script>
   </head>
   <body class="bg-gray-50 text-gray-800">
     <!-- Navbar -->
     <nav class="bg-white shadow-lg">
-      <div
-        class="container mx-auto px-4 py-4 flex justify-between items-center"
-      >
+      <div class="container mx-auto px-4 py-4 flex justify-between items-center">
         <a href="#" class="text-2xl font-bold text-purple-600">To-Do List</a>
         <ul class="flex space-x-4">
-          <!-- All of these buttons currently lead to error pages as their functionality will be added in the future
-         after login and authentication has been implemented.-->
           <li>
             <a href="error.html" class="hover:text-blue-600">Upcoming Tasks</a>
           </li>
@@ -26,16 +32,13 @@
     </nav>
 
     <!-- Main Block -->
-    <section
-      class="flex justify-center items-center h-screen bg-gradient-to-b from-purple-600 via-indigo-600 to-gray-900"
-    >
+    <section class="flex justify-center items-center h-screen bg-gradient-to-b from-purple-600 via-indigo-600 to-gray-900">
       <div class="container mx-auto px-4 text-center text-white">
         <h1 class="text-4xl md:text-6xl font-bold">
           Organize Your Life with this easy-to-use app
         </h1>
         <p class="mt-4 text-lg md:text-2xl">
-          Manage tasks effortlessly and boost your productivity. Stay on top of
-          everything with our intuitive To-Do List.
+          Manage tasks effortlessly and boost your productivity. Stay on top of everything with our intuitive To-Do List.
         </p>
         <a
           href="Todo.html"
@@ -50,7 +53,7 @@
     <footer class="bg-gray-800 text-white py-6">
       <div class="container mx-auto px-4 text-center">
         <p>
-          &copy; 2024 Made with &#10084; by Ansh Grover. All rights reserved.
+          &copy; <span id="currentYear"></span> Made with &#10084; by Ansh Grover. All rights reserved.
         </p>
       </div>
     </footer>
