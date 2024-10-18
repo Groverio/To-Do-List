@@ -1,29 +1,17 @@
-# To-Do-List
+## Landing Page
 
-<img width="950" alt="{C4591A30-5564-48AD-9ACC-1DAA32FA68B4}" src="https://github.com/user-attachments/assets/927a61f2-0908-4b76-98fd-7a77191b0177">
+Here are the new images for the landing page of the To-Do List application:
 
-A simple and interactive To-Do List application built with HTML, CSS, and JavaScript.
+![Landing Page - Overview](path_to_image1.png)
+*Overview of the landing page showcasing the main features.*
 
-## Features
+![Landing Page - Tasks](path_to_image2.png)
+*Detailed view of the tasks section, displaying task management capabilities.*
 
-- Add new tasks
-- Edit existing tasks
-- Delete tasks
-- Set a date for each task
-- Responsive design
-- Time feature
+![Landing Page - Responsive Design](path_to_image3.png)
+*Responsive design of the application on different devices.*
 
-## Installation
 
-Clone the repository:
-
-```bash
-git clone https://github.com/Anshgrover23/To-Do-List.git
-```
-
-Open `index.html` in your browser to use the application.
-
-## Usage
 
 - **Add a Task:** Enter a task in the input field and click the "Add" button.
 - **Task Adding Limitation:** User can not add todo without given full details
