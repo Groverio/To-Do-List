@@ -6,8 +6,9 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "lint": "eslint .",
     "format": "prettier --write .",
+    "prettier": "prettier --check .",
+    "lint": "eslint .",
     "preview": "vite preview"
   },
   "dependencies": {
