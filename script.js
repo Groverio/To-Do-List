@@ -313,6 +313,32 @@ function successNotification() {
   }, 4000);
 }
 
+// this shows the failurenotification based on due time
+function checkForOverdueTasks() {
+  const now = new Date();
+  let hasOverdue = false;
+
+  todoList.forEach(todo => {
+    const taskDueDateTime = new Date(todo.date + ' ' + todo.time); // Combine date and time
+    if (now > taskDueDateTime && !todo.completed) {
+      hasOverdue = true;
+    }
+  });
+
+  // Show failure notification if there are overdue tasks
+  if (hasOverdue) {
+    document.getElementById('js-failure-notification').style.display = 'flex';
+  } else {
+    document.getElementById('js-failure-notification').style.display = 'none';
+  }
+
+  // Update the displayed todo list
+  updateTodoList();
+}
+
+// Check overdue tasks periodically (e.g., every 1 minute)
+setInterval(checkForOverdueTasks, 10000);
+
 // eslint-disable-next-line no-unused-vars
 function toggleComplete(index) {
   todoList[index].completed = !todoList[index].completed;
