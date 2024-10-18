@@ -355,3 +355,7 @@ document.addEventListener('DOMContentLoaded', () => {
     .querySelector('.js-filter-input')
     .addEventListener('change', filterTodos);
 });
+
+// Dynamically updating Year in footer
+const currentYear = new Date().getFullYear();
+document.getElementById('year').textContent = currentYear;
