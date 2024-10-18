@@ -355,3 +355,13 @@ document.addEventListener('DOMContentLoaded', () => {
     .querySelector('.js-filter-input')
     .addEventListener('change', filterTodos);
 });
+
+// Function to update the year in the footer
+function updateYear() {
+    const yearElement = document.getElementById('currentYear');
+    yearElement.textContent = new Date().getFullYear(); // Get the current year
+}
+
+// Call the function when the DOM is fully loaded
+document.addEventListener('DOMContentLoaded', updateYear);
+
