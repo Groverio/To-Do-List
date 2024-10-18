@@ -388,6 +388,19 @@ Animating title
   bottom: 10%;
   color: #d4edda;
 }
+#js-failure-notification{
+  position: absolute;
+  border-radius: 5px;
+  align-items: center;
+  justify-content: center;
+  background-color: #46a34a;
+  width: 15%;
+  min-width: 200px;
+  height: 7%;
+  left: 2%;
+  bottom: 10%;
+  color: #d4edda;
+}
 .js-add-html-tasks {
   border: 1px black solid;
   height: fit-content;
