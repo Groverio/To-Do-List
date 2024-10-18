@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Todo-List</title>
     <link rel="stylesheet" href="style.css" />
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.2/vanilla-tilt.min.js"></script>
+    <!-- CDN for vanilla-tilt -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
@@ -105,7 +106,16 @@
         ></a>
       </div>
     </footer>
-    <script src="vanilla-tilt.js"></script>
+
+    <script>
+      //vanilla-tilt.js for 3d effect
+      VanillaTilt.init(document.querySelectorAll('[data-tilt]'), {
+        max: 20,
+        speed: 1000,
+        glare: true, // Enables glare effect
+        'max-glare': 0.5, // Adjust glare opacity
+      });
+    </script>
     <script src="script.js"></script>
   </body>
 </html>
