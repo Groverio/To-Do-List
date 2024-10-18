@@ -47,12 +47,13 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-6">
-      <div class="container mx-auto px-4 text-center">
-        <p>
-          &copy; 2024 Made with &#10084; by Ansh Grover. All rights reserved.
-        </p>
-      </div>
-    </footer>
-  </body>
+   <footer>
+  <p>&copy; <span id="current-year"></span> Groverio To-Do List. All Rights Reserved.</p>
+</footer>
+
+<script>
+  // Set the current year in the footer
+  document.getElementById('current-year').textContent = new Date().getFullYear();
+</script>
+</body>
 </html>
