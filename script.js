@@ -356,9 +356,9 @@ document.addEventListener('DOMContentLoaded', () => {
     .addEventListener('change', filterTodos);
 });
 
-  // Add event listener for sort by date button
-  document.querySelector('.sort-button-date').addEventListener('click', () => {
-    currentSortMethod = 'date'; // Set the sort method to date
-    currentSortOrder = 'asc'; // Ensure sorting is in ascending order
-    updateTodoList(); // Update the displayed list
+// Add event listener for sort by date button
+document.querySelector('.sort-button-date').addEventListener('click', () => {
+  currentSortMethod = 'date'; // Set the sort method to date
+  currentSortOrder = 'asc'; // Ensure sorting is in ascending order
+  updateTodoList(); // Update the displayed list
 });

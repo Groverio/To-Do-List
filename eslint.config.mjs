@@ -12,8 +12,8 @@ export default [
       },
     },
     rules: {
-      'quotes': ['error', 'single'], // Enforce single quotes
-      'semi': ['error', 'always'], // Enforce semicolons
+      quotes: ['error', 'single'], // Enforce single quotes
+      semi: ['error', 'always'], // Enforce semicolons
       // Add more rules as needed
     },
   },
