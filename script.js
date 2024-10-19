@@ -356,7 +356,6 @@ document.addEventListener('DOMContentLoaded', () => {
     .addEventListener('change', filterTodos);
 });
 
-
 // Add year in the footer(CopyRight Notice)
-let year = document.querySelector(".year");
+let year = document.querySelector('.year');
 year.innerText = new Date().getFullYear();
