@@ -355,3 +355,8 @@ document.addEventListener('DOMContentLoaded', () => {
     .querySelector('.js-filter-input')
     .addEventListener('change', filterTodos);
 });
+
+
+// Add year in the footer(CopyRight Notice)
+let year = document.querySelector(".year");
+year.innerText = new Date().getFullYear();
