@@ -1,6 +1,11 @@
 body {
   font-family: Arial, sans-serif;
-  background-color: #3a166a;
+  background: rgb(136, 0, 255);
+  background: linear-gradient(
+    0deg,
+    rgba(65, 45, 253, 1) 48%,
+    rgba(29, 29, 29, 1) 100%
+  );
   margin: 0;
   padding: 20px;
   overflow: hidden;
