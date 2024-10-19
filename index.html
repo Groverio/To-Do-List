@@ -16,29 +16,26 @@
     </style>
   </head>
   <body class="bg-gradient-to-br from-purple-600 via-indigo-600 to-blue-500 text-white min-h-screen flex flex-col transition-colors duration-300">
-    <!-- Improved Header -->
-    <header class="bg-white bg-opacity-5 backdrop-filter backdrop-blur-md shadow-lg transition-colors duration-300 sticky top-0 z-50">
-      <div class="container mx-auto px-6 py-4">
+    <!-- Navbar -->
+    <nav class="bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg">
+      <div class="container mx-auto px-6 py-3">
         <div class="flex justify-between items-center">
-          <a href="#" class="text-3xl font-bold text-white transition-colors duration-300">TaskMaster</a>
-          <nav class="flex items-center space-x-8">
-            <a href="#" class="text-white hover:text-purple-200 transition duration-300 text-lg">Features</a>
-            <a href="#" class="text-white hover:text-purple-200 transition duration-300 text-lg">Pricing</a>
-            <a href="#" class="text-white hover:text-purple-200 transition duration-300 text-lg">About</a>
-            <a href="Todo.html" class="get-started-btn bg-white text-purple-600 px-6 py-2 rounded-full font-semibold hover:bg-purple-100 transition duration-300 shadow-md hover:shadow-lg text-lg">Get Started</a>
-            <button id="dark-mode-toggle" class="p-2 rounded-full bg-white bg-opacity-20 text-black hover:bg-opacity-30 transition duration-300 focus:outline-none">
-              <i class="fas fa-moon text-xl"></i>
-            </button>
-          </nav>
+          <a href="#" class="text-2xl font-bold text-white">TaskMaster</a>
+          <div class="hidden md:flex items-center space-x-8">
+            <a href="#" class="text-white hover:text-purple-200 transition duration-300">Features</a>
+            <a href="#" class="text-white hover:text-purple-200 transition duration-300">Pricing</a>
+            <a href="#" class="text-white hover:text-purple-200 transition duration-300">About</a>
+            <a href="Todo.html" class="bg-white text-purple-600 px-4 py-2 rounded-full font-semibold hover:bg-purple-100 transition duration-300">Get Started</a>
+          </div>
         </div>
       </div>
-    </header>
+    </nav>
 
     <!-- Hero Section -->
     <main class="flex-grow flex items-center justify-center px-4">
       <div class="text-center">
-        <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight transition-colors duration-300">Organize Your Life <br>with TaskMaster</h1>
-        <p class="text-xl md:text-2xl mb-12 max-w-2xl mx-auto transition-colors duration-300">Effortlessly manage tasks, boost productivity, and achieve your goals with our intuitive todo list application.</p>
+        <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">Organize Your Life <br>with TaskMaster</h1>
+        <p class="text-xl md:text-2xl mb-12 max-w-2xl mx-auto">Effortlessly manage tasks, boost productivity, and achieve your goals with our intuitive todo list application.</p>
         <a href="Todo.html" class="bg-white text-purple-600 text-lg font-semibold px-8 py-4 rounded-full hover:bg-purple-100 transition duration-300 shadow-lg hover:shadow-xl">
           Start Organizing Now
         </a>
@@ -46,15 +43,14 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg py-6 transition-colors duration-300">
+    <footer class="bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg py-6">
       <div class="container mx-auto px-4 text-center">
-        <p class="text-sm transition-colors duration-300">
+        <p class="text-sm">
           &copy; 2024 TaskMaster. Made with &#10084; by Ansh Grover. All rights reserved.
         </p>
       </div>
     </footer>
 
     <script src="darkMode.js"></script>
-    <script src="script.js"></script>
   </body>
 </html>
