@@ -3,107 +3,115 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Todo-List</title>
+    <title>TaskMaster | Your Personal Task Management Hub</title>
+    <meta name="description" content="Organize your life with TaskMaster. Manage tasks, set priorities, and boost your productivity with our intuitive todo list application.">
     <link rel="stylesheet" href="style.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   </head>
-  <body>
-    <div class="container">
-      <h1 class="subtitle">Todo-List</h1>
+  <body class="light-mode">
+    <div class="app-container">
+      <main class="bg-white rounded-lg shadow-lg p-6 mt-8">
+        <!-- Title and Subtitle -->
+        <div class="text-center mb-8">
+          <h1 class="text-4xl font-bold text-purple-600 mb-2">Task Master</h1>
+          <p class="text-xl text-gray-600">Organize your life, one task at a time</p>
+        </div>
 
-      <div class="js-add-grid" id="add-todo">
-        <input
-          type="text"
-          placeholder="Share Your Thoughts"
-          class="js-name-input"
-        />
-
-        <input type="date" class="js-date-input" min="" />
-        <input type="time" class="js-time-input" />
-        <select class="js-category-input">
-          <option value="">Select Category</option>
-          <option value="work">Work</option>
-          <option value="personal">Personal</option>
-          <option value="shopping">Shopping</option>
-          <option value="other">Other</option>
-        </select>
-        <select class="js-priority-input">
-          <option value="">Select Priority</option>
-          <option value="high">High</option>
-          <option value="medium">Medium</option>
-          <option value="low">Low</option>
-        </select>
-        <div class="js-actions-wrapper">
-          <button class="js-add-button">
-            <i class="fa-solid fa-add"></i>
-          </button>
-          <button class="js-cancel-button" title="Cancel">
-            <i class="fa-solid fa-times"></i>
+        <!-- Dark Mode Toggle Button -->
+        <div class="flex justify-end mb-4">
+          <button id="dark-mode-toggle" class="p-2 rounded-full bg-gray-200 text-gray-800 hover:bg-gray-300 transition duration-300 focus:outline-none">
+            <i class="fas fa-moon text-xl"></i>
           </button>
         </div>
-        <div id="js-success-notification" style="display: none">
-          <p>Task completed 🎉</p>
-        </div>
-      </div>
 
-      <!-- Add this new div for sorting buttons -->
-      <div class="sort-buttons">
-        <div class="sort-filter-container">
-          <button class="sort-button" onclick="sortTodos('category')">
-            Sort by Category
-          </button>
-          <button class="sort-button" onclick="sortTodos('priority')">
-            Sort by Priority
-          </button>
-          <select class="js-filter-input" onchange="filterTodos()">
-            <option value="all">All</option>
-            <option value="pending">Pending</option>
-            <option value="completed">Completed</option>
-          </select>
+        <section class="task-input-section mb-8">
+          <h2 class="text-2xl font-semibold mb-4">Add New Task</h2>
+          <div class="task-input-grid">
+            <input type="text" placeholder="What needs to be done?" class="js-name-input input-field" />
+            <div class="date-time-container">
+              <input type="date" class="js-date-input input-field" />
+              <input type="time" class="js-time-input input-field" />
+            </div>
+            <div class="category-priority-container">
+              <select class="js-category-input input-field">
+                <option value="">Category</option>
+                <option value="work">Work</option>
+                <option value="personal">Personal</option>
+                <option value="shopping">Shopping</option>
+                <option value="other">Other</option>
+              </select>
+              <select class="js-priority-input input-field">
+                <option value="">Priority</option>
+                <option value="high">High</option>
+                <option value="medium">Medium</option>
+                <option value="low">Low</option>
+              </select>
+            </div>
+            <div class="button-container">
+              <button class="js-add-button btn btn-primary">
+                <i class="fas fa-plus mr-2"></i> Add Task
+              </button>
+              <button class="js-cancel-button btn btn-secondary" style="display: none;">
+                <i class="fas fa-times mr-2"></i> Cancel
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <section class="task-list-section">
+          <div class="task-controls bg-gray-100 rounded-lg p-4 mb-4">
+            <div class="sort-filter-container">
+              <div class="sort-buttons">
+                <button onclick="sortTodos('category')" class="btn btn-outline">
+                  <i class="fas fa-sort-alpha-down mr-2"></i> Sort by Category
+                </button>
+                <button onclick="sortTodos('priority')" class="btn btn-outline">
+                  <i class="fas fa-sort-amount-down mr-2"></i> Sort by Priority
+                </button>
+              </div>
+              <select class="js-filter-input input-field" onchange="filterTodos()">
+                <option value="all">All Tasks</option>
+                <option value="pending">Pending</option>
+                <option value="completed">Completed</option>
+              </select>
+            </div>
+          </div>
+          <div class="js-add-html js-add-grid js-add-html-tasks bg-gray-50 rounded-lg p-4 max-h-96 overflow-y-auto"></div>
+        </section>
+
+        <section class="export-section mt-8">
+          <h2 class="text-2xl font-semibold mb-4">Export Tasks</h2>
+          <div class="export-buttons">
+            <button class="js-export-csv-button btn btn-secondary" onclick="exportTasks('csv')">
+              <i class="fas fa-file-csv mr-2"></i> Export CSV
+            </button>
+            <button class="js-export-pdf-button btn btn-secondary" onclick="exportTasks('pdf')">
+              <i class="fas fa-file-pdf mr-2"></i> Export PDF
+            </button>
+          </div>
+        </section>
+      </main>
+
+      <footer class="text-center text-white py-4">
+        <p>&copy; 2024 TaskMaster. Made with <i class="fas fa-heart text-red-500"></i> by Ansh Grover</p>
+        <div class="social-links mt-4">
+          <a href="https://www.instagram.com/" target="_blank" class="text-white hover:text-purple-200 mx-2"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.facebook.com/" target="_blank" class="text-white hover:text-purple-200 mx-2"><i class="fab fa-facebook"></i></a>
+          <a href="https://twitter.com/" target="_blank" class="text-white hover:text-purple-200 mx-2"><i class="fab fa-twitter"></i></a>
+          <a href="https://www.linkedin.com/" target="_blank" class="text-white hover:text-purple-200 mx-2"><i class="fab fa-linkedin"></i></a>
+          <a href="https://github.com/Groverio" target="_blank" class="text-white hover:text-purple-200 mx-2"><i class="fab fa-github"></i></a>
+          <a href="https://www.youtube.com/" target="_blank" class="text-white hover:text-purple-200 mx-2"><i class="fab fa-youtube"></i></a>
         </div>
-      </div>
-      <div class="test">
-        <div class="js-add-html js-add-grid js-add-html-tasks"></div>
-      </div>
+      </footer>
     </div>
 
-    <footer class="footer">
-      <p>&copy; 2024 Made with &#10084; by Ansh Grover. All rights reserved.</p>
-      <div class="social-media">
-        <a class="insta" href="https://www.instagram.com/" target="_blank"
-          ><i class="fa-brands fa-instagram"></i
-        ></a>
-        <a class="facebook" href="https://www.facebook.com/" target="_blank"
-          ><i class="fa-brands fa-facebook"></i
-        ></a>
-        <a class="x" href="https://x.com/i/flow/login" target="_blank"
-          ><i class="fa-brands fa-x-twitter"></i
-        ></a>
-        <a class="linkedin" href="https://www.linkedin.com/" target="_blank"
-          ><i class="fa-brands fa-linkedin-in"></i
-        ></a>
-        <a class="github" href="https://github.com/Groverio" target="_blank"
-          ><i class="fa-brands fa-github"></i
-        ></a>
-        <a class="youtube" href="https://www.youtube.com/" target="_blank"
-          ><i class="fa-brands fa-youtube"></i
-        ></a>
-      </div>
-    </footer>
+    <div id="js-success-notification" class="notification bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg fixed bottom-4 right-4" style="display: none;">
+      <p><i class="fas fa-check-circle mr-2"></i> Task completed successfully!</p>
+    </div>
 
+    <script src="darkMode.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
