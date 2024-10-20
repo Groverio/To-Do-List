@@ -1,4 +1,8 @@
-# To-Do-List
+# To-Do-List Front Page
+
+<img width="950" alt="{C4591A30-5564-48AD-9ACC-1DAA32FA68B4}" src="https://github.com/user-attachments/assets/08fe8855-92e8-4f07-9aef-e4cba734078b">
+
+# To-Do-List Main Page
 
 <img width="950" alt="{C4591A30-5564-48AD-9ACC-1DAA32FA68B4}" src="https://github.com/user-attachments/assets/927a61f2-0908-4b76-98fd-7a77191b0177">
 
@@ -11,6 +15,9 @@ A simple and interactive To-Do List application built with HTML, CSS, and JavaSc
 - Delete tasks
 - Set a date for each task
 - Responsive design
+- Time feature
+- Sort By Priority
+- Sort By Time
 
 ## Installation
 
@@ -25,6 +32,7 @@ Open `index.html` in your browser to use the application.
 ## Usage
 
 - **Add a Task:** Enter a task in the input field and click the "Add" button.
+- **Task Adding Limitation:** User can not add todo without given full details
 - **Edit a Task:** Click the edit icon next to the task, make your changes, and save.
 - **Delete a Task:** Click the delete icon next to the task.
 
@@ -77,7 +85,7 @@ Let's make this project even better together! 🎉
 <div align="center">
 
   <a href="https://github.com/Groverio/To-Do-List">
-    <img src="https://contrib.rocks/image?repo=Groverio/To-Do-List&&max=1000" />
+    <img src="https://contrib.rocks/image?repo=Groverio/To-Do-List" />
   </a>
 </div>
 
