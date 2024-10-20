@@ -141,6 +141,7 @@ function addTodo() {
 
   // Update the displayed list
   updateTodoList();
+  updateStats();
 }
 
 function deleteTodo(index) {
@@ -148,6 +149,7 @@ function deleteTodo(index) {
   todoList.splice(index, 1);
   localStorage.setItem('todoList', JSON.stringify(todoList));
   updateTodoList();
+  updateStats();
 }
 
 function editTodo(index) {
@@ -247,6 +249,7 @@ function updateTodoList() {
       <button class="js-edit-button" data-index="${i}">
       <i class="fa-solid fa-pen"></i>
       </button>`;
+      updateStats();
   }
 
   // Show or hide the task container based on the presence of tasks
@@ -296,12 +299,14 @@ function sortTodos(sortBy) {
   }
   currentSortMethod = sortBy;
   updateTodoList();
+  updateStats();
 }
 
 function filterTodos() {
   const filterElement = document.querySelector('.js-filter-input');
   filterMethod = filterElement.value;
   updateTodoList();
+  updateStats();
 }
 
 // this shows the sucessNotification for 4000ms
@@ -321,11 +326,13 @@ function toggleComplete(index) {
   }
   localStorage.setItem('todoList', JSON.stringify(todoList));
   updateTodoList();
+  updateStats();
 }
 
 // Initialize the todo list and set default date and time on page load
 document.addEventListener('DOMContentLoaded', () => {
   updateTodoList();
+  updateStats();
   setDefaultDateTime();
 
   // Set focus on the name input field
