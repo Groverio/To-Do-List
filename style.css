@@ -30,7 +30,7 @@ why-need-link {
   border-radius: 5px;
   transition: background-color 0.3s ease;
 }
-. .container {
+ .container {
   width: 100%;
   max-width: 1000px;
   padding: 20px;
@@ -83,11 +83,26 @@ h1 {
   grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr;
   gap: 10px;
   row-gap: 1rem;
-  background-color: rgba(255, 255, 255, 0.9);
+  /* background-color: rgba(255, 255, 255, 0.9); */
+  background: linear-gradient(-45deg, #cb115f, #e423da, #ff5f5f, #ffc371);
+  background-size: 400% 400%;
+  animation: gradientAnimation 15s ease infinite;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .js-actions-wrapper {
