@@ -249,7 +249,7 @@ function updateTodoList() {
       <button class="js-edit-button" data-index="${i}">
       <i class="fa-solid fa-pen"></i>
       </button>`;
-      updateStats();
+    updateStats();
   }
 
   // Show or hide the task container based on the presence of tasks
