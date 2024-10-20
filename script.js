@@ -359,3 +359,16 @@ document.addEventListener('DOMContentLoaded', () => {
 // Add year in the footer(CopyRight Notice)
 let year = document.querySelector('.year');
 year.innerText = new Date().getFullYear();
+
+// adding progress bar
+
+const progress = document.getElementById('progress');
+const progresstext = document.getElementById('progressText');
+const updateStats = () => {
+  const completeTasks = todoList.filter((task) => task.completed).length;
+  const totalTasks = todoList.length;
+  const currprogress = (completeTasks / totalTasks) * 100;
+  progress.style.width = `${currprogress}%`;
+  const progressnumber = currprogress.toFixed(0);
+  progresstext.innerText = progressnumber + '%';
+};
