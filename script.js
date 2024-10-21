@@ -434,3 +434,7 @@ const ToastType = {
 function showToast(message, type) {
   new Toast(message, ToastType[type], 3000);
 }
+
+// Add year in the footer(CopyRight Notice)
+let year = document.querySelector('.year');
+year.innerText = new Date().getFullYear();
