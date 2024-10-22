@@ -203,7 +203,7 @@ function updateTodoList() {
 
   // Apply filtering based on the selected filter method
   if (filterMethod === 'pending') {
-    filteredTodos = todoList.filter((todo) => !todo.completed);
+    filteredTodos = todoList.filter((todo) => !todo.r);
   } else if (filterMethod === 'completed') {
     filteredTodos = todoList.filter((todo) => todo.completed);
   }
@@ -356,6 +356,5 @@ document.addEventListener('DOMContentLoaded', () => {
     .addEventListener('change', filterTodos);
 });
 
-// Add year in the footer(CopyRight Notice)
-let year = document.querySelector('.year');
-year.innerText = new Date().getFullYear();
+
+

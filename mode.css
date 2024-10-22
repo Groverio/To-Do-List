@@ -1,0 +1,31 @@
+body {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+body.dark-mode {
+    background-color: black;
+}
+nav.dark-mode {
+    background-color: black; /* Darker nav background */
+}
+/* Main section dark mode */
+section.dark-mode {
+    background-color: black; /* Dark background for main section */
+    color: white;
+}
+
+footer.dark-mode {
+    background-color: black; /* Dark footer */
+}
+#themeBtn {
+    padding: 10px 10px;
+    background-color: #6767d2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#themeBtn:hover {
+    background-color: blueviolet;
+}
