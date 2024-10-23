@@ -30,7 +30,7 @@ why-need-link {
   border-radius: 5px;
   transition: background-color 0.3s ease;
 }
-. .container {
+.container {
   width: 100%;
   max-width: 1000px;
   padding: 20px;
@@ -39,12 +39,24 @@ why-need-link {
 }
 
 .subtitle {
+  font-family: 'Poppins', sans-serif;
+  font-size: 4rem;
+  color: #ff6f61;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
   text-align: center;
-  color: #f6ac62;
-  font-family: 'Londrina Outline', cursive;
-  font-size: 5rem;
-  padding: 8px 16px;
-  text-shadow: 0 3px 10px rgba(10, 10, 10, 40);
+  margin: 20px 0;
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 h1 {
