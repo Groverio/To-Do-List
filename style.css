@@ -24,7 +24,7 @@ why-need-link {
   border-radius: 5px;
   transition: background-color 0.3s ease;
 }
- .container {
+.container {
   width: 100%;
   max-width: 1000px;
   padding: 20px;
@@ -430,7 +430,7 @@ Animating title
     margin: 0;
   }
 
-  .sort-buttons{
+  .sort-buttons {
     justify-content: center;
   }
 
