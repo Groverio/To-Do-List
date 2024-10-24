@@ -369,8 +369,4 @@ document.addEventListener('DOMContentLoaded', () => {
 let year = document.querySelector('.year');
 year.innerText = new Date().getFullYear();
 
-//Preloader
-const preloader = document.querySelector(".preloader")
-window.addEventListener("load",()=>{
- preloader.classList.add("preloader-hide");
-});
+
