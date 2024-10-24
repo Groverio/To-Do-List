@@ -3,8 +3,8 @@ body {
   background: linear-gradient(to bottom, #6b46c1, #9f7aea, #f687b3);
   margin: 0;
   padding: 20px;
-  overflow: hidden;
-  height: 100vh;
+  /* overflow: hidden; */
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -21,7 +21,8 @@ body {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  height: 70vh;
+  min-height: 70vh;
+  /* border:1px black solid */
 }
 
 .toggle-container {
@@ -50,4 +51,15 @@ body {
   line-height: 1.5;
   color: #555;
   font-family: 'Londrina Outline', cursive;
+}
+
+@media only screen and (max-width: 1100px) {
+  .contain {
+    flex-direction: column;
+    width: fit-content;
+  }
+  .toggle-container {
+    width: 70%;
+    margin-bottom: 12px;
+  }
 }
