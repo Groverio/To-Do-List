@@ -257,6 +257,15 @@ function updateTodoList() {
     addElement.innerHTML = todoListhtml;
   }
 
+  //Height of task container
+  if(todoList.length > 3){
+      addElement.style.height = "147px";
+  }
+  else{
+    addElement.style.height = "initial";
+  }
+
+
   // Add event listeners for delete and edit buttons
   document.querySelectorAll('.js-delete-button').forEach((button) => {
     button.addEventListener('click', (event) => {
@@ -359,3 +368,9 @@ document.addEventListener('DOMContentLoaded', () => {
 // Add year in the footer(CopyRight Notice)
 let year = document.querySelector('.year');
 year.innerText = new Date().getFullYear();
+
+//Preloader
+const preloader = document.querySelector(".preloader")
+window.addEventListener("load",()=>{
+ preloader.classList.add("preloader-hide");
+});
