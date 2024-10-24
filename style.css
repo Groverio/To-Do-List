@@ -427,7 +427,7 @@ Animating title
 
   .subtitle {
     font-size: 3rem;
-    margin: 0;
+    margin: 0 !important;
   }
 
   .sort-buttons {
@@ -457,6 +457,9 @@ Animating title
 @media (max-width: 480px) {
   .subtitle {
     font-size: 2rem;
+  }
+  .sort-filter-container {
+    justify-content: center;
   }
 
   .js-add-grid,
