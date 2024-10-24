@@ -22,13 +22,14 @@ body {
   justify-content: space-around;
   align-items: center;
   height: 70vh;
+  gap:20px;
 }
 
 .toggle-container {
   border: 2px solid black;
   border-radius: 10px;
   height: auto;
-  width: 30%;
+  width: 90%;
   background-color: #fff;
   padding: 15px;
   box-shadow: 0 2px 10px white;
@@ -37,6 +38,7 @@ body {
   justify-content: center;
   text-align: center;
   margin-bottom: 122px;
+
 }
 
 .toggle-heading {
@@ -50,4 +52,43 @@ body {
   line-height: 1.5;
   color: #555;
   font-family: 'Londrina Outline', cursive;
+}
+@media (max-width: 1024px) {
+  .contain {
+      flex-direction: column; 
+      height: auto; 
+  }
+
+  body {
+      padding: 10px; 
+  }
+}
+
+@media (max-width: 768px) {
+  .contain {
+      justify-content: center; 
+      padding: 5px; 
+  }
+
+  body {
+      font-size: 0.9rem; 
+  }
+}
+@media (max-width: 480px) {
+  .contain {
+      padding: 0; 
+      height: auto; 
+  }
+
+  body {
+      padding: 5px;
+      font-size: 0.8rem; 
+  }
+}
+
+
+@media (orientation: portrait) and (max-width: 768px) {
+  body {
+      justify-content: center; 
+  }
 }
