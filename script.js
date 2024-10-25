@@ -256,17 +256,6 @@ function updateTodoList() {
     addElement.style.display = 'grid'; // Show if tasks exist
     addElement.innerHTML = todoListhtml;
   }
-
-  //Height of task container
-  // const taskContainer = document.querySelector(".js-add-html-tasks");
-  // if(todoList.length > 3 && window.innerWidth > 947){
-  //     taskContainer.style.height = "147px";
-     
-  // }
-  
-  // else if(todoList.length > 3 && window.innerWidth <= 947){
-  //     taskContainer.style.height = "initial";
-  // }
   
   console.log(window.innerWidth);
 
