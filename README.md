@@ -2,7 +2,10 @@
 
 <img width="950" alt="{C4591A30-5564-48AD-9ACC-1DAA32FA68B4}" src="https://github.com/user-attachments/assets/927a61f2-0908-4b76-98fd-7a77191b0177">
 
-- A simple and interactive To-Do List application built with HTML, CSS, and JavaScript
+
+- Simple
+- Interactive
+- Built with HTML, CSS, and JavaScript
 
 ## Features
 
