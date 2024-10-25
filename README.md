@@ -93,8 +93,8 @@ Let's make this project even better together! 🎉
 
 This project is actively maintained by:
 
-| ![Maintainer 1](https://github.com/bryans-go.png?size=100) | ![Maintainer 2](https://github.com/Anshgrover23.png?size=100) |
+| ![Maintainer 1](https://github.com/divanshu-go.png?size=100) | ![Maintainer 2](https://github.com/Anshgrover23.png?size=100) |
 | :--------------------------------------------------------: | :-----------------------------------------------------------: |
-|       **[Bryans-go](https://github.com/bryans-go)**        |      **[Anshgrover23](https://github.com/Anshgrover23)**      |
+|       **[Bryans-go](https://github.com/divanshu-go)**        |      **[Anshgrover23](https://github.com/Anshgrover23)**      |
 
 Feel free to reach out to either of us for any issues or contributions.
