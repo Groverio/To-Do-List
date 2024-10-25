@@ -220,6 +220,7 @@ h1 {
   max-height: 90px;
   height: auto;
   box-sizing: border-box;
+  gap: .7rem;
 }
 
 .task-info {
@@ -239,9 +240,9 @@ h1 {
 .category-tag,
 .priority-tag {
   display: inline-block;
-  padding: 2px 6px;
+  padding: 1px 6px;
   border-radius: 3px;
-  font-size: 12px;
+  font-size: 10px;
   font-weight: bold;
 }
 
