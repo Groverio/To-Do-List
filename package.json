@@ -5,8 +5,8 @@
   "main": "script.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "format": "prettier --write .",
-    "prettier": "prettier --check .",
+    "format": "prettier --check .",
+    "prettier": "prettier --write .",
     "lint": "eslint ."
   },
   "keywords": [],

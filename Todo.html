@@ -1,111 +1,144 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Task Manager Pro</title>
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-</head>
-<body>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
     <!-- Navigation -->
     <nav class="top-nav">
-        <div class="nav-content">
-            <a href="index.html" class="nav-brand">
-                <i class="fas fa-chevron-left"></i>
-                Back to Home
-            </a>
-            
-        </div>
+      <div class="nav-content">
+        <a href="index.html" class="nav-brand">
+          <i class="fas fa-chevron-left"></i>
+          Back to Home
+        </a>
+      </div>
     </nav>
 
     <div class="content">
-        <h1 class="title">Task Manager</h1>
-<div class="container">
-         <!-- Task Input Form -->
-         <div class="task-form">
+      <h1 class="title">Task Manager</h1>
+      <div class="container">
+        <!-- Task Input Form -->
+        <div class="task-form">
           <div class="input-grid">
-              <input type="text" placeholder="What needs to be done?" class="js-name-input task-input" />
-              <input type="date" class="js-date-input date-input" />
-              <input type="time" class="js-time-input time-input" />
-              <select class="js-category-input category-input">
-                  <option value="">Category</option>
-                  <option value="work">Work</option>
-                  <option value="personal">Personal</option>
-                  <option value="shopping">Shopping</option>
-                  <option value="other">Other</option>
-              </select>
-              <select class="js-priority-input priority-input">
-                  <option value="">Priority</option>
-                  <option value="high">High</option>
-                  <option value="medium">Medium</option>
-                  <option value="low">Low</option>
-              </select>
-              <div class="button-group">
-                  <button class="js-add-button add-btn">
-                      <i class="fas fa-plus"></i> Add Task
-                  </button>
-                  <button class="js-cancel-button cancel-btn">
-                      <i class="fas fa-times"></i>
-                  </button>
-              </div>
+            <input
+              type="text"
+              placeholder="What needs to be done?"
+              class="js-name-input task-input"
+            />
+            <input type="date" class="js-date-input date-input" />
+            <input type="time" class="js-time-input time-input" />
+            <select class="js-category-input category-input">
+              <option value="">Category</option>
+              <option value="work">Work</option>
+              <option value="personal">Personal</option>
+              <option value="shopping">Shopping</option>
+              <option value="other">Other</option>
+            </select>
+            <select class="js-priority-input priority-input">
+              <option value="">Priority</option>
+              <option value="high">High</option>
+              <option value="medium">Medium</option>
+              <option value="low">Low</option>
+            </select>
+            <div class="button-group">
+              <button class="js-add-button add-btn">
+                <i class="fas fa-plus"></i> Add Task
+              </button>
+              <button class="js-cancel-button cancel-btn">
+                <i class="fas fa-times"></i>
+              </button>
+            </div>
           </div>
-      </div>
+        </div>
 
-      <!-- Task Controls -->
-      <div class="task-controls">
+        <!-- Task Controls -->
+        <div class="task-controls">
           <div class="filter-sort">
-              <button class="control-btn" onclick="sortTodos('category')">
-                  <i class="fas fa-sort"></i> Category
-              </button>
-              <button class="control-btn" onclick="sortTodos('priority')">
-                  <i class="fas fa-sort"></i> Priority
-              </button>
-              <select class="js-filter-input filter-select" onchange="filterTodos()">
-                  <option value="all">All Tasks</option>
-                  <option value="pending">Pending</option>
-                  <option value="completed">Completed</option>
-              </select>
+            <button class="control-btn" onclick="sortTodos('category')">
+              <i class="fas fa-sort"></i> Category
+            </button>
+            <button class="control-btn" onclick="sortTodos('priority')">
+              <i class="fas fa-sort"></i> Priority
+            </button>
+            <select
+              class="js-filter-input filter-select"
+              onchange="filterTodos()"
+            >
+              <option value="all">All Tasks</option>
+              <option value="pending">Pending</option>
+              <option value="completed">Completed</option>
+            </select>
           </div>
-      </div>
+        </div>
 
-      <!-- Task List Container -->
-      <div class="task-list-container">
+        <!-- Task List Container -->
+        <div class="task-list-container">
           <div class="js-add-html tasks-grid"></div>
+        </div>
       </div>
-  </div>
-</div>
- 
+    </div>
 
     <!-- Success Notification -->
     <div id="js-success-notification" class="success-notification">
-        <p><i class="fas fa-check-circle"></i> Task completed successfully!</p>
+      <p><i class="fas fa-check-circle"></i> Task completed successfully!</p>
     </div>
 
     <!-- Footer -->
     <footer class="footer">
-        <p>&copy; <span class="year"></span> Made with <i class="fas fa-heart"></i> by Ansh Grover</p>
-        <div class="social-media">
-            <a href="https://www.instagram.com/" target="_blank" class="social-link instagram">
-                <i class="fab fa-instagram"></i>
-            </a>
-            <a href="https://www.facebook.com/" target="_blank" class="social-link facebook">
-                <i class="fab fa-facebook"></i>
-            </a>
-            <a href="https://twitter.com/" target="_blank" class="social-link twitter">
-                <i class="fab fa-twitter"></i>
-            </a>
-            <a href="https://www.linkedin.com/" target="_blank" class="social-link linkedin">
-                <i class="fab fa-linkedin"></i>
-            </a>
-            <a href="https://github.com/Groverio" target="_blank" class="social-link github">
-                <i class="fab fa-github"></i>
-            </a>
-        </div>
+      <p>
+        &copy; <span class="year"></span> Made with
+        <i class="fas fa-heart"></i> by Ansh Grover
+      </p>
+      <div class="social-media">
+        <a
+          href="https://www.instagram.com/"
+          target="_blank"
+          class="social-link instagram"
+        >
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a
+          href="https://www.facebook.com/"
+          target="_blank"
+          class="social-link facebook"
+        >
+          <i class="fab fa-facebook"></i>
+        </a>
+        <a
+          href="https://twitter.com/"
+          target="_blank"
+          class="social-link twitter"
+        >
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a
+          href="https://www.linkedin.com/"
+          target="_blank"
+          class="social-link linkedin"
+        >
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a
+          href="https://github.com/Groverio"
+          target="_blank"
+          class="social-link github"
+        >
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
     </footer>
 
     <script src="script.js"></script>
-</body>
+  </body>
 </html>

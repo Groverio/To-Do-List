@@ -1,4 +1,3 @@
-
 /* Base Styles and Variables */
 :root {
   --primary-color: #6366f1;
@@ -16,7 +15,6 @@
   --radius-md: 0.5rem;
   --radius-lg: 0.75rem;
 }
-
 
 * {
   margin: 0;
@@ -80,14 +78,12 @@ body {
   font-weight: 700;
   color: white;
   margin-bottom: 2rem;
- 
 }
-.container{
-  
+.container {
   display: flex;
   flex-direction: column;
   width: 75%;
-  
+
   /* justify-content: center;
   align-items: center; */
   /* margin-left: 12rem;
@@ -98,11 +94,10 @@ body {
   background: white;
   padding: 1.5rem;
   border-radius: 0.75rem;
-  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  box-shadow:
+    0 4px 6px -1px rgb(0 0 0 / 0.1),
+    0 2px 4px -2px rgb(0 0 0 / 0.1);
   margin-bottom: 2rem;
-  
-  
-  
 }
 
 .input-grid {
@@ -146,7 +141,9 @@ body {
   border-radius: var(--radius-sm);
   font-weight: 600;
   cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -285,12 +282,12 @@ body {
 
 @keyframes slideIn {
   from {
-      transform: translateX(100%);
-      opacity: 0;
+    transform: translateX(100%);
+    opacity: 0;
   }
   to {
-      transform: translateX(0);
-      opacity: 1;
+    transform: translateX(0);
+    opacity: 1;
   }
 }
 
@@ -343,46 +340,46 @@ body {
 /* Responsive Design */
 @media (max-width: 1024px) {
   .input-grid {
-      grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
   }
-  
+
   .button-group {
-      grid-column: span 2;
+    grid-column: span 2;
   }
 }
 
 @media (max-width: 768px) {
   .nav-links {
-      display: none;
+    display: none;
   }
-  
+
   .input-grid {
-      grid-template-columns: 1fr;
+    grid-template-columns: 1fr;
   }
-  
+
   .button-group {
-      grid-column: auto;
+    grid-column: auto;
   }
-  
+
   .task-item {
-      grid-template-columns: 1fr;
+    grid-template-columns: 1fr;
   }
 }
 
 @media (max-width: 640px) {
   .title {
-      font-size: 2rem;
+    font-size: 2rem;
   }
-  
+
   .filter-sort {
-      flex-direction: column;
+    flex-direction: column;
   }
-  
+
   .success-notification {
-      left: 1rem;
-      right: 1rem;
-      bottom: 1rem;
-      text-align: center;
+    left: 1rem;
+    right: 1rem;
+    bottom: 1rem;
+    text-align: center;
   }
 }
 
@@ -498,7 +495,7 @@ body {
 }
 
 /* Control Button Styles */
-.control-btn, 
+.control-btn,
 .filter-select {
   background: white;
   border: 1px solid #e5e7eb;
@@ -519,7 +516,7 @@ body {
     grid-template-columns: 1fr;
     gap: 1rem;
   }
-  
+
   .small-container {
     justify-content: space-between;
   }
