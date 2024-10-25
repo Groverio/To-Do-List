@@ -9,13 +9,7 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: rgb(136, 0, 255);
-  background: linear-gradient(
-    0deg,
-    rgba(136, 0, 255, 1) 24%,
-    rgba(65, 45, 253, 1) 48%,
-    rgba(29, 29, 29, 1) 100%
-  );
+  background: linear-gradient(to bottom, #6b46c1, #9f7aea, #f687b3);
 }
 why-need-link {
   position: absolute;
