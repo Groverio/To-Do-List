@@ -256,7 +256,7 @@ function updateTodoList() {
     addElement.style.display = 'grid'; // Show if tasks exist
     addElement.innerHTML = todoListhtml;
   }
-  
+
   console.log(window.innerWidth);
 
   // Add event listeners for delete and edit buttons
@@ -361,5 +361,3 @@ document.addEventListener('DOMContentLoaded', () => {
 // Add year in the footer(CopyRight Notice)
 let year = document.querySelector('.year');
 year.innerText = new Date().getFullYear();
-
-
