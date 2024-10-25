@@ -2,7 +2,6 @@
 
 <img width="950" alt="{C4591A30-5564-48AD-9ACC-1DAA32FA68B4}" src="https://github.com/user-attachments/assets/927a61f2-0908-4b76-98fd-7a77191b0177">
 
-
 - Simple
 - Interactive
 - Built with HTML, CSS, and JavaScript
@@ -93,7 +92,7 @@ Let's make this project even better together! 🎉
 This project is actively maintained by:
 
 | ![Maintainer 1](https://github.com/divanshu-go.png?size=100) | ![Maintainer 2](https://github.com/Anshgrover23.png?size=100) |
-| :--------------------------------------------------------: | :-----------------------------------------------------------: |
-|       **[Divanshu Grover](https://github.com/divanshu-go)**        |      **[Ansh Grover](https://github.com/Anshgrover23)**      |
+| :----------------------------------------------------------: | :-----------------------------------------------------------: |
+|    **[Divanshu Grover](https://github.com/divanshu-go)**     |      **[Ansh Grover](https://github.com/Anshgrover23)**       |
 
 Feel free to reach out to either of us for any issues or contributions.
