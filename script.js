@@ -258,13 +258,17 @@ function updateTodoList() {
   }
 
   //Height of task container
-  if(todoList.length > 3){
-      addElement.style.height = "147px";
-  }
-  else{
-    addElement.style.height = "initial";
-  }
-
+  // const taskContainer = document.querySelector(".js-add-html-tasks");
+  // if(todoList.length > 3 && window.innerWidth > 947){
+  //     taskContainer.style.height = "147px";
+     
+  // }
+  
+  // else if(todoList.length > 3 && window.innerWidth <= 947){
+  //     taskContainer.style.height = "initial";
+  // }
+  
+  console.log(window.innerWidth);
 
   // Add event listeners for delete and edit buttons
   document.querySelectorAll('.js-delete-button').forEach((button) => {

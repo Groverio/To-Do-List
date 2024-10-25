@@ -8,14 +8,8 @@
 }
 
 body {
-  /* font-family: Arial, Helvetica, sans-serif; */
   font-family: "Poppins", sans-serif;
   overflow: hidden;
-  /* font-weight: 400;
-  font-style: normal; */
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
   height: 100vh;
   background: rgb(136, 0, 255);
   background: linear-gradient(
@@ -40,15 +34,11 @@ why-need-link {
 }
 
 /* Header */
-
 .header{
   width: 100%;
   height: 12vh;
   background-color: #4CAF50;
   color: white;
-  position: fixed;
-  top: 0;
-  left: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -95,6 +85,7 @@ why-need-link {
 }
 
 .link {
+  display: flex;
   list-style-type: none;
   cursor: pointer;
 }
@@ -108,7 +99,6 @@ why-need-link {
   padding: .6rem;
   border-radius: .5rem;
 }
-
 
 .link a:hover{
   background-color: rgb(228, 227, 227);
@@ -127,9 +117,11 @@ why-need-link {
   padding: 20px;
   box-sizing: border-box;
   margin-bottom: 170px;
-  margin: 0 auto;  /* Added*/
-  margin-top: 5rem;
+  margin-left: auto;  
+  margin-right: auto;
+  padding-top: 2rem;
  }
+ 
 
 .subtitle {
   text-align: center;
@@ -235,7 +227,7 @@ h1 {
   background-color: #fff;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   text-align: left;
-  min-height: 45px;
+  min-height: 45px; 
   max-height: 90px;
   height: auto;
   box-sizing: border-box;
@@ -497,7 +489,7 @@ Animating title
 .js-add-html-tasks {
   border: 1px black solid;
   height: fit-content;
-  max-height: 35vh;
+  max-height: 22vh;  /*Added*/
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&family=Londrina+Outline&display=swap');
@@ -526,12 +518,9 @@ Animating title
     height: 100%; /*Added*/
   }
 
- .header {  /*Added*/
-   position: relative;
- }
   .container {
-    max-width: 100%;
-    padding: 10px;
+    max-width: 60%;
+    margin-bottom: 0;
   }
 
   .subtitle {
@@ -541,6 +530,10 @@ Animating title
   .js-add-grid,
   .js-add-html {
     grid-template-columns: 1fr;
+  }
+
+  .js-add-html-tasks{
+    max-height: 35vh; /*Added*/
   }
 
   .js-add-button {
@@ -554,13 +547,12 @@ Animating title
 
   .footer { /*Added*/
     position: relative;
-    top: 0;
+    bottom: 0;
     font-size: 0.8rem;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1rem;
   }
 }
-
 
 @media (max-width: 480px) {
   .subtitle {
@@ -583,5 +575,14 @@ Animating title
 
   .footer p {
     font-size: 10px;
+  }
+}
+
+
+/*Added*/
+@media (max-width:990px) and (min-width:947px) {
+  .container{
+    padding-left: 0;
+    padding-right: 0;
   }
 }
