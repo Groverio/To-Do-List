@@ -87,12 +87,4 @@ Let's make this project even better together! 🎉
   </a>
 </div>
 
-## Maintainers
-
-This project is actively maintained by:
-
-| ![Maintainer 1](https://github.com/divanshu-go.png?size=100) | ![Maintainer 2](https://github.com/Anshgrover23.png?size=100) |
-| :----------------------------------------------------------: | :-----------------------------------------------------------: |
-|    **[Divanshu Grover](https://github.com/divanshu-go)**     |      **[Ansh Grover](https://github.com/Anshgrover23)**       |
-
 Feel free to reach out to either of us for any issues or contributions.
