@@ -38,6 +38,12 @@ body {
   justify-content: center;
   text-align: center;
   margin-bottom: 122px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.toggle-container:hover {
+  transform: scale(1.05);
 }
 
 .toggle-heading {
