@@ -9,13 +9,7 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: rgb(136, 0, 255);
-  background: linear-gradient(
-    0deg,
-    rgba(136, 0, 255, 1) 24%,
-    rgba(65, 45, 253, 1) 48%,
-    rgba(29, 29, 29, 1) 100%
-  );
+  background: linear-gradient(to bottom, #6b46c1, #9f7aea, #f687b3);
 }
 why-need-link {
   position: absolute;
@@ -30,7 +24,7 @@ why-need-link {
   border-radius: 5px;
   transition: background-color 0.3s ease;
 }
-. .container {
+.container {
   width: 100%;
   max-width: 1000px;
   padding: 20px;
@@ -39,12 +33,24 @@ why-need-link {
 }
 
 .subtitle {
-  text-align: center;
-  color: #f6ac62;
   font-family: 'Londrina Outline', cursive;
-  font-size: 5rem;
-  padding: 8px 16px;
-  text-shadow: 0 3px 10px rgba(10, 10, 10, 40);
+  font-size: 4rem;
+  color: #ff6f61;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  margin: 20px 0;
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 h1 {
@@ -353,6 +359,27 @@ Animating title
 .sort-button:hover,
 .js-filter-input:hover {
   background-color: #45a049;
+}
+
+.task-counter-button {
+  background-color: #4caf50;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+  width: auto;
+  margin-left: auto;
+  margin-right: 0;
+}
+
+.task-counter-button:hover {
+  background-color: #45a049; /* Same hover effect as sort button */
 }
 
 .js-filter-input {
