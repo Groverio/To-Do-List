@@ -1,3 +1,4 @@
+//script.js
 let todoList = JSON.parse(localStorage.getItem('todoList')) || [];
 let todoListhtml = '';
 console.log(todoList);

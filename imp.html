@@ -3,12 +3,171 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="impstyle.css" />
     <title>Importance of To-Do List</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+      :root {
+        --primary-color: #6366f1;
+        --accent-color: #ec4899;
+        --background-light: #f9fafb;
+        --text-dark: #1f2937;
+        --gray: #4b5563;
+        --card-bg: #fff;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: var(--background-light);
+        color: var(--text-dark);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+      }
+      .top-nav {
+        background: white;
+        box-shadow: var(--shadow-sm);
+        padding: 1rem 0;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        width: 100vw;
+        margin-bottom: 2rem;
+      }
+
+      .nav-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .nav-brand {
+        color: var(--primary-color);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1.1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      /* Header */
+      .heading {
+        font-size: 2.8rem;
+        color: var(--primary-color);
+        text-align: center;
+        margin: 1rem 0;
+        font-weight: 700;
+      }
+
+      /* Container */
+      .contain {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        width: 100%;
+        max-width: 800px;
+        margin: 2rem 15rem auto;
+        padding-bottom: 15rem;
+      }
+
+      .toggle-container {
+        background: var(--card-bg);
+        border: 1px solid var(--gray);
+        border-radius: 12px;
+        padding: 20px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s ease;
+      }
+
+      .toggle-container:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+      }
+
+      .toggle-heading {
+        color: var(--primary-color);
+        font-size: 1.8rem;
+        margin-bottom: 10px;
+        font-weight: 600;
+      }
+
+      .toggle-paragraph {
+        color: var(--text-dark);
+        line-height: 1.6;
+      }
+
+      .toggle-paragraph strong {
+        color: var(--accent-color);
+      }
+
+      /* Footer */
+      .footer {
+        background-color: #212934;
+        color: white;
+        margin-top: 5rem;
+        padding: 1rem;
+        text-align: center;
+        font-size: 0.875rem;
+        width: 100vw;
+        position: fixed;
+        bottom: 0;
+      }
+      .social-links {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        margin-top: 0.5rem;
+      }
+
+      .social-link {
+        color: var(--primary-color);
+        font-size: 1.5rem;
+        transition: color 0.3s ease;
+      }
+
+      .social-link:hover {
+        color: var(--accent-color);
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .heading {
+          font-size: 2rem;
+        }
+
+        .toggle-heading {
+          font-size: 1.5rem;
+        }
+
+        .toggle-container {
+          padding: 15px;
+        }
+      }
+    </style>
   </head>
   <body>
+    <nav class="top-nav">
+      <div class="nav-content">
+        <a href="index.html" class="nav-brand">
+          <i class="fas fa-chevron-left"></i>
+          Back to Home
+        </a>
+      </div>
+    </nav>
     <h1 class="heading">Importance of a To-Do List 📝</h1>
-
     <div class="contain">
       <div class="toggle-container">
         <h2 class="toggle-heading">Enhanced Organization 📅</h2>
@@ -20,7 +179,6 @@
           like researching and drafting helps assign roles and track progress.
         </p>
       </div>
-
       <div class="toggle-container">
         <h2 class="toggle-heading">Increased Productivity 🚀</h2>
         <p class="toggle-paragraph">
@@ -34,7 +192,6 @@
           continue.
         </p>
       </div>
-
       <div class="toggle-container">
         <h2 class="toggle-heading">Reduced Stress 😌</h2>
         <p class="toggle-paragraph">
@@ -46,5 +203,23 @@
         </p>
       </div>
     </div>
+    <footer class="footer">
+      &copy; 2024. All rights reserved.
+      <div class="social-links">
+        <a
+          href="https://www.instagram.com/"
+          target="_blank"
+          class="social-link"
+        >
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://www.facebook.com/" target="_blank" class="social-link">
+          <i class="fab fa-facebook"></i>
+        </a>
+        <a href="https://twitter.com/" target="_blank" class="social-link">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </div>
+    </footer>
   </body>
 </html>
