@@ -138,7 +138,7 @@ h1 {
 .js-add-button,
 .js-cancel-button {
   font-size: 15px;
-  padding: 10px 15px;
+  padding: 10px 7px;  /*Added*/
   border: 1px solid #ccc;
   border-radius: 5px;
   background-color: #fff;
@@ -147,6 +147,7 @@ h1 {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   cursor: pointer;
 }
+
 
 .js-date-input:hover,
 .js-time-input:hover {
