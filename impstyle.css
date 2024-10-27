@@ -9,8 +9,17 @@
 
 /* General Body Styles */
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  background: linear-gradient(135deg, var(--gradient-start), var(--gradient-middle), var(--gradient-end));
+  font-family:
+    'Inter',
+    -apple-system,
+    BlinkMacSystemFont,
+    sans-serif;
+  background: linear-gradient(
+    135deg,
+    var(--gradient-start),
+    var(--gradient-middle),
+    var(--gradient-end)
+  );
   color: #2c3e50;
   margin: 0;
   padding: 2rem;
@@ -24,9 +33,15 @@ body {
 
 /* Animated Background */
 @keyframes gradientFlow {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 /* Main Heading Styles */
@@ -65,8 +80,12 @@ body {
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 /* Individual Toggle Container Styles */
@@ -74,7 +93,7 @@ body {
   background: var(--card-bg);
   backdrop-filter: blur(10px);
   border-radius: 16px;
-  box-shadow: 
+  box-shadow:
     0 4px 20px var(--card-shadow),
     0 0 0 1px rgba(255, 255, 255, 0.1);
   padding: 2rem;
@@ -93,7 +112,7 @@ body {
 /* Hover Effect for Toggle Containers */
 .toggle-container:hover {
   transform: translateY(-5px) scale(1.02);
-  box-shadow: 
+  box-shadow:
     0 8px 30px var(--card-shadow),
     0 0 0 1px rgba(255, 255, 255, 0.2);
 }
@@ -105,8 +124,9 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(120deg, 
-    transparent 0%, 
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
     transparent 40%,
     rgba(255, 255, 255, 0.2) 50%,
     transparent 60%,
@@ -152,8 +172,12 @@ strong {
 
 /* Loading Animation for Content */
 @keyframes shimmer {
-  0% { transform: translateX(-100%); }
-  100% { transform: translateX(100%); }
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
 }
 
 /* Responsive Design */
@@ -161,15 +185,15 @@ strong {
   body {
     padding: 1rem;
   }
-  
+
   .heading {
     font-size: 2.5rem;
   }
-  
+
   .contain {
     grid-template-columns: 1fr;
   }
-  
+
   .toggle-container {
     padding: 1.5rem;
   }
