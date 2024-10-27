@@ -111,7 +111,7 @@ why-need-link {
   margin-bottom: 170px;
   margin-left: auto;
   margin-right: auto;
-  padding-top: 1rem;
+  padding-top: 0; /*Added*/
 }
 
 .subtitle {
@@ -122,6 +122,7 @@ why-need-link {
   text-align: center;
   margin: 20px 0;
   animation: fadeIn 1s ease-in-out;
+  margin-top: 0; /*Added*/
 }
 
 @keyframes fadeIn {
@@ -176,7 +177,7 @@ h1 {
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px;
+  margin-bottom: 0.813rem;   /*Added*/
 }
 
 .js-actions-wrapper {
@@ -332,6 +333,7 @@ footer {
   font-size: 1rem;
   display: flex;
   justify-content: space-around;
+  padding-bottom: 10px; /*Added*/
 }
 
 footer p {
@@ -407,7 +409,7 @@ Animating title
   font-family: 'Open sans', sans-serif;
   font-family: cursive;
   font-size: 5rem;
-  padding: 8px 16px;
+  padding: 5px 16px; /*Added*/
   text-shadow: #000000 3px 4px 10px;
 }
 
@@ -535,7 +537,7 @@ Animating title
   }
 }
 
-@media (max-width: 947px) {
+@media screen and (max-width: 947px) {
   body {
     overflow: scroll;
     height: 100%; /*Added*/
@@ -576,9 +578,23 @@ Animating title
     flex-direction: column;
     gap: 1rem;
   }
+
+  .task-counter-button{ /*Added*/
+    height: 40px;
+    width: 150px;
+    padding: 3px 8px;
+  }
 }
 
-@media (max-width: 480px) {
+/* For subtitle */
+ @media screen and (max-width: 516px) and (min-width: 480px){
+     .subtitle{
+      font-size: 2rem;
+     }
+ }
+
+
+@media  screen and (max-width: 480px) {
   .subtitle {
     font-size: 2rem;
   }
@@ -600,12 +616,51 @@ Animating title
   .footer p {
     font-size: 10px;
   }
+
+  /* Responsiveness for header */
+  .p1{
+    margin-top: 1.5rem;
+    font-size: 1.6rem;
+  }
+
+  .p2{
+    font-size: .8rem;
+  }
+
+  .logo i{
+    font-size: 2rem;
+  }
+
+  .link a{
+    font-size: .8rem;
+    padding: .5rem;
+  }
+
+  .link i{
+    font-size: .7rem;
+  }
+
+  .container{
+    padding-left: 3px;
+    padding-right: 3px;
+  }
 }
 
 /*Added*/
-@media (max-width: 990px) and (min-width: 947px) {
+@media screen and (max-width: 990px) and (min-width: 947px) {
   .container {
     padding-left: 0;
     padding-right: 0;
   }
+}
+
+/* For Add task counter */ 
+@media screen and (max-width: 611px){
+   .sort-button, .js-filter-input{
+    padding-left: 10px;
+    padding-right: 10px;
+   }
+   .task-counter-button{
+    width: 200px;
+   }
 }
