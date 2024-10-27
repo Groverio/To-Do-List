@@ -247,7 +247,6 @@ function updateTodoList() {
     });
 
     updateTaskCounter();
-  });
 
   const addElement = document.querySelector('.js-add-html');
   todoListhtml = '';
