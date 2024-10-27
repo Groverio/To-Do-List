@@ -1,71 +1,194 @@
+/* Custom Properties */
+:root {
+  --gradient-start: #6b46c1;
+  --gradient-middle: #9f7aea;
+  --gradient-end: #f687b3;
+  --card-bg: rgba(255, 255, 255, 0.95);
+  --card-shadow: rgba(107, 70, 193, 0.2);
+}
+
+/* General Body Styles */
 body {
-  font-family: Arial, sans-serif;
-  background: linear-gradient(to bottom, #6b46c1, #9f7aea, #f687b3);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: linear-gradient(135deg, var(--gradient-start), var(--gradient-middle), var(--gradient-end));
+  color: #2c3e50;
   margin: 0;
-  padding: 20px;
-  /* overflow: hidden; */
+  padding: 2rem;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  line-height: 1.6;
+  background-size: 300% 300%;
+  animation: gradientFlow 15s ease infinite;
 }
+
+/* Animated Background */
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Main Heading Styles */
 .heading {
   text-align: center;
-  color: #f6ac62;
-  font-family: 'Londrina Outline', cursive;
-  font-size: 5rem;
-  padding: 8px 16px;
-  text-shadow: #000000 3px 4px 10px;
-}
-.contain {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  min-height: 70vh;
-  /* border:1px black solid */
+  color: white;
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
+  letter-spacing: -0.5px;
+  text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.2);
+  position: relative;
+  animation: fadeInDown 1s ease-out;
 }
 
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Container for Toggle Items */
+.contain {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+  animation: fadeIn 1s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Individual Toggle Container Styles */
 .toggle-container {
-  border: 2px solid black;
-  border-radius: 10px;
-  height: auto;
-  width: 30%;
-  background-color: #fff;
-  padding: 15px;
-  box-shadow: 0 2px 10px white;
+  background: var(--card-bg);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  box-shadow: 
+    0 4px 20px var(--card-shadow),
+    0 0 0 1px rgba(255, 255, 255, 0.1);
+  padding: 2rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  text-align: center;
-  margin-bottom: 122px;
+  justify-content: flex-start;
+  align-items: center;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  height: 100%;
+  min-height: 200px;
+  position: relative;
+  overflow: hidden;
 }
 
+/* Hover Effect for Toggle Containers */
 .toggle-container:hover {
-  transform: scale(1.05);
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 
+    0 8px 30px var(--card-shadow),
+    0 0 0 1px rgba(255, 255, 255, 0.2);
 }
 
+.toggle-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(120deg, 
+    transparent 0%, 
+    transparent 40%,
+    rgba(255, 255, 255, 0.2) 50%,
+    transparent 60%,
+    transparent 100%
+  );
+  transform: translateX(-100%);
+  transition: transform 0.6s;
+}
+
+.toggle-container:hover::after {
+  transform: translateX(100%);
+}
+
+/* Toggle Heading Styles */
 .toggle-heading {
-  font-family: 'Londrina Outline', cursive;
-  font-weight: bolder;
-  color: #4caf50;
-  margin-bottom: 10px;
+  font-weight: 600;
+  color: var(--gradient-start);
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  position: relative;
+  transition: color 0.3s ease;
 }
 
+.toggle-container:hover .toggle-heading {
+  color: var(--gradient-middle);
+}
+
+/* Paragraph Styles */
 .toggle-paragraph {
-  line-height: 1.5;
-  color: #555;
-  font-family: 'Londrina Outline', cursive;
+  color: #64748b;
+  margin: 0;
+  text-align: center;
+  font-size: 1rem;
+  transition: color 0.3s ease;
 }
 
-@media only screen and (max-width: 1100px) {
+/* Strong Text Style */
+strong {
+  color: var(--gradient-start);
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+/* Loading Animation for Content */
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  body {
+    padding: 1rem;
+  }
+  
+  .heading {
+    font-size: 2.5rem;
+  }
+  
   .contain {
-    flex-direction: column;
-    width: fit-content;
+    grid-template-columns: 1fr;
   }
+  
   .toggle-container {
-    width: 70%;
-    margin-bottom: 12px;
+    padding: 1.5rem;
   }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gradient-middle);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gradient-start);
 }
