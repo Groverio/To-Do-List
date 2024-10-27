@@ -25,7 +25,6 @@ why-need-link {
   transition: background-color 0.3s ease;
 }
 .container {
-  width: 80%;
   box-sizing: border-box;
   /* max-width: 1000px; */
   /* padding: 20px; */
