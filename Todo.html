@@ -19,11 +19,11 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body>
+  <body class="flex flex-col">
     <div class="container">
       <h1 class="subtitle">Todo-List</h1>
-
       <div class="js-add-grid" id="add-todo">
         <input
           type="text"
@@ -33,14 +33,14 @@
 
         <input type="date" class="js-date-input" min="" />
         <input type="time" class="js-time-input" />
-        <select class="js-category-input">
+        <select class="js-category-input border border-gray-300 p-2 rounded">
           <option value="">Select Category</option>
-          <option value="work">Work</option>
-          <option value="personal">Personal</option>
-          <option value="shopping">Shopping</option>
-          <option value="other">Other</option>
+          <option value="work">👜 Work</option>
+          <option value="personal">📅 Personal</option>
+          <option value="shopping">🛍️ Shopping</option>
+          <option value="other">☁️ Other</option>
         </select>
-        <select class="js-priority-input">
+        <select class="js-priority-input border border-gray-300 p-2 rounded">
           <option value="">Select Priority</option>
           <option value="high">High</option>
           <option value="medium">Medium</option>
@@ -62,24 +62,40 @@
       <!-- Sorting and task counter section -->
       <div class="sort-buttons">
         <div class="sort-filter-container">
-          <button class="sort-button" onclick="sortTodos('category')">
-            Sort by Category
-          </button>
-          <button class="sort-button" onclick="sortTodos('priority')">
-            Sort by Priority
-          </button>
-          <select class="js-filter-input" onchange="filterTodos()">
+          <select
+            class="js-filter-input filter-category border border-gray-300 p-2 rounded"
+            onchange="filterCategory()"
+          >
+            <option value="today">☀️ Today</option>
+            <option value="work">👜 Work</option>
+            <option value="personal">📅 Personal</option>
+            <option value="shopping">🛍️ Shopping</option>
+            <option value="other">☁️ Other</option>
+          </select>
+          <select
+            class="js-filter-input filter-status border border-gray-300 p-2 rounded"
+            onchange="filterTodos()"
+          >
             <option value="all">All</option>
             <option value="pending">Pending</option>
             <option value="completed">Completed</option>
           </select>
+          <button
+            class="sort-button bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600"
+            onclick="sortTodos('category')"
+          >
+            Sort by Category
+          </button>
+          <button
+            class="sort-button bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600"
+            onclick="sortTodos('priority')"
+          >
+            Sort by Priority
+          </button>
         </div>
-
-        <!-- Task Counter Button in the same row as other buttons -->
-        <button class="task-counter-button">Tasks: 0</button>
       </div>
 
-      <div class="test">
+      <div>
         <div class="js-add-html js-add-grid js-add-html-tasks"></div>
       </div>
     </div>

@@ -25,11 +25,10 @@ why-need-link {
   transition: background-color 0.3s ease;
 }
 .container {
-  width: 100%;
-  max-width: 1000px;
-  padding: 20px;
   box-sizing: border-box;
-  margin-bottom: 170px;
+  /* max-width: 1000px; */
+  /* padding: 20px; */
+  /* margin-bottom: 170px; */
 }
 
 .subtitle {
@@ -58,6 +57,10 @@ h1 {
   color: #fff;
   margin-bottom: 20px;
   text-shadow: 2px 2px 4px #000;
+}
+
+.to-do-container {
+  width: 80%;
 }
 
 .js-name-input,
