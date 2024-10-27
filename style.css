@@ -151,7 +151,7 @@ h1 {
 .js-add-button,
 .js-cancel-button {
   font-size: 15px;
-  padding: 10px 7px;  /*Added*/
+  padding: 10px 7px; /*Added*/
   border: 1px solid #ccc;
   border-radius: 5px;
   background-color: #fff;
@@ -160,7 +160,6 @@ h1 {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   cursor: pointer;
 }
-
 
 .js-date-input:hover,
 .js-time-input:hover {
@@ -177,7 +176,7 @@ h1 {
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  margin-bottom: 0.813rem;   /*Added*/
+  margin-bottom: 0.813rem; /*Added*/
 }
 
 .js-actions-wrapper {
@@ -579,7 +578,8 @@ Animating title
     gap: 1rem;
   }
 
-  .task-counter-button{ /*Added*/
+  .task-counter-button {
+    /*Added*/
     height: 40px;
     width: 150px;
     padding: 3px 8px;
@@ -587,14 +587,13 @@ Animating title
 }
 
 /* For subtitle */
- @media screen and (max-width: 516px) and (min-width: 480px){
-     .subtitle{
-      font-size: 2rem;
-     }
- }
+@media screen and (max-width: 516px) and (min-width: 480px) {
+  .subtitle {
+    font-size: 2rem;
+  }
+}
 
-
-@media  screen and (max-width: 480px) {
+@media screen and (max-width: 480px) {
   .subtitle {
     font-size: 2rem;
   }
@@ -618,29 +617,29 @@ Animating title
   }
 
   /* Responsiveness for header */
-  .p1{
+  .p1 {
     margin-top: 1.5rem;
     font-size: 1.6rem;
   }
 
-  .p2{
-    font-size: .8rem;
+  .p2 {
+    font-size: 0.8rem;
   }
 
-  .logo i{
+  .logo i {
     font-size: 2rem;
   }
 
-  .link a{
-    font-size: .8rem;
-    padding: .5rem;
+  .link a {
+    font-size: 0.8rem;
+    padding: 0.5rem;
   }
 
-  .link i{
-    font-size: .7rem;
+  .link i {
+    font-size: 0.7rem;
   }
 
-  .container{
+  .container {
     padding-left: 3px;
     padding-right: 3px;
   }
@@ -654,13 +653,14 @@ Animating title
   }
 }
 
-/* For Add task counter */ 
-@media screen and (max-width: 611px){
-   .sort-button, .js-filter-input{
+/* For Add task counter */
+@media screen and (max-width: 611px) {
+  .sort-button,
+  .js-filter-input {
     padding-left: 10px;
     padding-right: 10px;
-   }
-   .task-counter-button{
+  }
+  .task-counter-button {
     width: 200px;
-   }
+  }
 }
