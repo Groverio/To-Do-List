@@ -262,6 +262,8 @@ function updateTodoList() {
     addElement.innerHTML = todoListhtml;
   }
 
+  console.log(window.innerWidth);
+
   // Add event listeners for delete and edit buttons
   document.querySelectorAll('.js-delete-button').forEach((button) => {
     button.addEventListener('click', (event) => {
