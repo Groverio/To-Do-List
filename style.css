@@ -102,7 +102,6 @@ why-need-link {
   font-size: 1rem;
   align-self: center;
 }
-
 .container {
   width: 100%;
   max-width: 1000px;
@@ -549,6 +548,11 @@ Animating title
 
   .subtitle {
     font-size: 3rem;
+    margin: 0 !important;
+  }
+
+  .sort-buttons {
+    justify-content: center;
   }
 
   .js-add-grid,
@@ -596,6 +600,9 @@ Animating title
 @media screen and (max-width: 480px) {
   .subtitle {
     font-size: 2rem;
+  }
+  .sort-filter-container {
+    justify-content: center;
   }
 
   .js-add-grid,
