@@ -671,3 +671,8 @@ Animating title
     width: 200px;
   }
 }
+@media screen and (max-width: 420px) {  
+  .container {     
+   margin-top: 10px;   
+     max-width: 100%;   } 
+   }
