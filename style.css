@@ -176,6 +176,7 @@ h1 {
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   margin-bottom: 0.813rem; /*Added*/
+  box-sizing: border-box;
 }
 
 .js-actions-wrapper {
@@ -674,5 +675,11 @@ Animating title
   }
   .task-counter-button {
     width: 200px;
+  }
+}
+@media screen and (max-width: 420px) {
+  .container {
+    margin-top: 10px;
+    max-width: 100%;
   }
 }
