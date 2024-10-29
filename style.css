@@ -470,7 +470,6 @@ Animating title
   margin-left: auto;
   margin-right: 0;
 }
-
 .task-counter-button:hover {
   background-color: #45a049; /* Same hover effect as sort button */
 }
@@ -686,6 +685,25 @@ Animating title
     margin-top: 10px;
     max-width: 100%;
   }
+
+  .sort-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .button-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+  .sort-button {
+    width: 40%;
+  }
+  .task-counter-button {
+    width: 90%;
+    margin: 0 auto;
+  }
+
   .back-to-man {
     display: none;
   }

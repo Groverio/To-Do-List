@@ -83,12 +83,15 @@
       <!-- Sorting and task counter section -->
       <div class="sort-buttons">
         <div class="sort-filter-container">
-          <button class="sort-button" onclick="sortTodos('category')">
-            Sort by Category
-          </button>
-          <button class="sort-button" onclick="sortTodos('priority')">
-            Sort by Priority
-          </button>
+          <div class="button-container">
+            <button class="sort-button" onclick="sortTodos('category')">
+              Sort by Category
+            </button>
+            <button class="sort-button" onclick="sortTodos('priority')">
+              Sort by Priority
+            </button>
+          </div>
+
           <select class="js-filter-input" onchange="filterTodos()">
             <option value="all">All</option>
             <option value="pending">Pending</option>
