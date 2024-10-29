@@ -84,6 +84,8 @@ why-need-link {
 }
 
 .link a {
+  display: flex;
+  align-items: center;
   font-size: 1rem;
   font-weight: 500;
   text-decoration: none;
@@ -96,12 +98,15 @@ why-need-link {
 .link a:hover {
   background-color: rgb(228, 227, 227);
   transition: all 300ms linear;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .link i {
   font-size: 1rem;
   align-self: center;
+  margin-left: 0.4rem;
 }
+
 .container {
   width: 100%;
   max-width: 1000px;
@@ -343,22 +348,27 @@ footer p {
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 10px;
 }
 
 .social-media a {
-  margin: 1px 11px;
+  width: 32px;
+  height: 32px;
   color: black;
-  font-size: 15px;
-  padding: 8px;
-  border: 2px solid black;
+  font-size: 16px;
+  border: 1.5px solid black;
   border-radius: 8px;
   box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.4);
+  box-sizing: border-box;
+  transition: all 0.25s ease-out;
 }
-
+.social-media a i {
+  vertical-align: middle;
+}
 .social-media a:hover {
   transform: scale(1.05);
   transition: all 0.25s ease-out;
-  border: none;
+  border: transparent;
 }
 
 .social-media .insta:hover {
@@ -679,13 +689,16 @@ Animating title
   .back-to-man {
     display: none;
   }
-  .link a {
-    padding: 0.5rem;
-  }
-  .link a i {
-    font-size: 0.9rem;
-  }
   .navlinks {
-    margin-right: 1rem;
+    margin-right: 1rem; /* Reduce margin on smaller screens */
+  }
+
+  .link a {
+    font-size: 0.9rem; /* Smaller font size for mobile */
+    padding: 0.4rem; /* Less padding for compactness */
+  }
+
+  .link i {
+    font-size: 0.9rem; /* Smaller icon size */
   }
 }
