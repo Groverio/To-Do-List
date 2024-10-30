@@ -34,8 +34,9 @@
       <div class="navlinks-container">
         <ul class="navlinks">
           <li class="link">
-            <a href="index.html"
-              >Back to main <i class="fa-solid fa-arrow-right"></i
+            <a href="index.html">
+              <span class="back-to-man"> Back to main </span>
+              <i class="fa-solid fa-arrow-right"></i
             ></a>
           </li>
         </ul>
@@ -82,12 +83,15 @@
       <!-- Sorting and task counter section -->
       <div class="sort-buttons">
         <div class="sort-filter-container">
-          <button class="sort-button" onclick="sortTodos('category')">
-            Sort by Category
-          </button>
-          <button class="sort-button" onclick="sortTodos('priority')">
-            Sort by Priority
-          </button>
+          <div class="button-container">
+            <button class="sort-button" onclick="sortTodos('category')">
+              Sort by Category
+            </button>
+            <button class="sort-button" onclick="sortTodos('priority')">
+              Sort by Priority
+            </button>
+          </div>
+
           <select class="js-filter-input" onchange="filterTodos()">
             <option value="all">All</option>
             <option value="pending">Pending</option>
