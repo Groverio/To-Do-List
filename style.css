@@ -686,6 +686,7 @@ Animating title
     margin-top: 10px;
     max-width: 100%;
   }
+
   .back-to-man {
     display: none;
   }
@@ -702,3 +703,5 @@ Animating title
     font-size: 0.9rem; /* Smaller icon size */
   }
 }
+
+
