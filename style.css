@@ -712,12 +712,11 @@ Animating title
   }
 
   .link a {
-    font-size: 0.9rem; 
-    padding: 0.4rem; 
+    font-size: 0.9rem;
+    padding: 0.4rem;
   }
 
   .link i {
-    font-size: 0.9rem; 
+    font-size: 0.9rem;
   }
-
 }
