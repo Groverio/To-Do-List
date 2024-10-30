@@ -708,15 +708,16 @@ Animating title
     display: none;
   }
   .navlinks {
-    margin-right: 1rem; /* Reduce margin on smaller screens */
+    margin-right: 1rem;
   }
 
   .link a {
-    font-size: 0.9rem; /* Smaller font size for mobile */
-    padding: 0.4rem; /* Less padding for compactness */
+    font-size: 0.9rem; 
+    padding: 0.4rem; 
   }
 
   .link i {
-    font-size: 0.9rem; /* Smaller icon size */
+    font-size: 0.9rem; 
   }
+
 }
