@@ -341,24 +341,24 @@ footer p {
 
 .social-media {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  gap: 10px;
 }
 
 .social-media a {
-  margin: 1px 11px;
+  width: 34px;
+  height: 34px;
   color: black;
-  font-size: 15px;
-  padding: 8px;
+  font-size: 19px;
   border: 2px solid black;
   border-radius: 8px;
   box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.4);
+  box-sizing: border-box;
+  transition: all 0.25s ease-out;
 }
 
 .social-media a:hover {
-  transform: scale(1.05);
-  transition: all 0.25s ease-out;
-  border: none;
+  transform: scale(1.01);
+  border: transparent;
 }
 
 .social-media .insta:hover {
