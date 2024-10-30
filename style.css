@@ -676,4 +676,16 @@ Animating title
     margin-top: 10px;
     max-width: 100%;
   }
+  .back-to-man {
+    display: none;
+  }
+  .link a {
+    padding: 0.5rem;
+  }
+  .link a i {
+    font-size: 0.9rem;
+  }
+  .navlinks {
+    margin-right: 1rem;
+  }
 }
